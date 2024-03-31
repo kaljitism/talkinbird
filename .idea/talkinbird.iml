@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/frontend/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/build" />
+      <excludeFolder url="file://$MODULE_DIR$/talkinbird/talkinbird_flutter/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/talkinbird/talkinbird_flutter/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/talkinbird/talkinbird_flutter/build" />
+      <excludeFolder url="file://$MODULE_DIR$/talkinbird_client/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/talkinbird_client/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/talkinbird_client/build" />
+      <excludeFolder url="file://$MODULE_DIR$/talkinbird_flutter/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/talkinbird_flutter/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/talkinbird_flutter/build" />
+      <excludeFolder url="file://$MODULE_DIR$/talkinbird_server/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/talkinbird_server/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/talkinbird_server/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Dart SDK" level="project" />
+    <orderEntry type="library" name="Dart Packages" level="project" />
+  </component>
+</module>
