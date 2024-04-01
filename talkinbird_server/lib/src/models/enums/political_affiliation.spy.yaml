@@ -1,0 +1,29 @@
+enum: PoliticalAffiliation
+serialized: byName
+values:
+  - Anarchism
+  - AntiPolitics
+  - Authoritarianism
+  - Capitalism
+  - Communitarianism
+  - Communism
+  - Conservatism
+  - Corporatism
+  - Democracy
+  - Environmentalism
+  - Fascism
+  - Feminism
+  - IdentityPolitics
+  - Liberalism
+  - Libertarianism
+  - Nationalism
+  - Pacifism
+  - Populism
+  - Progressivism
+  - ReligioPolitical
+  - Satirical
+  - SocialDemocracy
+  - Socialism
+  - Syndicalism
+  - Traditionalism
+  - Transhumanism

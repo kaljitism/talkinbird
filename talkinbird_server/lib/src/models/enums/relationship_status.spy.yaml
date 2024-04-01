@@ -1,0 +1,47 @@
+enum: RelationshipStatus
+serialized: byName
+values:
+  - Single
+  - Monogamy
+  - EthicalNonMonogamy
+  - UnethicalNonMonogamy
+  - OpenRelationship
+  - Polyamory
+  - PolyFidelity
+  - Confused
+  - LeadingSomeoneOn
+  - BeingLed
+  - MutualUnderstanding
+  - FriendsWithBenefits
+  - InLove
+  - InALongDistanceRelationship
+  - InALoveTriangle
+  - BrokenHearted
+  - BrokenUp
+  - TakingABreak
+  - OnTheRebound
+  - WithAPlaceHolder
+  - WithAnEx
+  - WithTheOne
+  - WithTheBackup
+  - UnrequitedLove
+  - Talking
+  - SeeingSomeone
+  - KindaTalking
+  - Hungry
+  - Cursed
+  - WaitingForTheOne
+  - WaitingForTheMiracle
+  - DependsOnWhoIsAsking
+  - Polyandry
+  - Polygyny
+  - Polygyandry
+  - Engaged
+  - Married
+  - Complicated
+  - Widowed
+  - Separated
+  - Divorced
+  - CivilUnion
+  - DomesticPartnership
+  - Swinger

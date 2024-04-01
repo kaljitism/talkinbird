@@ -19,11 +19,12 @@ fields:
   zodiac: Zodiac?
   religion: Religion?
   philosophicalBeliefs: Philosophy?
-  politicalAffiliation: String?
-  relationshipStatus: String?
-  sexualOrientation: String?
-  education: String?
-  work: String?
+  politicalAffiliation: PoliticalAffiliation?
+  relationshipStatus: RelationshipStatus?
+  sexualOrientation: SexualOrientation?
+  romanticOrientation: RomanticOrientation?
+  education: Education?
+  profession: Profession?
   interests: List<String?>?
   hobbies: List<String?>?
   languages: List<String?>?
@@ -39,7 +40,7 @@ fields:
   foods: List<String?>?
   drinks: List<String?>?
   animals: List<String?>?
-  countriesVisited: List<String?>?
+  countriesVisited: List<Country?>?
   letterLength: String?
   letterFrequency: String?
   replyTime: String?
@@ -51,11 +52,12 @@ fields:
   targetZodiac: List<Zodiac?>?
   targetReligion: List<Religion?>?
   targetPhilosophicalBeliefs: List<Philosophy?>?
-  targetPoliticalAffiliation: List<String?>?
-  targetRelationshipStatus: List<String?>?
-  targetSexualOrientation: List<String?>?
-  targetEducation: List<String?>?
-  targetWork: List<String?>?
+  targetPoliticalAffiliation: List<PoliticalAffiliation?>?
+  targetRelationshipStatus: List<RelationshipStatus?>?
+  targetSexualOrientation: List<SexualOrientation?>?
+  targetRomanticOrientation: List<RomanticOrientation?>?
+  targetEducation: List<Education?>?
+  targetProfession: List<Profession?>?
   targetInterests: List<String?>?
   targetHobbies: List<String?>?
   targetLanguages: List<String?>?
@@ -71,7 +73,7 @@ fields:
   targetFoods: List<String?>?
   targetDrinks: List<String?>?
   targetAnimals: List<String?>?
-  targetCountriesVisited: List<String?>?
+  targetCountriesVisited: List<Country?>?
   targetLetterLength: List<String?>?
   targetLetterFrequency: List<String?>?
   targetReplyTime: List<String?>?
@@ -83,11 +85,12 @@ fields:
   excludeZodiac: List<Zodiac?>?
   excludeReligion: List<Religion?>?
   excludePhilosophicalBeliefs: List<Philosophy?>?
-  excludePoliticalAffiliation: List<String?>?
-  excludeRelationshipStatus: List<String?>?
-  excludeSexualOrientation: List<String?>?
-  excludeEducation: List<String?>?
-  excludeWork: List<String?>?
+  excludePoliticalAffiliation: List<PoliticalAffiliation?>?
+  excludeRelationshipStatus: List<RelationshipStatus?>?
+  excludeSexualOrientation: List<SexualOrientation?>?
+  excludeRomanticOrientation: List<RomanticOrientation?>?
+  excludeEducation: List<Education?>?
+  excludeProfession: List<Profession?>?
   excludeInterests: List<String?>?
   excludeHobbies: List<String?>?
   excludeLanguages: List<String?>?
@@ -103,7 +106,7 @@ fields:
   excludeFoods: List<String?>?
   excludeDrinks: List<String?>?
   excludeAnimals: List<String?>?
-  excludeCountriesVisited: List<String?>?
+  excludeCountriesVisited: List<Country?>?
   excludeLetterLength: List<String?>?
   excludeLetterFrequency: List<String?>?
   excludeReplyTime: List<String?>?

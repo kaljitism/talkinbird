@@ -36,8 +36,9 @@ abstract class User extends _i1.TableRow {
     this.politicalAffiliation,
     this.relationshipStatus,
     this.sexualOrientation,
+    this.romanticOrientation,
     this.education,
-    this.work,
+    this.profession,
     this.interests,
     this.hobbies,
     this.languages,
@@ -68,8 +69,9 @@ abstract class User extends _i1.TableRow {
     this.targetPoliticalAffiliation,
     this.targetRelationshipStatus,
     this.targetSexualOrientation,
+    this.targetRomanticOrientation,
     this.targetEducation,
-    this.targetWork,
+    this.targetProfession,
     this.targetInterests,
     this.targetHobbies,
     this.targetLanguages,
@@ -100,8 +102,9 @@ abstract class User extends _i1.TableRow {
     this.excludePoliticalAffiliation,
     this.excludeRelationshipStatus,
     this.excludeSexualOrientation,
+    this.excludeRomanticOrientation,
     this.excludeEducation,
-    this.excludeWork,
+    this.excludeProfession,
     this.excludeInterests,
     this.excludeHobbies,
     this.excludeLanguages,
@@ -143,11 +146,12 @@ abstract class User extends _i1.TableRow {
     _i2.Zodiac? zodiac,
     _i2.Religion? religion,
     _i2.Philosophy? philosophicalBeliefs,
-    String? politicalAffiliation,
-    String? relationshipStatus,
-    String? sexualOrientation,
-    String? education,
-    String? work,
+    _i2.PoliticalAffiliation? politicalAffiliation,
+    _i2.RelationshipStatus? relationshipStatus,
+    _i2.SexualOrientation? sexualOrientation,
+    _i2.RomanticOrientation? romanticOrientation,
+    _i2.Education? education,
+    _i2.Profession? profession,
     List<String?>? interests,
     List<String?>? hobbies,
     List<String?>? languages,
@@ -163,7 +167,7 @@ abstract class User extends _i1.TableRow {
     List<String?>? foods,
     List<String?>? drinks,
     List<String?>? animals,
-    List<String?>? countriesVisited,
+    List<_i2.Country?>? countriesVisited,
     String? letterLength,
     String? letterFrequency,
     String? replyTime,
@@ -175,11 +179,12 @@ abstract class User extends _i1.TableRow {
     List<_i2.Zodiac?>? targetZodiac,
     List<_i2.Religion?>? targetReligion,
     List<_i2.Philosophy?>? targetPhilosophicalBeliefs,
-    List<String?>? targetPoliticalAffiliation,
-    List<String?>? targetRelationshipStatus,
-    List<String?>? targetSexualOrientation,
-    List<String?>? targetEducation,
-    List<String?>? targetWork,
+    List<_i2.PoliticalAffiliation?>? targetPoliticalAffiliation,
+    List<_i2.RelationshipStatus?>? targetRelationshipStatus,
+    List<_i2.SexualOrientation?>? targetSexualOrientation,
+    List<_i2.RomanticOrientation?>? targetRomanticOrientation,
+    List<_i2.Education?>? targetEducation,
+    List<_i2.Profession?>? targetProfession,
     List<String?>? targetInterests,
     List<String?>? targetHobbies,
     List<String?>? targetLanguages,
@@ -195,7 +200,7 @@ abstract class User extends _i1.TableRow {
     List<String?>? targetFoods,
     List<String?>? targetDrinks,
     List<String?>? targetAnimals,
-    List<String?>? targetCountriesVisited,
+    List<_i2.Country?>? targetCountriesVisited,
     List<String?>? targetLetterLength,
     List<String?>? targetLetterFrequency,
     List<String?>? targetReplyTime,
@@ -207,11 +212,12 @@ abstract class User extends _i1.TableRow {
     List<_i2.Zodiac?>? excludeZodiac,
     List<_i2.Religion?>? excludeReligion,
     List<_i2.Philosophy?>? excludePhilosophicalBeliefs,
-    List<String?>? excludePoliticalAffiliation,
-    List<String?>? excludeRelationshipStatus,
-    List<String?>? excludeSexualOrientation,
-    List<String?>? excludeEducation,
-    List<String?>? excludeWork,
+    List<_i2.PoliticalAffiliation?>? excludePoliticalAffiliation,
+    List<_i2.RelationshipStatus?>? excludeRelationshipStatus,
+    List<_i2.SexualOrientation?>? excludeSexualOrientation,
+    List<_i2.RomanticOrientation?>? excludeRomanticOrientation,
+    List<_i2.Education?>? excludeEducation,
+    List<_i2.Profession?>? excludeProfession,
     List<String?>? excludeInterests,
     List<String?>? excludeHobbies,
     List<String?>? excludeLanguages,
@@ -227,7 +233,7 @@ abstract class User extends _i1.TableRow {
     List<String?>? excludeFoods,
     List<String?>? excludeDrinks,
     List<String?>? excludeAnimals,
-    List<String?>? excludeCountriesVisited,
+    List<_i2.Country?>? excludeCountriesVisited,
     List<String?>? excludeLetterLength,
     List<String?>? excludeLetterFrequency,
     List<String?>? excludeReplyTime,
@@ -273,16 +279,22 @@ abstract class User extends _i1.TableRow {
           .deserialize<_i2.Religion?>(jsonSerialization['religion']),
       philosophicalBeliefs: serializationManager.deserialize<_i2.Philosophy?>(
           jsonSerialization['philosophicalBeliefs']),
-      politicalAffiliation: serializationManager
-          .deserialize<String?>(jsonSerialization['politicalAffiliation']),
-      relationshipStatus: serializationManager
-          .deserialize<String?>(jsonSerialization['relationshipStatus']),
-      sexualOrientation: serializationManager
-          .deserialize<String?>(jsonSerialization['sexualOrientation']),
+      politicalAffiliation:
+          serializationManager.deserialize<_i2.PoliticalAffiliation?>(
+              jsonSerialization['politicalAffiliation']),
+      relationshipStatus:
+          serializationManager.deserialize<_i2.RelationshipStatus?>(
+              jsonSerialization['relationshipStatus']),
+      sexualOrientation:
+          serializationManager.deserialize<_i2.SexualOrientation?>(
+              jsonSerialization['sexualOrientation']),
+      romanticOrientation:
+          serializationManager.deserialize<_i2.RomanticOrientation?>(
+              jsonSerialization['romanticOrientation']),
       education: serializationManager
-          .deserialize<String?>(jsonSerialization['education']),
-      work:
-          serializationManager.deserialize<String?>(jsonSerialization['work']),
+          .deserialize<_i2.Education?>(jsonSerialization['education']),
+      profession: serializationManager
+          .deserialize<_i2.Profession?>(jsonSerialization['profession']),
       interests: serializationManager
           .deserialize<List<String?>?>(jsonSerialization['interests']),
       hobbies: serializationManager
@@ -313,8 +325,8 @@ abstract class User extends _i1.TableRow {
           .deserialize<List<String?>?>(jsonSerialization['drinks']),
       animals: serializationManager
           .deserialize<List<String?>?>(jsonSerialization['animals']),
-      countriesVisited: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['countriesVisited']),
+      countriesVisited: serializationManager.deserialize<List<_i2.Country?>?>(
+          jsonSerialization['countriesVisited']),
       letterLength: serializationManager
           .deserialize<String?>(jsonSerialization['letterLength']),
       letterFrequency: serializationManager
@@ -339,17 +351,22 @@ abstract class User extends _i1.TableRow {
           serializationManager.deserialize<List<_i2.Philosophy?>?>(
               jsonSerialization['targetPhilosophicalBeliefs']),
       targetPoliticalAffiliation:
-          serializationManager.deserialize<List<String?>?>(
+          serializationManager.deserialize<List<_i2.PoliticalAffiliation?>?>(
               jsonSerialization['targetPoliticalAffiliation']),
       targetRelationshipStatus:
-          serializationManager.deserialize<List<String?>?>(
+          serializationManager.deserialize<List<_i2.RelationshipStatus?>?>(
               jsonSerialization['targetRelationshipStatus']),
-      targetSexualOrientation: serializationManager.deserialize<List<String?>?>(
-          jsonSerialization['targetSexualOrientation']),
-      targetEducation: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['targetEducation']),
-      targetWork: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['targetWork']),
+      targetSexualOrientation:
+          serializationManager.deserialize<List<_i2.SexualOrientation?>?>(
+              jsonSerialization['targetSexualOrientation']),
+      targetRomanticOrientation:
+          serializationManager.deserialize<List<_i2.RomanticOrientation?>?>(
+              jsonSerialization['targetRomanticOrientation']),
+      targetEducation: serializationManager.deserialize<List<_i2.Education?>?>(
+          jsonSerialization['targetEducation']),
+      targetProfession:
+          serializationManager.deserialize<List<_i2.Profession?>?>(
+              jsonSerialization['targetProfession']),
       targetInterests: serializationManager
           .deserialize<List<String?>?>(jsonSerialization['targetInterests']),
       targetHobbies: serializationManager
@@ -380,8 +397,9 @@ abstract class User extends _i1.TableRow {
           .deserialize<List<String?>?>(jsonSerialization['targetDrinks']),
       targetAnimals: serializationManager
           .deserialize<List<String?>?>(jsonSerialization['targetAnimals']),
-      targetCountriesVisited: serializationManager.deserialize<List<String?>?>(
-          jsonSerialization['targetCountriesVisited']),
+      targetCountriesVisited:
+          serializationManager.deserialize<List<_i2.Country?>?>(
+              jsonSerialization['targetCountriesVisited']),
       targetLetterLength: serializationManager
           .deserialize<List<String?>?>(jsonSerialization['targetLetterLength']),
       targetLetterFrequency: serializationManager.deserialize<List<String?>?>(
@@ -406,18 +424,22 @@ abstract class User extends _i1.TableRow {
           serializationManager.deserialize<List<_i2.Philosophy?>?>(
               jsonSerialization['excludePhilosophicalBeliefs']),
       excludePoliticalAffiliation:
-          serializationManager.deserialize<List<String?>?>(
+          serializationManager.deserialize<List<_i2.PoliticalAffiliation?>?>(
               jsonSerialization['excludePoliticalAffiliation']),
       excludeRelationshipStatus:
-          serializationManager.deserialize<List<String?>?>(
+          serializationManager.deserialize<List<_i2.RelationshipStatus?>?>(
               jsonSerialization['excludeRelationshipStatus']),
       excludeSexualOrientation:
-          serializationManager.deserialize<List<String?>?>(
+          serializationManager.deserialize<List<_i2.SexualOrientation?>?>(
               jsonSerialization['excludeSexualOrientation']),
-      excludeEducation: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['excludeEducation']),
-      excludeWork: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['excludeWork']),
+      excludeRomanticOrientation:
+          serializationManager.deserialize<List<_i2.RomanticOrientation?>?>(
+              jsonSerialization['excludeRomanticOrientation']),
+      excludeEducation: serializationManager.deserialize<List<_i2.Education?>?>(
+          jsonSerialization['excludeEducation']),
+      excludeProfession:
+          serializationManager.deserialize<List<_i2.Profession?>?>(
+              jsonSerialization['excludeProfession']),
       excludeInterests: serializationManager
           .deserialize<List<String?>?>(jsonSerialization['excludeInterests']),
       excludeHobbies: serializationManager
@@ -448,8 +470,9 @@ abstract class User extends _i1.TableRow {
           .deserialize<List<String?>?>(jsonSerialization['excludeDrinks']),
       excludeAnimals: serializationManager
           .deserialize<List<String?>?>(jsonSerialization['excludeAnimals']),
-      excludeCountriesVisited: serializationManager.deserialize<List<String?>?>(
-          jsonSerialization['excludeCountriesVisited']),
+      excludeCountriesVisited:
+          serializationManager.deserialize<List<_i2.Country?>?>(
+              jsonSerialization['excludeCountriesVisited']),
       excludeLetterLength: serializationManager.deserialize<List<String?>?>(
           jsonSerialization['excludeLetterLength']),
       excludeLetterFrequency: serializationManager.deserialize<List<String?>?>(
@@ -499,15 +522,17 @@ abstract class User extends _i1.TableRow {
 
   _i2.Philosophy? philosophicalBeliefs;
 
-  String? politicalAffiliation;
+  _i2.PoliticalAffiliation? politicalAffiliation;
 
-  String? relationshipStatus;
+  _i2.RelationshipStatus? relationshipStatus;
 
-  String? sexualOrientation;
+  _i2.SexualOrientation? sexualOrientation;
 
-  String? education;
+  _i2.RomanticOrientation? romanticOrientation;
 
-  String? work;
+  _i2.Education? education;
+
+  _i2.Profession? profession;
 
   List<String?>? interests;
 
@@ -539,7 +564,7 @@ abstract class User extends _i1.TableRow {
 
   List<String?>? animals;
 
-  List<String?>? countriesVisited;
+  List<_i2.Country?>? countriesVisited;
 
   String? letterLength;
 
@@ -563,15 +588,17 @@ abstract class User extends _i1.TableRow {
 
   List<_i2.Philosophy?>? targetPhilosophicalBeliefs;
 
-  List<String?>? targetPoliticalAffiliation;
+  List<_i2.PoliticalAffiliation?>? targetPoliticalAffiliation;
 
-  List<String?>? targetRelationshipStatus;
+  List<_i2.RelationshipStatus?>? targetRelationshipStatus;
 
-  List<String?>? targetSexualOrientation;
+  List<_i2.SexualOrientation?>? targetSexualOrientation;
 
-  List<String?>? targetEducation;
+  List<_i2.RomanticOrientation?>? targetRomanticOrientation;
 
-  List<String?>? targetWork;
+  List<_i2.Education?>? targetEducation;
+
+  List<_i2.Profession?>? targetProfession;
 
   List<String?>? targetInterests;
 
@@ -603,7 +630,7 @@ abstract class User extends _i1.TableRow {
 
   List<String?>? targetAnimals;
 
-  List<String?>? targetCountriesVisited;
+  List<_i2.Country?>? targetCountriesVisited;
 
   List<String?>? targetLetterLength;
 
@@ -627,15 +654,17 @@ abstract class User extends _i1.TableRow {
 
   List<_i2.Philosophy?>? excludePhilosophicalBeliefs;
 
-  List<String?>? excludePoliticalAffiliation;
+  List<_i2.PoliticalAffiliation?>? excludePoliticalAffiliation;
 
-  List<String?>? excludeRelationshipStatus;
+  List<_i2.RelationshipStatus?>? excludeRelationshipStatus;
 
-  List<String?>? excludeSexualOrientation;
+  List<_i2.SexualOrientation?>? excludeSexualOrientation;
 
-  List<String?>? excludeEducation;
+  List<_i2.RomanticOrientation?>? excludeRomanticOrientation;
 
-  List<String?>? excludeWork;
+  List<_i2.Education?>? excludeEducation;
+
+  List<_i2.Profession?>? excludeProfession;
 
   List<String?>? excludeInterests;
 
@@ -667,7 +696,7 @@ abstract class User extends _i1.TableRow {
 
   List<String?>? excludeAnimals;
 
-  List<String?>? excludeCountriesVisited;
+  List<_i2.Country?>? excludeCountriesVisited;
 
   List<String?>? excludeLetterLength;
 
@@ -698,11 +727,12 @@ abstract class User extends _i1.TableRow {
     _i2.Zodiac? zodiac,
     _i2.Religion? religion,
     _i2.Philosophy? philosophicalBeliefs,
-    String? politicalAffiliation,
-    String? relationshipStatus,
-    String? sexualOrientation,
-    String? education,
-    String? work,
+    _i2.PoliticalAffiliation? politicalAffiliation,
+    _i2.RelationshipStatus? relationshipStatus,
+    _i2.SexualOrientation? sexualOrientation,
+    _i2.RomanticOrientation? romanticOrientation,
+    _i2.Education? education,
+    _i2.Profession? profession,
     List<String?>? interests,
     List<String?>? hobbies,
     List<String?>? languages,
@@ -718,7 +748,7 @@ abstract class User extends _i1.TableRow {
     List<String?>? foods,
     List<String?>? drinks,
     List<String?>? animals,
-    List<String?>? countriesVisited,
+    List<_i2.Country?>? countriesVisited,
     String? letterLength,
     String? letterFrequency,
     String? replyTime,
@@ -730,11 +760,12 @@ abstract class User extends _i1.TableRow {
     List<_i2.Zodiac?>? targetZodiac,
     List<_i2.Religion?>? targetReligion,
     List<_i2.Philosophy?>? targetPhilosophicalBeliefs,
-    List<String?>? targetPoliticalAffiliation,
-    List<String?>? targetRelationshipStatus,
-    List<String?>? targetSexualOrientation,
-    List<String?>? targetEducation,
-    List<String?>? targetWork,
+    List<_i2.PoliticalAffiliation?>? targetPoliticalAffiliation,
+    List<_i2.RelationshipStatus?>? targetRelationshipStatus,
+    List<_i2.SexualOrientation?>? targetSexualOrientation,
+    List<_i2.RomanticOrientation?>? targetRomanticOrientation,
+    List<_i2.Education?>? targetEducation,
+    List<_i2.Profession?>? targetProfession,
     List<String?>? targetInterests,
     List<String?>? targetHobbies,
     List<String?>? targetLanguages,
@@ -750,7 +781,7 @@ abstract class User extends _i1.TableRow {
     List<String?>? targetFoods,
     List<String?>? targetDrinks,
     List<String?>? targetAnimals,
-    List<String?>? targetCountriesVisited,
+    List<_i2.Country?>? targetCountriesVisited,
     List<String?>? targetLetterLength,
     List<String?>? targetLetterFrequency,
     List<String?>? targetReplyTime,
@@ -762,11 +793,12 @@ abstract class User extends _i1.TableRow {
     List<_i2.Zodiac?>? excludeZodiac,
     List<_i2.Religion?>? excludeReligion,
     List<_i2.Philosophy?>? excludePhilosophicalBeliefs,
-    List<String?>? excludePoliticalAffiliation,
-    List<String?>? excludeRelationshipStatus,
-    List<String?>? excludeSexualOrientation,
-    List<String?>? excludeEducation,
-    List<String?>? excludeWork,
+    List<_i2.PoliticalAffiliation?>? excludePoliticalAffiliation,
+    List<_i2.RelationshipStatus?>? excludeRelationshipStatus,
+    List<_i2.SexualOrientation?>? excludeSexualOrientation,
+    List<_i2.RomanticOrientation?>? excludeRomanticOrientation,
+    List<_i2.Education?>? excludeEducation,
+    List<_i2.Profession?>? excludeProfession,
     List<String?>? excludeInterests,
     List<String?>? excludeHobbies,
     List<String?>? excludeLanguages,
@@ -782,7 +814,7 @@ abstract class User extends _i1.TableRow {
     List<String?>? excludeFoods,
     List<String?>? excludeDrinks,
     List<String?>? excludeAnimals,
-    List<String?>? excludeCountriesVisited,
+    List<_i2.Country?>? excludeCountriesVisited,
     List<String?>? excludeLetterLength,
     List<String?>? excludeLetterFrequency,
     List<String?>? excludeReplyTime,
@@ -813,11 +845,15 @@ abstract class User extends _i1.TableRow {
       if (philosophicalBeliefs != null)
         'philosophicalBeliefs': philosophicalBeliefs?.toJson(),
       if (politicalAffiliation != null)
-        'politicalAffiliation': politicalAffiliation,
-      if (relationshipStatus != null) 'relationshipStatus': relationshipStatus,
-      if (sexualOrientation != null) 'sexualOrientation': sexualOrientation,
-      if (education != null) 'education': education,
-      if (work != null) 'work': work,
+        'politicalAffiliation': politicalAffiliation?.toJson(),
+      if (relationshipStatus != null)
+        'relationshipStatus': relationshipStatus?.toJson(),
+      if (sexualOrientation != null)
+        'sexualOrientation': sexualOrientation?.toJson(),
+      if (romanticOrientation != null)
+        'romanticOrientation': romanticOrientation?.toJson(),
+      if (education != null) 'education': education?.toJson(),
+      if (profession != null) 'profession': profession?.toJson(),
       if (interests != null) 'interests': interests?.toJson(),
       if (hobbies != null) 'hobbies': hobbies?.toJson(),
       if (languages != null) 'languages': languages?.toJson(),
@@ -834,7 +870,8 @@ abstract class User extends _i1.TableRow {
       if (drinks != null) 'drinks': drinks?.toJson(),
       if (animals != null) 'animals': animals?.toJson(),
       if (countriesVisited != null)
-        'countriesVisited': countriesVisited?.toJson(),
+        'countriesVisited':
+            countriesVisited?.toJson(valueToJson: (v) => v?.toJson()),
       if (letterLength != null) 'letterLength': letterLength,
       if (letterFrequency != null) 'letterFrequency': letterFrequency,
       if (replyTime != null) 'replyTime': replyTime,
@@ -857,13 +894,23 @@ abstract class User extends _i1.TableRow {
         'targetPhilosophicalBeliefs':
             targetPhilosophicalBeliefs?.toJson(valueToJson: (v) => v?.toJson()),
       if (targetPoliticalAffiliation != null)
-        'targetPoliticalAffiliation': targetPoliticalAffiliation?.toJson(),
+        'targetPoliticalAffiliation':
+            targetPoliticalAffiliation?.toJson(valueToJson: (v) => v?.toJson()),
       if (targetRelationshipStatus != null)
-        'targetRelationshipStatus': targetRelationshipStatus?.toJson(),
+        'targetRelationshipStatus':
+            targetRelationshipStatus?.toJson(valueToJson: (v) => v?.toJson()),
       if (targetSexualOrientation != null)
-        'targetSexualOrientation': targetSexualOrientation?.toJson(),
-      if (targetEducation != null) 'targetEducation': targetEducation?.toJson(),
-      if (targetWork != null) 'targetWork': targetWork?.toJson(),
+        'targetSexualOrientation':
+            targetSexualOrientation?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetRomanticOrientation != null)
+        'targetRomanticOrientation':
+            targetRomanticOrientation?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetEducation != null)
+        'targetEducation':
+            targetEducation?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetProfession != null)
+        'targetProfession':
+            targetProfession?.toJson(valueToJson: (v) => v?.toJson()),
       if (targetInterests != null) 'targetInterests': targetInterests?.toJson(),
       if (targetHobbies != null) 'targetHobbies': targetHobbies?.toJson(),
       if (targetLanguages != null) 'targetLanguages': targetLanguages?.toJson(),
@@ -880,7 +927,8 @@ abstract class User extends _i1.TableRow {
       if (targetDrinks != null) 'targetDrinks': targetDrinks?.toJson(),
       if (targetAnimals != null) 'targetAnimals': targetAnimals?.toJson(),
       if (targetCountriesVisited != null)
-        'targetCountriesVisited': targetCountriesVisited?.toJson(),
+        'targetCountriesVisited':
+            targetCountriesVisited?.toJson(valueToJson: (v) => v?.toJson()),
       if (targetLetterLength != null)
         'targetLetterLength': targetLetterLength?.toJson(),
       if (targetLetterFrequency != null)
@@ -906,14 +954,23 @@ abstract class User extends _i1.TableRow {
         'excludePhilosophicalBeliefs': excludePhilosophicalBeliefs?.toJson(
             valueToJson: (v) => v?.toJson()),
       if (excludePoliticalAffiliation != null)
-        'excludePoliticalAffiliation': excludePoliticalAffiliation?.toJson(),
+        'excludePoliticalAffiliation': excludePoliticalAffiliation?.toJson(
+            valueToJson: (v) => v?.toJson()),
       if (excludeRelationshipStatus != null)
-        'excludeRelationshipStatus': excludeRelationshipStatus?.toJson(),
+        'excludeRelationshipStatus':
+            excludeRelationshipStatus?.toJson(valueToJson: (v) => v?.toJson()),
       if (excludeSexualOrientation != null)
-        'excludeSexualOrientation': excludeSexualOrientation?.toJson(),
+        'excludeSexualOrientation':
+            excludeSexualOrientation?.toJson(valueToJson: (v) => v?.toJson()),
+      if (excludeRomanticOrientation != null)
+        'excludeRomanticOrientation':
+            excludeRomanticOrientation?.toJson(valueToJson: (v) => v?.toJson()),
       if (excludeEducation != null)
-        'excludeEducation': excludeEducation?.toJson(),
-      if (excludeWork != null) 'excludeWork': excludeWork?.toJson(),
+        'excludeEducation':
+            excludeEducation?.toJson(valueToJson: (v) => v?.toJson()),
+      if (excludeProfession != null)
+        'excludeProfession':
+            excludeProfession?.toJson(valueToJson: (v) => v?.toJson()),
       if (excludeInterests != null)
         'excludeInterests': excludeInterests?.toJson(),
       if (excludeHobbies != null) 'excludeHobbies': excludeHobbies?.toJson(),
@@ -932,7 +989,8 @@ abstract class User extends _i1.TableRow {
       if (excludeDrinks != null) 'excludeDrinks': excludeDrinks?.toJson(),
       if (excludeAnimals != null) 'excludeAnimals': excludeAnimals?.toJson(),
       if (excludeCountriesVisited != null)
-        'excludeCountriesVisited': excludeCountriesVisited?.toJson(),
+        'excludeCountriesVisited':
+            excludeCountriesVisited?.toJson(valueToJson: (v) => v?.toJson()),
       if (excludeLetterLength != null)
         'excludeLetterLength': excludeLetterLength?.toJson(),
       if (excludeLetterFrequency != null)
@@ -968,8 +1026,9 @@ abstract class User extends _i1.TableRow {
       'politicalAffiliation': politicalAffiliation,
       'relationshipStatus': relationshipStatus,
       'sexualOrientation': sexualOrientation,
+      'romanticOrientation': romanticOrientation,
       'education': education,
-      'work': work,
+      'profession': profession,
       'interests': interests,
       'hobbies': hobbies,
       'languages': languages,
@@ -1000,8 +1059,9 @@ abstract class User extends _i1.TableRow {
       'targetPoliticalAffiliation': targetPoliticalAffiliation,
       'targetRelationshipStatus': targetRelationshipStatus,
       'targetSexualOrientation': targetSexualOrientation,
+      'targetRomanticOrientation': targetRomanticOrientation,
       'targetEducation': targetEducation,
-      'targetWork': targetWork,
+      'targetProfession': targetProfession,
       'targetInterests': targetInterests,
       'targetHobbies': targetHobbies,
       'targetLanguages': targetLanguages,
@@ -1032,8 +1092,9 @@ abstract class User extends _i1.TableRow {
       'excludePoliticalAffiliation': excludePoliticalAffiliation,
       'excludeRelationshipStatus': excludeRelationshipStatus,
       'excludeSexualOrientation': excludeSexualOrientation,
+      'excludeRomanticOrientation': excludeRomanticOrientation,
       'excludeEducation': excludeEducation,
-      'excludeWork': excludeWork,
+      'excludeProfession': excludeProfession,
       'excludeInterests': excludeInterests,
       'excludeHobbies': excludeHobbies,
       'excludeLanguages': excludeLanguages,
@@ -1082,11 +1143,15 @@ abstract class User extends _i1.TableRow {
       if (philosophicalBeliefs != null)
         'philosophicalBeliefs': philosophicalBeliefs?.toJson(),
       if (politicalAffiliation != null)
-        'politicalAffiliation': politicalAffiliation,
-      if (relationshipStatus != null) 'relationshipStatus': relationshipStatus,
-      if (sexualOrientation != null) 'sexualOrientation': sexualOrientation,
-      if (education != null) 'education': education,
-      if (work != null) 'work': work,
+        'politicalAffiliation': politicalAffiliation?.toJson(),
+      if (relationshipStatus != null)
+        'relationshipStatus': relationshipStatus?.toJson(),
+      if (sexualOrientation != null)
+        'sexualOrientation': sexualOrientation?.toJson(),
+      if (romanticOrientation != null)
+        'romanticOrientation': romanticOrientation?.toJson(),
+      if (education != null) 'education': education?.toJson(),
+      if (profession != null) 'profession': profession?.toJson(),
       if (interests != null) 'interests': interests?.toJson(),
       if (hobbies != null) 'hobbies': hobbies?.toJson(),
       if (languages != null) 'languages': languages?.toJson(),
@@ -1103,7 +1168,8 @@ abstract class User extends _i1.TableRow {
       if (drinks != null) 'drinks': drinks?.toJson(),
       if (animals != null) 'animals': animals?.toJson(),
       if (countriesVisited != null)
-        'countriesVisited': countriesVisited?.toJson(),
+        'countriesVisited':
+            countriesVisited?.toJson(valueToJson: (v) => v?.toJson()),
       if (letterLength != null) 'letterLength': letterLength,
       if (letterFrequency != null) 'letterFrequency': letterFrequency,
       if (replyTime != null) 'replyTime': replyTime,
@@ -1126,13 +1192,23 @@ abstract class User extends _i1.TableRow {
         'targetPhilosophicalBeliefs':
             targetPhilosophicalBeliefs?.toJson(valueToJson: (v) => v?.toJson()),
       if (targetPoliticalAffiliation != null)
-        'targetPoliticalAffiliation': targetPoliticalAffiliation?.toJson(),
+        'targetPoliticalAffiliation':
+            targetPoliticalAffiliation?.toJson(valueToJson: (v) => v?.toJson()),
       if (targetRelationshipStatus != null)
-        'targetRelationshipStatus': targetRelationshipStatus?.toJson(),
+        'targetRelationshipStatus':
+            targetRelationshipStatus?.toJson(valueToJson: (v) => v?.toJson()),
       if (targetSexualOrientation != null)
-        'targetSexualOrientation': targetSexualOrientation?.toJson(),
-      if (targetEducation != null) 'targetEducation': targetEducation?.toJson(),
-      if (targetWork != null) 'targetWork': targetWork?.toJson(),
+        'targetSexualOrientation':
+            targetSexualOrientation?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetRomanticOrientation != null)
+        'targetRomanticOrientation':
+            targetRomanticOrientation?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetEducation != null)
+        'targetEducation':
+            targetEducation?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetProfession != null)
+        'targetProfession':
+            targetProfession?.toJson(valueToJson: (v) => v?.toJson()),
       if (targetInterests != null) 'targetInterests': targetInterests?.toJson(),
       if (targetHobbies != null) 'targetHobbies': targetHobbies?.toJson(),
       if (targetLanguages != null) 'targetLanguages': targetLanguages?.toJson(),
@@ -1149,7 +1225,8 @@ abstract class User extends _i1.TableRow {
       if (targetDrinks != null) 'targetDrinks': targetDrinks?.toJson(),
       if (targetAnimals != null) 'targetAnimals': targetAnimals?.toJson(),
       if (targetCountriesVisited != null)
-        'targetCountriesVisited': targetCountriesVisited?.toJson(),
+        'targetCountriesVisited':
+            targetCountriesVisited?.toJson(valueToJson: (v) => v?.toJson()),
       if (targetLetterLength != null)
         'targetLetterLength': targetLetterLength?.toJson(),
       if (targetLetterFrequency != null)
@@ -1175,14 +1252,23 @@ abstract class User extends _i1.TableRow {
         'excludePhilosophicalBeliefs': excludePhilosophicalBeliefs?.toJson(
             valueToJson: (v) => v?.toJson()),
       if (excludePoliticalAffiliation != null)
-        'excludePoliticalAffiliation': excludePoliticalAffiliation?.toJson(),
+        'excludePoliticalAffiliation': excludePoliticalAffiliation?.toJson(
+            valueToJson: (v) => v?.toJson()),
       if (excludeRelationshipStatus != null)
-        'excludeRelationshipStatus': excludeRelationshipStatus?.toJson(),
+        'excludeRelationshipStatus':
+            excludeRelationshipStatus?.toJson(valueToJson: (v) => v?.toJson()),
       if (excludeSexualOrientation != null)
-        'excludeSexualOrientation': excludeSexualOrientation?.toJson(),
+        'excludeSexualOrientation':
+            excludeSexualOrientation?.toJson(valueToJson: (v) => v?.toJson()),
+      if (excludeRomanticOrientation != null)
+        'excludeRomanticOrientation':
+            excludeRomanticOrientation?.toJson(valueToJson: (v) => v?.toJson()),
       if (excludeEducation != null)
-        'excludeEducation': excludeEducation?.toJson(),
-      if (excludeWork != null) 'excludeWork': excludeWork?.toJson(),
+        'excludeEducation':
+            excludeEducation?.toJson(valueToJson: (v) => v?.toJson()),
+      if (excludeProfession != null)
+        'excludeProfession':
+            excludeProfession?.toJson(valueToJson: (v) => v?.toJson()),
       if (excludeInterests != null)
         'excludeInterests': excludeInterests?.toJson(),
       if (excludeHobbies != null) 'excludeHobbies': excludeHobbies?.toJson(),
@@ -1201,7 +1287,8 @@ abstract class User extends _i1.TableRow {
       if (excludeDrinks != null) 'excludeDrinks': excludeDrinks?.toJson(),
       if (excludeAnimals != null) 'excludeAnimals': excludeAnimals?.toJson(),
       if (excludeCountriesVisited != null)
-        'excludeCountriesVisited': excludeCountriesVisited?.toJson(),
+        'excludeCountriesVisited':
+            excludeCountriesVisited?.toJson(valueToJson: (v) => v?.toJson()),
       if (excludeLetterLength != null)
         'excludeLetterLength': excludeLetterLength?.toJson(),
       if (excludeLetterFrequency != null)
@@ -1284,11 +1371,14 @@ abstract class User extends _i1.TableRow {
       case 'sexualOrientation':
         sexualOrientation = value;
         return;
+      case 'romanticOrientation':
+        romanticOrientation = value;
+        return;
       case 'education':
         education = value;
         return;
-      case 'work':
-        work = value;
+      case 'profession':
+        profession = value;
         return;
       case 'interests':
         interests = value;
@@ -1380,11 +1470,14 @@ abstract class User extends _i1.TableRow {
       case 'targetSexualOrientation':
         targetSexualOrientation = value;
         return;
+      case 'targetRomanticOrientation':
+        targetRomanticOrientation = value;
+        return;
       case 'targetEducation':
         targetEducation = value;
         return;
-      case 'targetWork':
-        targetWork = value;
+      case 'targetProfession':
+        targetProfession = value;
         return;
       case 'targetInterests':
         targetInterests = value;
@@ -1476,11 +1569,14 @@ abstract class User extends _i1.TableRow {
       case 'excludeSexualOrientation':
         excludeSexualOrientation = value;
         return;
+      case 'excludeRomanticOrientation':
+        excludeRomanticOrientation = value;
+        return;
       case 'excludeEducation':
         excludeEducation = value;
         return;
-      case 'excludeWork':
-        excludeWork = value;
+      case 'excludeProfession':
+        excludeProfession = value;
         return;
       case 'excludeInterests':
         excludeInterests = value;
@@ -1709,11 +1805,12 @@ class _UserImpl extends User {
     _i2.Zodiac? zodiac,
     _i2.Religion? religion,
     _i2.Philosophy? philosophicalBeliefs,
-    String? politicalAffiliation,
-    String? relationshipStatus,
-    String? sexualOrientation,
-    String? education,
-    String? work,
+    _i2.PoliticalAffiliation? politicalAffiliation,
+    _i2.RelationshipStatus? relationshipStatus,
+    _i2.SexualOrientation? sexualOrientation,
+    _i2.RomanticOrientation? romanticOrientation,
+    _i2.Education? education,
+    _i2.Profession? profession,
     List<String?>? interests,
     List<String?>? hobbies,
     List<String?>? languages,
@@ -1729,7 +1826,7 @@ class _UserImpl extends User {
     List<String?>? foods,
     List<String?>? drinks,
     List<String?>? animals,
-    List<String?>? countriesVisited,
+    List<_i2.Country?>? countriesVisited,
     String? letterLength,
     String? letterFrequency,
     String? replyTime,
@@ -1741,11 +1838,12 @@ class _UserImpl extends User {
     List<_i2.Zodiac?>? targetZodiac,
     List<_i2.Religion?>? targetReligion,
     List<_i2.Philosophy?>? targetPhilosophicalBeliefs,
-    List<String?>? targetPoliticalAffiliation,
-    List<String?>? targetRelationshipStatus,
-    List<String?>? targetSexualOrientation,
-    List<String?>? targetEducation,
-    List<String?>? targetWork,
+    List<_i2.PoliticalAffiliation?>? targetPoliticalAffiliation,
+    List<_i2.RelationshipStatus?>? targetRelationshipStatus,
+    List<_i2.SexualOrientation?>? targetSexualOrientation,
+    List<_i2.RomanticOrientation?>? targetRomanticOrientation,
+    List<_i2.Education?>? targetEducation,
+    List<_i2.Profession?>? targetProfession,
     List<String?>? targetInterests,
     List<String?>? targetHobbies,
     List<String?>? targetLanguages,
@@ -1761,7 +1859,7 @@ class _UserImpl extends User {
     List<String?>? targetFoods,
     List<String?>? targetDrinks,
     List<String?>? targetAnimals,
-    List<String?>? targetCountriesVisited,
+    List<_i2.Country?>? targetCountriesVisited,
     List<String?>? targetLetterLength,
     List<String?>? targetLetterFrequency,
     List<String?>? targetReplyTime,
@@ -1773,11 +1871,12 @@ class _UserImpl extends User {
     List<_i2.Zodiac?>? excludeZodiac,
     List<_i2.Religion?>? excludeReligion,
     List<_i2.Philosophy?>? excludePhilosophicalBeliefs,
-    List<String?>? excludePoliticalAffiliation,
-    List<String?>? excludeRelationshipStatus,
-    List<String?>? excludeSexualOrientation,
-    List<String?>? excludeEducation,
-    List<String?>? excludeWork,
+    List<_i2.PoliticalAffiliation?>? excludePoliticalAffiliation,
+    List<_i2.RelationshipStatus?>? excludeRelationshipStatus,
+    List<_i2.SexualOrientation?>? excludeSexualOrientation,
+    List<_i2.RomanticOrientation?>? excludeRomanticOrientation,
+    List<_i2.Education?>? excludeEducation,
+    List<_i2.Profession?>? excludeProfession,
     List<String?>? excludeInterests,
     List<String?>? excludeHobbies,
     List<String?>? excludeLanguages,
@@ -1793,7 +1892,7 @@ class _UserImpl extends User {
     List<String?>? excludeFoods,
     List<String?>? excludeDrinks,
     List<String?>? excludeAnimals,
-    List<String?>? excludeCountriesVisited,
+    List<_i2.Country?>? excludeCountriesVisited,
     List<String?>? excludeLetterLength,
     List<String?>? excludeLetterFrequency,
     List<String?>? excludeReplyTime,
@@ -1820,8 +1919,9 @@ class _UserImpl extends User {
           politicalAffiliation: politicalAffiliation,
           relationshipStatus: relationshipStatus,
           sexualOrientation: sexualOrientation,
+          romanticOrientation: romanticOrientation,
           education: education,
-          work: work,
+          profession: profession,
           interests: interests,
           hobbies: hobbies,
           languages: languages,
@@ -1852,8 +1952,9 @@ class _UserImpl extends User {
           targetPoliticalAffiliation: targetPoliticalAffiliation,
           targetRelationshipStatus: targetRelationshipStatus,
           targetSexualOrientation: targetSexualOrientation,
+          targetRomanticOrientation: targetRomanticOrientation,
           targetEducation: targetEducation,
-          targetWork: targetWork,
+          targetProfession: targetProfession,
           targetInterests: targetInterests,
           targetHobbies: targetHobbies,
           targetLanguages: targetLanguages,
@@ -1884,8 +1985,9 @@ class _UserImpl extends User {
           excludePoliticalAffiliation: excludePoliticalAffiliation,
           excludeRelationshipStatus: excludeRelationshipStatus,
           excludeSexualOrientation: excludeSexualOrientation,
+          excludeRomanticOrientation: excludeRomanticOrientation,
           excludeEducation: excludeEducation,
-          excludeWork: excludeWork,
+          excludeProfession: excludeProfession,
           excludeInterests: excludeInterests,
           excludeHobbies: excludeHobbies,
           excludeLanguages: excludeLanguages,
@@ -1931,8 +2033,9 @@ class _UserImpl extends User {
     Object? politicalAffiliation = _Undefined,
     Object? relationshipStatus = _Undefined,
     Object? sexualOrientation = _Undefined,
+    Object? romanticOrientation = _Undefined,
     Object? education = _Undefined,
-    Object? work = _Undefined,
+    Object? profession = _Undefined,
     Object? interests = _Undefined,
     Object? hobbies = _Undefined,
     Object? languages = _Undefined,
@@ -1963,8 +2066,9 @@ class _UserImpl extends User {
     Object? targetPoliticalAffiliation = _Undefined,
     Object? targetRelationshipStatus = _Undefined,
     Object? targetSexualOrientation = _Undefined,
+    Object? targetRomanticOrientation = _Undefined,
     Object? targetEducation = _Undefined,
-    Object? targetWork = _Undefined,
+    Object? targetProfession = _Undefined,
     Object? targetInterests = _Undefined,
     Object? targetHobbies = _Undefined,
     Object? targetLanguages = _Undefined,
@@ -1995,8 +2099,9 @@ class _UserImpl extends User {
     Object? excludePoliticalAffiliation = _Undefined,
     Object? excludeRelationshipStatus = _Undefined,
     Object? excludeSexualOrientation = _Undefined,
+    Object? excludeRomanticOrientation = _Undefined,
     Object? excludeEducation = _Undefined,
-    Object? excludeWork = _Undefined,
+    Object? excludeProfession = _Undefined,
     Object? excludeInterests = _Undefined,
     Object? excludeHobbies = _Undefined,
     Object? excludeLanguages = _Undefined,
@@ -2042,17 +2147,20 @@ class _UserImpl extends User {
       philosophicalBeliefs: philosophicalBeliefs is _i2.Philosophy?
           ? philosophicalBeliefs
           : this.philosophicalBeliefs,
-      politicalAffiliation: politicalAffiliation is String?
+      politicalAffiliation: politicalAffiliation is _i2.PoliticalAffiliation?
           ? politicalAffiliation
           : this.politicalAffiliation,
-      relationshipStatus: relationshipStatus is String?
+      relationshipStatus: relationshipStatus is _i2.RelationshipStatus?
           ? relationshipStatus
           : this.relationshipStatus,
-      sexualOrientation: sexualOrientation is String?
+      sexualOrientation: sexualOrientation is _i2.SexualOrientation?
           ? sexualOrientation
           : this.sexualOrientation,
-      education: education is String? ? education : this.education,
-      work: work is String? ? work : this.work,
+      romanticOrientation: romanticOrientation is _i2.RomanticOrientation?
+          ? romanticOrientation
+          : this.romanticOrientation,
+      education: education is _i2.Education? ? education : this.education,
+      profession: profession is _i2.Profession? ? profession : this.profession,
       interests:
           interests is List<String?>? ? interests : this.interests?.clone(),
       hobbies: hobbies is List<String?>? ? hobbies : this.hobbies?.clone(),
@@ -2070,7 +2178,7 @@ class _UserImpl extends User {
       foods: foods is List<String?>? ? foods : this.foods?.clone(),
       drinks: drinks is List<String?>? ? drinks : this.drinks?.clone(),
       animals: animals is List<String?>? ? animals : this.animals?.clone(),
-      countriesVisited: countriesVisited is List<String?>?
+      countriesVisited: countriesVisited is List<_i2.Country?>?
           ? countriesVisited
           : this.countriesVisited?.clone(),
       letterLength: letterLength is String? ? letterLength : this.letterLength,
@@ -2101,20 +2209,28 @@ class _UserImpl extends User {
           targetPhilosophicalBeliefs is List<_i2.Philosophy?>?
               ? targetPhilosophicalBeliefs
               : this.targetPhilosophicalBeliefs?.clone(),
-      targetPoliticalAffiliation: targetPoliticalAffiliation is List<String?>?
-          ? targetPoliticalAffiliation
-          : this.targetPoliticalAffiliation?.clone(),
-      targetRelationshipStatus: targetRelationshipStatus is List<String?>?
-          ? targetRelationshipStatus
-          : this.targetRelationshipStatus?.clone(),
-      targetSexualOrientation: targetSexualOrientation is List<String?>?
-          ? targetSexualOrientation
-          : this.targetSexualOrientation?.clone(),
-      targetEducation: targetEducation is List<String?>?
+      targetPoliticalAffiliation:
+          targetPoliticalAffiliation is List<_i2.PoliticalAffiliation?>?
+              ? targetPoliticalAffiliation
+              : this.targetPoliticalAffiliation?.clone(),
+      targetRelationshipStatus:
+          targetRelationshipStatus is List<_i2.RelationshipStatus?>?
+              ? targetRelationshipStatus
+              : this.targetRelationshipStatus?.clone(),
+      targetSexualOrientation:
+          targetSexualOrientation is List<_i2.SexualOrientation?>?
+              ? targetSexualOrientation
+              : this.targetSexualOrientation?.clone(),
+      targetRomanticOrientation:
+          targetRomanticOrientation is List<_i2.RomanticOrientation?>?
+              ? targetRomanticOrientation
+              : this.targetRomanticOrientation?.clone(),
+      targetEducation: targetEducation is List<_i2.Education?>?
           ? targetEducation
           : this.targetEducation?.clone(),
-      targetWork:
-          targetWork is List<String?>? ? targetWork : this.targetWork?.clone(),
+      targetProfession: targetProfession is List<_i2.Profession?>?
+          ? targetProfession
+          : this.targetProfession?.clone(),
       targetInterests: targetInterests is List<String?>?
           ? targetInterests
           : this.targetInterests?.clone(),
@@ -2160,7 +2276,7 @@ class _UserImpl extends User {
       targetAnimals: targetAnimals is List<String?>?
           ? targetAnimals
           : this.targetAnimals?.clone(),
-      targetCountriesVisited: targetCountriesVisited is List<String?>?
+      targetCountriesVisited: targetCountriesVisited is List<_i2.Country?>?
           ? targetCountriesVisited
           : this.targetCountriesVisited?.clone(),
       targetLetterLength: targetLetterLength is List<String?>?
@@ -2196,21 +2312,28 @@ class _UserImpl extends User {
           excludePhilosophicalBeliefs is List<_i2.Philosophy?>?
               ? excludePhilosophicalBeliefs
               : this.excludePhilosophicalBeliefs?.clone(),
-      excludePoliticalAffiliation: excludePoliticalAffiliation is List<String?>?
-          ? excludePoliticalAffiliation
-          : this.excludePoliticalAffiliation?.clone(),
-      excludeRelationshipStatus: excludeRelationshipStatus is List<String?>?
-          ? excludeRelationshipStatus
-          : this.excludeRelationshipStatus?.clone(),
-      excludeSexualOrientation: excludeSexualOrientation is List<String?>?
-          ? excludeSexualOrientation
-          : this.excludeSexualOrientation?.clone(),
-      excludeEducation: excludeEducation is List<String?>?
+      excludePoliticalAffiliation:
+          excludePoliticalAffiliation is List<_i2.PoliticalAffiliation?>?
+              ? excludePoliticalAffiliation
+              : this.excludePoliticalAffiliation?.clone(),
+      excludeRelationshipStatus:
+          excludeRelationshipStatus is List<_i2.RelationshipStatus?>?
+              ? excludeRelationshipStatus
+              : this.excludeRelationshipStatus?.clone(),
+      excludeSexualOrientation:
+          excludeSexualOrientation is List<_i2.SexualOrientation?>?
+              ? excludeSexualOrientation
+              : this.excludeSexualOrientation?.clone(),
+      excludeRomanticOrientation:
+          excludeRomanticOrientation is List<_i2.RomanticOrientation?>?
+              ? excludeRomanticOrientation
+              : this.excludeRomanticOrientation?.clone(),
+      excludeEducation: excludeEducation is List<_i2.Education?>?
           ? excludeEducation
           : this.excludeEducation?.clone(),
-      excludeWork: excludeWork is List<String?>?
-          ? excludeWork
-          : this.excludeWork?.clone(),
+      excludeProfession: excludeProfession is List<_i2.Profession?>?
+          ? excludeProfession
+          : this.excludeProfession?.clone(),
       excludeInterests: excludeInterests is List<String?>?
           ? excludeInterests
           : this.excludeInterests?.clone(),
@@ -2256,7 +2379,7 @@ class _UserImpl extends User {
       excludeAnimals: excludeAnimals is List<String?>?
           ? excludeAnimals
           : this.excludeAnimals?.clone(),
-      excludeCountriesVisited: excludeCountriesVisited is List<String?>?
+      excludeCountriesVisited: excludeCountriesVisited is List<_i2.Country?>?
           ? excludeCountriesVisited
           : this.excludeCountriesVisited?.clone(),
       excludeLetterLength: excludeLetterLength is List<String?>?
@@ -2353,25 +2476,35 @@ class UserTable extends _i1.Table {
       this,
       _i1.EnumSerialization.byName,
     );
-    politicalAffiliation = _i1.ColumnString(
+    politicalAffiliation = _i1.ColumnEnum(
       'politicalAffiliation',
       this,
+      _i1.EnumSerialization.byName,
     );
-    relationshipStatus = _i1.ColumnString(
+    relationshipStatus = _i1.ColumnEnum(
       'relationshipStatus',
       this,
+      _i1.EnumSerialization.byName,
     );
-    sexualOrientation = _i1.ColumnString(
+    sexualOrientation = _i1.ColumnEnum(
       'sexualOrientation',
       this,
+      _i1.EnumSerialization.byName,
     );
-    education = _i1.ColumnString(
+    romanticOrientation = _i1.ColumnEnum(
+      'romanticOrientation',
+      this,
+      _i1.EnumSerialization.byName,
+    );
+    education = _i1.ColumnEnum(
       'education',
       this,
+      _i1.EnumSerialization.byName,
     );
-    work = _i1.ColumnString(
-      'work',
+    profession = _i1.ColumnEnum(
+      'profession',
       this,
+      _i1.EnumSerialization.byName,
     );
     interests = _i1.ColumnSerializable(
       'interests',
@@ -2493,12 +2626,16 @@ class UserTable extends _i1.Table {
       'targetSexualOrientation',
       this,
     );
+    targetRomanticOrientation = _i1.ColumnSerializable(
+      'targetRomanticOrientation',
+      this,
+    );
     targetEducation = _i1.ColumnSerializable(
       'targetEducation',
       this,
     );
-    targetWork = _i1.ColumnSerializable(
-      'targetWork',
+    targetProfession = _i1.ColumnSerializable(
+      'targetProfession',
       this,
     );
     targetInterests = _i1.ColumnSerializable(
@@ -2621,12 +2758,16 @@ class UserTable extends _i1.Table {
       'excludeSexualOrientation',
       this,
     );
+    excludeRomanticOrientation = _i1.ColumnSerializable(
+      'excludeRomanticOrientation',
+      this,
+    );
     excludeEducation = _i1.ColumnSerializable(
       'excludeEducation',
       this,
     );
-    excludeWork = _i1.ColumnSerializable(
-      'excludeWork',
+    excludeProfession = _i1.ColumnSerializable(
+      'excludeProfession',
       this,
     );
     excludeInterests = _i1.ColumnSerializable(
@@ -2743,15 +2884,17 @@ class UserTable extends _i1.Table {
 
   late final _i1.ColumnEnum<_i2.Philosophy> philosophicalBeliefs;
 
-  late final _i1.ColumnString politicalAffiliation;
+  late final _i1.ColumnEnum<_i2.PoliticalAffiliation> politicalAffiliation;
 
-  late final _i1.ColumnString relationshipStatus;
+  late final _i1.ColumnEnum<_i2.RelationshipStatus> relationshipStatus;
 
-  late final _i1.ColumnString sexualOrientation;
+  late final _i1.ColumnEnum<_i2.SexualOrientation> sexualOrientation;
 
-  late final _i1.ColumnString education;
+  late final _i1.ColumnEnum<_i2.RomanticOrientation> romanticOrientation;
 
-  late final _i1.ColumnString work;
+  late final _i1.ColumnEnum<_i2.Education> education;
+
+  late final _i1.ColumnEnum<_i2.Profession> profession;
 
   late final _i1.ColumnSerializable interests;
 
@@ -2813,9 +2956,11 @@ class UserTable extends _i1.Table {
 
   late final _i1.ColumnSerializable targetSexualOrientation;
 
+  late final _i1.ColumnSerializable targetRomanticOrientation;
+
   late final _i1.ColumnSerializable targetEducation;
 
-  late final _i1.ColumnSerializable targetWork;
+  late final _i1.ColumnSerializable targetProfession;
 
   late final _i1.ColumnSerializable targetInterests;
 
@@ -2877,9 +3022,11 @@ class UserTable extends _i1.Table {
 
   late final _i1.ColumnSerializable excludeSexualOrientation;
 
+  late final _i1.ColumnSerializable excludeRomanticOrientation;
+
   late final _i1.ColumnSerializable excludeEducation;
 
-  late final _i1.ColumnSerializable excludeWork;
+  late final _i1.ColumnSerializable excludeProfession;
 
   late final _i1.ColumnSerializable excludeInterests;
 
@@ -2943,8 +3090,9 @@ class UserTable extends _i1.Table {
         politicalAffiliation,
         relationshipStatus,
         sexualOrientation,
+        romanticOrientation,
         education,
-        work,
+        profession,
         interests,
         hobbies,
         languages,
@@ -2975,8 +3123,9 @@ class UserTable extends _i1.Table {
         targetPoliticalAffiliation,
         targetRelationshipStatus,
         targetSexualOrientation,
+        targetRomanticOrientation,
         targetEducation,
-        targetWork,
+        targetProfession,
         targetInterests,
         targetHobbies,
         targetLanguages,
@@ -3007,8 +3156,9 @@ class UserTable extends _i1.Table {
         excludePoliticalAffiliation,
         excludeRelationshipStatus,
         excludeSexualOrientation,
+        excludeRomanticOrientation,
         excludeEducation,
-        excludeWork,
+        excludeProfession,
         excludeInterests,
         excludeHobbies,
         excludeLanguages,

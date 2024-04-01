@@ -1,0 +1,30 @@
+enum: Education
+serialized: byName
+values:
+  - NoSchooling
+  - EarlyChildhoodEducation
+  - PrePrimaryEducation
+  - PrimaryEducation
+  - LowerSecondaryEducation
+  - UpperSecondaryEducation
+  - Diploma
+  - BachelorsOrEquivalent
+  - MastersOrEquivalent
+  - DoctoralOrEquivalent
+  - HomeSchooled
+  - Professional
+  - Vocational
+  - Trained
+  - SelfTaught
+  - Autodidact
+  - Licensed
+  - Accredited
+  - Qualified
+  - Bootcamp
+  - MOOCs
+  - OnlineCourses
+  - InPersonCourses
+  - Workshops
+  - Seminars
+  - Conferences
+  - Certifications

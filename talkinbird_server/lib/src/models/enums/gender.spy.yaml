@@ -1,6 +1,11 @@
 enum: Gender
 serialized: byName
 values:
+  - Male
+  - Female
+  - Nonbinary
+  - Transgender
+  - GenderFluid
   ### A person who does not identify themselves with or experience any gender. Agender people are also called null-gender, genderless, gendervoid, or neutral gender.
   - Agender
   ### Associated with being profound, deep, and infinite. The term abimegender may be used alone or in combination with other genders.

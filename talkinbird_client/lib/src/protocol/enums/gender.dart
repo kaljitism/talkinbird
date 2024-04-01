@@ -11,6 +11,12 @@
 import 'package:serverpod_client/serverpod_client.dart' as _i1;
 
 enum Gender with _i1.SerializableEntity {
+  Male,
+  Female,
+  Nonbinary,
+  Transgender,
+  GenderFluid,
+
   /// A person who does not identify themselves with or experience any gender. Agender people are also called null-gender, genderless, gendervoid, or neutral gender.
   Agender,
 
@@ -229,6 +235,16 @@ enum Gender with _i1.SerializableEntity {
 
   static Gender? fromJson(String name) {
     switch (name) {
+      case 'Male':
+        return Male;
+      case 'Female':
+        return Female;
+      case 'Nonbinary':
+        return Nonbinary;
+      case 'Transgender':
+        return Transgender;
+      case 'GenderFluid':
+        return GenderFluid;
       case 'Agender':
         return Agender;
       case 'Abimegender':

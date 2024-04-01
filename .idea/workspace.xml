@@ -4,27 +4,26 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9093b2a-8667-4f5d-ba56-67ac51cd083d" name="Changes" comment="Added Serverpod Backend.">
-      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/countries.spy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/enneagram.spy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/gender.spy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/linked_accouts.spy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/mbti.spy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/philosophy.spy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/religions/religions.spy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/zodiac.spy.yaml" afterDir="false" />
+    <list default="true" id="f9093b2a-8667-4f5d-ba56-67ac51cd083d" name="Changes" comment="wrote enums - enneagram, gender, linked accounts, mbti, philosophy, religions, zodiacs,">
+      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/education.spy.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/political_affiliation.spy.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/professions.spy.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/relationship_status.spy.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/religion.spy.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/romantic_orientation.spy.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/sexual_orientation.spy.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/client.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/enums/gender.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/enums/religions/religions.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/protocol.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/protocol.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_flutter/lib/user/gender.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/endpoints/user_endpoint.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_flutter/lib/user/linked_accounts.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_flutter/lib/user/user_provider.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/endpoints/example_endpoint.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/endpoints.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/enums/gender.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/enums/religions/religions.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/protocol.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/protocol.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/protocol.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/protocol.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/gender.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/gender.spy.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/new" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/religions/religions.spy.yaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/user.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/user.spy.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,6 +76,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\apps\2024\talkinbird\talkinbird_server\lib\src\models\enums" />
+      <recent name="C:\apps\2024\talkinbird\talkinbird_server\lib\src\generated" />
+      <recent name="C:\apps\2024\talkinbird\talkinbird_server\lib\src\generated\enums" />
       <recent name="C:\apps\2024\talking-bird\talkinbird\talkinbird_flutter" />
       <recent name="C:\apps\2024\talking-bird" />
     </key>
@@ -112,11 +114,28 @@
       <option name="project" value="LOCAL" />
       <updated>1711925701015</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="wrote enums - enneagram, gender, linked accounts, mbti, philosophy, religions, zodiacs,">
+      <option name="closed" value="true" />
+      <created>1711987001806</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711987001806</updated>
+    </task>
+    <task id="LOCAL-00004" summary="wrote enums - enneagram, gender, linked accounts, mbti, philosophy, religions, zodiacs,">
+      <option name="closed" value="true" />
+      <created>1711987246060</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711987246060</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Serverpod Backend." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Serverpod Backend." />
+    <MESSAGE value="wrote enums - enneagram, gender, linked accounts, mbti, philosophy, religions, zodiacs," />
+    <option name="LAST_COMMIT_MESSAGE" value="wrote enums - enneagram, gender, linked accounts, mbti, philosophy, religions, zodiacs," />
   </component>
 </project>
