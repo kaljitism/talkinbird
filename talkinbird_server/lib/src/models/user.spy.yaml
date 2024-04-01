@@ -1,23 +1,24 @@
 class: User
+table: users
 fields:
   userName: String
   uuid: String
   name: String?
   email: String?
   phoneNumber: String?
-  linkedAccounts: List<String?>?
+  linkedAccounts: List<LinkedAccount?>?
   city: String?
-  state: String?
-  country: String?
-  dateOfBirth: String?
-  age: String?
-  gender: String?
+  country: Country?
+  dateOfBirth: DateTime?
+  age: int?
+  gender: Gender?
   bio: String?
   profilePicture: String?
-  mbti: String?
-  enneagram: String?
-  zodiac: String?
-  religion: String?
+  mbti: MBTI?
+  enneagram: Enneagram?
+  zodiac: Zodiac?
+  religion: Religion?
+  philosophicalBeliefs: Philosophy?
   politicalAffiliation: String?
   relationshipStatus: String?
   sexualOrientation: String?
@@ -42,12 +43,14 @@ fields:
   letterLength: String?
   letterFrequency: String?
   replyTime: String?
-  targetGender: List<String?>?
+  targetGender: List<Gender?>?
   targetAge: List<String?>?
-  targetMBTI: List<String?>?
-  targetEnneagram: List<String?>?
-  targetZodiac: List<String?>?
-  targetReligion: List<String?>?
+  targetCountry: List<Country?>?
+  targetMBTI: List<MBTI?>?
+  targetEnneagram: List<Enneagram?>?
+  targetZodiac: List<Zodiac?>?
+  targetReligion: List<Religion?>?
+  targetPhilosophicalBeliefs: List<Philosophy?>?
   targetPoliticalAffiliation: List<String?>?
   targetRelationshipStatus: List<String?>?
   targetSexualOrientation: List<String?>?
@@ -72,12 +75,14 @@ fields:
   targetLetterLength: List<String?>?
   targetLetterFrequency: List<String?>?
   targetReplyTime: List<String?>?
-  excludeGender: List<String?>?
+  excludeGender: List<Gender?>?
   excludeAge: List<String?>?
-  excludeMBTI: List<String?>?
-  excludeEnneagram: List<String?>?
-  excludeZodiac: List<String?>?
-  excludeReligion: List<String?>?
+  excludeCountry: List<Country?>?
+  excludeMBTI: List<MBTI?>?
+  excludeEnneagram: List<Enneagram?>?
+  excludeZodiac: List<Zodiac?>?
+  excludeReligion: List<Religion?>?
+  excludePhilosophicalBeliefs: List<Philosophy?>?
   excludePoliticalAffiliation: List<String?>?
   excludeRelationshipStatus: List<String?>?
   excludeSexualOrientation: List<String?>?

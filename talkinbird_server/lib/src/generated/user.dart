@@ -1,3 +1,6 @@
+/* AUTOMATICALLY GENERATED CODE DO NOT MODIFY */
+/*   To generate run: "serverpod generate"    */
+
 // ignore_for_file: library_private_types_in_public_api
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: implementation_imports
@@ -6,10 +9,12 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:serverpod/serverpod.dart' as _i1;
+import 'protocol.dart' as _i2;
 import 'package:serverpod_serialization/serverpod_serialization.dart';
 
-abstract class User extends _i1.SerializableEntity {
+abstract class User extends _i1.TableRow {
   User._({
+    int? id,
     required this.userName,
     required this.uuid,
     this.name,
@@ -17,7 +22,6 @@ abstract class User extends _i1.SerializableEntity {
     this.phoneNumber,
     this.linkedAccounts,
     this.city,
-    this.state,
     this.country,
     this.dateOfBirth,
     this.age,
@@ -28,6 +32,7 @@ abstract class User extends _i1.SerializableEntity {
     this.enneagram,
     this.zodiac,
     this.religion,
+    this.philosophicalBeliefs,
     this.politicalAffiliation,
     this.relationshipStatus,
     this.sexualOrientation,
@@ -54,10 +59,12 @@ abstract class User extends _i1.SerializableEntity {
     this.replyTime,
     this.targetGender,
     this.targetAge,
+    this.targetCountry,
     this.targetMBTI,
     this.targetEnneagram,
     this.targetZodiac,
     this.targetReligion,
+    this.targetPhilosophicalBeliefs,
     this.targetPoliticalAffiliation,
     this.targetRelationshipStatus,
     this.targetSexualOrientation,
@@ -84,10 +91,12 @@ abstract class User extends _i1.SerializableEntity {
     this.targetReplyTime,
     this.excludeGender,
     this.excludeAge,
+    this.excludeCountry,
     this.excludeMBTI,
     this.excludeEnneagram,
     this.excludeZodiac,
     this.excludeReligion,
+    this.excludePhilosophicalBeliefs,
     this.excludePoliticalAffiliation,
     this.excludeRelationshipStatus,
     this.excludeSexualOrientation,
@@ -112,27 +121,28 @@ abstract class User extends _i1.SerializableEntity {
     this.excludeLetterLength,
     this.excludeLetterFrequency,
     this.excludeReplyTime,
-  });
+  }) : super(id);
 
   factory User({
+    int? id,
     required String userName,
     required String uuid,
     String? name,
     String? email,
     String? phoneNumber,
-    List<String?>? linkedAccounts,
+    List<_i2.LinkedAccount?>? linkedAccounts,
     String? city,
-    String? state,
-    String? country,
-    String? dateOfBirth,
-    String? age,
-    String? gender,
+    _i2.Country? country,
+    DateTime? dateOfBirth,
+    int? age,
+    _i2.Gender? gender,
     String? bio,
     String? profilePicture,
-    String? mbti,
-    String? enneagram,
-    String? zodiac,
-    String? religion,
+    _i2.MBTI? mbti,
+    _i2.Enneagram? enneagram,
+    _i2.Zodiac? zodiac,
+    _i2.Religion? religion,
+    _i2.Philosophy? philosophicalBeliefs,
     String? politicalAffiliation,
     String? relationshipStatus,
     String? sexualOrientation,
@@ -157,12 +167,14 @@ abstract class User extends _i1.SerializableEntity {
     String? letterLength,
     String? letterFrequency,
     String? replyTime,
-    List<String?>? targetGender,
+    List<_i2.Gender?>? targetGender,
     List<String?>? targetAge,
-    List<String?>? targetMBTI,
-    List<String?>? targetEnneagram,
-    List<String?>? targetZodiac,
-    List<String?>? targetReligion,
+    List<_i2.Country?>? targetCountry,
+    List<_i2.MBTI?>? targetMBTI,
+    List<_i2.Enneagram?>? targetEnneagram,
+    List<_i2.Zodiac?>? targetZodiac,
+    List<_i2.Religion?>? targetReligion,
+    List<_i2.Philosophy?>? targetPhilosophicalBeliefs,
     List<String?>? targetPoliticalAffiliation,
     List<String?>? targetRelationshipStatus,
     List<String?>? targetSexualOrientation,
@@ -187,12 +199,14 @@ abstract class User extends _i1.SerializableEntity {
     List<String?>? targetLetterLength,
     List<String?>? targetLetterFrequency,
     List<String?>? targetReplyTime,
-    List<String?>? excludeGender,
+    List<_i2.Gender?>? excludeGender,
     List<String?>? excludeAge,
-    List<String?>? excludeMBTI,
-    List<String?>? excludeEnneagram,
-    List<String?>? excludeZodiac,
-    List<String?>? excludeReligion,
+    List<_i2.Country?>? excludeCountry,
+    List<_i2.MBTI?>? excludeMBTI,
+    List<_i2.Enneagram?>? excludeEnneagram,
+    List<_i2.Zodiac?>? excludeZodiac,
+    List<_i2.Religion?>? excludeReligion,
+    List<_i2.Philosophy?>? excludePhilosophicalBeliefs,
     List<String?>? excludePoliticalAffiliation,
     List<String?>? excludeRelationshipStatus,
     List<String?>? excludeSexualOrientation,
@@ -224,6 +238,7 @@ abstract class User extends _i1.SerializableEntity {
     _i1.SerializationManager serializationManager,
   ) {
     return User(
+      id: serializationManager.deserialize<int?>(jsonSerialization['id']),
       userName: serializationManager
           .deserialize<String>(jsonSerialization['userName']),
       uuid: serializationManager.deserialize<String>(jsonSerialization['uuid']),
@@ -233,30 +248,31 @@ abstract class User extends _i1.SerializableEntity {
           serializationManager.deserialize<String?>(jsonSerialization['email']),
       phoneNumber: serializationManager
           .deserialize<String?>(jsonSerialization['phoneNumber']),
-      linkedAccounts: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['linkedAccounts']),
+      linkedAccounts:
+          serializationManager.deserialize<List<_i2.LinkedAccount?>?>(
+              jsonSerialization['linkedAccounts']),
       city:
           serializationManager.deserialize<String?>(jsonSerialization['city']),
-      state:
-          serializationManager.deserialize<String?>(jsonSerialization['state']),
       country: serializationManager
-          .deserialize<String?>(jsonSerialization['country']),
+          .deserialize<_i2.Country?>(jsonSerialization['country']),
       dateOfBirth: serializationManager
-          .deserialize<String?>(jsonSerialization['dateOfBirth']),
-      age: serializationManager.deserialize<String?>(jsonSerialization['age']),
+          .deserialize<DateTime?>(jsonSerialization['dateOfBirth']),
+      age: serializationManager.deserialize<int?>(jsonSerialization['age']),
       gender: serializationManager
-          .deserialize<String?>(jsonSerialization['gender']),
+          .deserialize<_i2.Gender?>(jsonSerialization['gender']),
       bio: serializationManager.deserialize<String?>(jsonSerialization['bio']),
       profilePicture: serializationManager
           .deserialize<String?>(jsonSerialization['profilePicture']),
-      mbti:
-          serializationManager.deserialize<String?>(jsonSerialization['mbti']),
+      mbti: serializationManager
+          .deserialize<_i2.MBTI?>(jsonSerialization['mbti']),
       enneagram: serializationManager
-          .deserialize<String?>(jsonSerialization['enneagram']),
+          .deserialize<_i2.Enneagram?>(jsonSerialization['enneagram']),
       zodiac: serializationManager
-          .deserialize<String?>(jsonSerialization['zodiac']),
+          .deserialize<_i2.Zodiac?>(jsonSerialization['zodiac']),
       religion: serializationManager
-          .deserialize<String?>(jsonSerialization['religion']),
+          .deserialize<_i2.Religion?>(jsonSerialization['religion']),
+      philosophicalBeliefs: serializationManager.deserialize<_i2.Philosophy?>(
+          jsonSerialization['philosophicalBeliefs']),
       politicalAffiliation: serializationManager
           .deserialize<String?>(jsonSerialization['politicalAffiliation']),
       relationshipStatus: serializationManager
@@ -306,17 +322,22 @@ abstract class User extends _i1.SerializableEntity {
       replyTime: serializationManager
           .deserialize<String?>(jsonSerialization['replyTime']),
       targetGender: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['targetGender']),
+          .deserialize<List<_i2.Gender?>?>(jsonSerialization['targetGender']),
       targetAge: serializationManager
           .deserialize<List<String?>?>(jsonSerialization['targetAge']),
+      targetCountry: serializationManager
+          .deserialize<List<_i2.Country?>?>(jsonSerialization['targetCountry']),
       targetMBTI: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['targetMBTI']),
-      targetEnneagram: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['targetEnneagram']),
+          .deserialize<List<_i2.MBTI?>?>(jsonSerialization['targetMBTI']),
+      targetEnneagram: serializationManager.deserialize<List<_i2.Enneagram?>?>(
+          jsonSerialization['targetEnneagram']),
       targetZodiac: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['targetZodiac']),
-      targetReligion: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['targetReligion']),
+          .deserialize<List<_i2.Zodiac?>?>(jsonSerialization['targetZodiac']),
+      targetReligion: serializationManager.deserialize<List<_i2.Religion?>?>(
+          jsonSerialization['targetReligion']),
+      targetPhilosophicalBeliefs:
+          serializationManager.deserialize<List<_i2.Philosophy?>?>(
+              jsonSerialization['targetPhilosophicalBeliefs']),
       targetPoliticalAffiliation:
           serializationManager.deserialize<List<String?>?>(
               jsonSerialization['targetPoliticalAffiliation']),
@@ -368,17 +389,22 @@ abstract class User extends _i1.SerializableEntity {
       targetReplyTime: serializationManager
           .deserialize<List<String?>?>(jsonSerialization['targetReplyTime']),
       excludeGender: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['excludeGender']),
+          .deserialize<List<_i2.Gender?>?>(jsonSerialization['excludeGender']),
       excludeAge: serializationManager
           .deserialize<List<String?>?>(jsonSerialization['excludeAge']),
+      excludeCountry: serializationManager.deserialize<List<_i2.Country?>?>(
+          jsonSerialization['excludeCountry']),
       excludeMBTI: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['excludeMBTI']),
-      excludeEnneagram: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['excludeEnneagram']),
+          .deserialize<List<_i2.MBTI?>?>(jsonSerialization['excludeMBTI']),
+      excludeEnneagram: serializationManager.deserialize<List<_i2.Enneagram?>?>(
+          jsonSerialization['excludeEnneagram']),
       excludeZodiac: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['excludeZodiac']),
-      excludeReligion: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['excludeReligion']),
+          .deserialize<List<_i2.Zodiac?>?>(jsonSerialization['excludeZodiac']),
+      excludeReligion: serializationManager.deserialize<List<_i2.Religion?>?>(
+          jsonSerialization['excludeReligion']),
+      excludePhilosophicalBeliefs:
+          serializationManager.deserialize<List<_i2.Philosophy?>?>(
+              jsonSerialization['excludePhilosophicalBeliefs']),
       excludePoliticalAffiliation:
           serializationManager.deserialize<List<String?>?>(
               jsonSerialization['excludePoliticalAffiliation']),
@@ -433,6 +459,10 @@ abstract class User extends _i1.SerializableEntity {
     );
   }
 
+  static final t = UserTable();
+
+  static const db = UserRepository._();
+
   String userName;
 
   String uuid;
@@ -443,31 +473,31 @@ abstract class User extends _i1.SerializableEntity {
 
   String? phoneNumber;
 
-  List<String?>? linkedAccounts;
+  List<_i2.LinkedAccount?>? linkedAccounts;
 
   String? city;
 
-  String? state;
+  _i2.Country? country;
 
-  String? country;
+  DateTime? dateOfBirth;
 
-  String? dateOfBirth;
+  int? age;
 
-  String? age;
-
-  String? gender;
+  _i2.Gender? gender;
 
   String? bio;
 
   String? profilePicture;
 
-  String? mbti;
+  _i2.MBTI? mbti;
 
-  String? enneagram;
+  _i2.Enneagram? enneagram;
 
-  String? zodiac;
+  _i2.Zodiac? zodiac;
 
-  String? religion;
+  _i2.Religion? religion;
+
+  _i2.Philosophy? philosophicalBeliefs;
 
   String? politicalAffiliation;
 
@@ -517,17 +547,21 @@ abstract class User extends _i1.SerializableEntity {
 
   String? replyTime;
 
-  List<String?>? targetGender;
+  List<_i2.Gender?>? targetGender;
 
   List<String?>? targetAge;
 
-  List<String?>? targetMBTI;
+  List<_i2.Country?>? targetCountry;
 
-  List<String?>? targetEnneagram;
+  List<_i2.MBTI?>? targetMBTI;
 
-  List<String?>? targetZodiac;
+  List<_i2.Enneagram?>? targetEnneagram;
 
-  List<String?>? targetReligion;
+  List<_i2.Zodiac?>? targetZodiac;
+
+  List<_i2.Religion?>? targetReligion;
+
+  List<_i2.Philosophy?>? targetPhilosophicalBeliefs;
 
   List<String?>? targetPoliticalAffiliation;
 
@@ -577,17 +611,21 @@ abstract class User extends _i1.SerializableEntity {
 
   List<String?>? targetReplyTime;
 
-  List<String?>? excludeGender;
+  List<_i2.Gender?>? excludeGender;
 
   List<String?>? excludeAge;
 
-  List<String?>? excludeMBTI;
+  List<_i2.Country?>? excludeCountry;
 
-  List<String?>? excludeEnneagram;
+  List<_i2.MBTI?>? excludeMBTI;
 
-  List<String?>? excludeZodiac;
+  List<_i2.Enneagram?>? excludeEnneagram;
 
-  List<String?>? excludeReligion;
+  List<_i2.Zodiac?>? excludeZodiac;
+
+  List<_i2.Religion?>? excludeReligion;
+
+  List<_i2.Philosophy?>? excludePhilosophicalBeliefs;
 
   List<String?>? excludePoliticalAffiliation;
 
@@ -637,25 +675,29 @@ abstract class User extends _i1.SerializableEntity {
 
   List<String?>? excludeReplyTime;
 
+  @override
+  _i1.Table get table => t;
+
   User copyWith({
+    int? id,
     String? userName,
     String? uuid,
     String? name,
     String? email,
     String? phoneNumber,
-    List<String?>? linkedAccounts,
+    List<_i2.LinkedAccount?>? linkedAccounts,
     String? city,
-    String? state,
-    String? country,
-    String? dateOfBirth,
-    String? age,
-    String? gender,
+    _i2.Country? country,
+    DateTime? dateOfBirth,
+    int? age,
+    _i2.Gender? gender,
     String? bio,
     String? profilePicture,
-    String? mbti,
-    String? enneagram,
-    String? zodiac,
-    String? religion,
+    _i2.MBTI? mbti,
+    _i2.Enneagram? enneagram,
+    _i2.Zodiac? zodiac,
+    _i2.Religion? religion,
+    _i2.Philosophy? philosophicalBeliefs,
     String? politicalAffiliation,
     String? relationshipStatus,
     String? sexualOrientation,
@@ -680,12 +722,14 @@ abstract class User extends _i1.SerializableEntity {
     String? letterLength,
     String? letterFrequency,
     String? replyTime,
-    List<String?>? targetGender,
+    List<_i2.Gender?>? targetGender,
     List<String?>? targetAge,
-    List<String?>? targetMBTI,
-    List<String?>? targetEnneagram,
-    List<String?>? targetZodiac,
-    List<String?>? targetReligion,
+    List<_i2.Country?>? targetCountry,
+    List<_i2.MBTI?>? targetMBTI,
+    List<_i2.Enneagram?>? targetEnneagram,
+    List<_i2.Zodiac?>? targetZodiac,
+    List<_i2.Religion?>? targetReligion,
+    List<_i2.Philosophy?>? targetPhilosophicalBeliefs,
     List<String?>? targetPoliticalAffiliation,
     List<String?>? targetRelationshipStatus,
     List<String?>? targetSexualOrientation,
@@ -710,12 +754,14 @@ abstract class User extends _i1.SerializableEntity {
     List<String?>? targetLetterLength,
     List<String?>? targetLetterFrequency,
     List<String?>? targetReplyTime,
-    List<String?>? excludeGender,
+    List<_i2.Gender?>? excludeGender,
     List<String?>? excludeAge,
-    List<String?>? excludeMBTI,
-    List<String?>? excludeEnneagram,
-    List<String?>? excludeZodiac,
-    List<String?>? excludeReligion,
+    List<_i2.Country?>? excludeCountry,
+    List<_i2.MBTI?>? excludeMBTI,
+    List<_i2.Enneagram?>? excludeEnneagram,
+    List<_i2.Zodiac?>? excludeZodiac,
+    List<_i2.Religion?>? excludeReligion,
+    List<_i2.Philosophy?>? excludePhilosophicalBeliefs,
     List<String?>? excludePoliticalAffiliation,
     List<String?>? excludeRelationshipStatus,
     List<String?>? excludeSexualOrientation,
@@ -744,24 +790,28 @@ abstract class User extends _i1.SerializableEntity {
   @override
   Map<String, dynamic> toJson() {
     return {
+      if (id != null) 'id': id,
       'userName': userName,
       'uuid': uuid,
       if (name != null) 'name': name,
       if (email != null) 'email': email,
       if (phoneNumber != null) 'phoneNumber': phoneNumber,
-      if (linkedAccounts != null) 'linkedAccounts': linkedAccounts?.toJson(),
+      if (linkedAccounts != null)
+        'linkedAccounts':
+            linkedAccounts?.toJson(valueToJson: (v) => v?.toJson()),
       if (city != null) 'city': city,
-      if (state != null) 'state': state,
-      if (country != null) 'country': country,
-      if (dateOfBirth != null) 'dateOfBirth': dateOfBirth,
+      if (country != null) 'country': country?.toJson(),
+      if (dateOfBirth != null) 'dateOfBirth': dateOfBirth?.toJson(),
       if (age != null) 'age': age,
-      if (gender != null) 'gender': gender,
+      if (gender != null) 'gender': gender?.toJson(),
       if (bio != null) 'bio': bio,
       if (profilePicture != null) 'profilePicture': profilePicture,
-      if (mbti != null) 'mbti': mbti,
-      if (enneagram != null) 'enneagram': enneagram,
-      if (zodiac != null) 'zodiac': zodiac,
-      if (religion != null) 'religion': religion,
+      if (mbti != null) 'mbti': mbti?.toJson(),
+      if (enneagram != null) 'enneagram': enneagram?.toJson(),
+      if (zodiac != null) 'zodiac': zodiac?.toJson(),
+      if (religion != null) 'religion': religion?.toJson(),
+      if (philosophicalBeliefs != null)
+        'philosophicalBeliefs': philosophicalBeliefs?.toJson(),
       if (politicalAffiliation != null)
         'politicalAffiliation': politicalAffiliation,
       if (relationshipStatus != null) 'relationshipStatus': relationshipStatus,
@@ -788,12 +838,24 @@ abstract class User extends _i1.SerializableEntity {
       if (letterLength != null) 'letterLength': letterLength,
       if (letterFrequency != null) 'letterFrequency': letterFrequency,
       if (replyTime != null) 'replyTime': replyTime,
-      if (targetGender != null) 'targetGender': targetGender?.toJson(),
+      if (targetGender != null)
+        'targetGender': targetGender?.toJson(valueToJson: (v) => v?.toJson()),
       if (targetAge != null) 'targetAge': targetAge?.toJson(),
-      if (targetMBTI != null) 'targetMBTI': targetMBTI?.toJson(),
-      if (targetEnneagram != null) 'targetEnneagram': targetEnneagram?.toJson(),
-      if (targetZodiac != null) 'targetZodiac': targetZodiac?.toJson(),
-      if (targetReligion != null) 'targetReligion': targetReligion?.toJson(),
+      if (targetCountry != null)
+        'targetCountry': targetCountry?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetMBTI != null)
+        'targetMBTI': targetMBTI?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetEnneagram != null)
+        'targetEnneagram':
+            targetEnneagram?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetZodiac != null)
+        'targetZodiac': targetZodiac?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetReligion != null)
+        'targetReligion':
+            targetReligion?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetPhilosophicalBeliefs != null)
+        'targetPhilosophicalBeliefs':
+            targetPhilosophicalBeliefs?.toJson(valueToJson: (v) => v?.toJson()),
       if (targetPoliticalAffiliation != null)
         'targetPoliticalAffiliation': targetPoliticalAffiliation?.toJson(),
       if (targetRelationshipStatus != null)
@@ -824,13 +886,25 @@ abstract class User extends _i1.SerializableEntity {
       if (targetLetterFrequency != null)
         'targetLetterFrequency': targetLetterFrequency?.toJson(),
       if (targetReplyTime != null) 'targetReplyTime': targetReplyTime?.toJson(),
-      if (excludeGender != null) 'excludeGender': excludeGender?.toJson(),
+      if (excludeGender != null)
+        'excludeGender': excludeGender?.toJson(valueToJson: (v) => v?.toJson()),
       if (excludeAge != null) 'excludeAge': excludeAge?.toJson(),
-      if (excludeMBTI != null) 'excludeMBTI': excludeMBTI?.toJson(),
+      if (excludeCountry != null)
+        'excludeCountry':
+            excludeCountry?.toJson(valueToJson: (v) => v?.toJson()),
+      if (excludeMBTI != null)
+        'excludeMBTI': excludeMBTI?.toJson(valueToJson: (v) => v?.toJson()),
       if (excludeEnneagram != null)
-        'excludeEnneagram': excludeEnneagram?.toJson(),
-      if (excludeZodiac != null) 'excludeZodiac': excludeZodiac?.toJson(),
-      if (excludeReligion != null) 'excludeReligion': excludeReligion?.toJson(),
+        'excludeEnneagram':
+            excludeEnneagram?.toJson(valueToJson: (v) => v?.toJson()),
+      if (excludeZodiac != null)
+        'excludeZodiac': excludeZodiac?.toJson(valueToJson: (v) => v?.toJson()),
+      if (excludeReligion != null)
+        'excludeReligion':
+            excludeReligion?.toJson(valueToJson: (v) => v?.toJson()),
+      if (excludePhilosophicalBeliefs != null)
+        'excludePhilosophicalBeliefs': excludePhilosophicalBeliefs?.toJson(
+            valueToJson: (v) => v?.toJson()),
       if (excludePoliticalAffiliation != null)
         'excludePoliticalAffiliation': excludePoliticalAffiliation?.toJson(),
       if (excludeRelationshipStatus != null)
@@ -869,26 +943,144 @@ abstract class User extends _i1.SerializableEntity {
   }
 
   @override
+  @Deprecated('Will be removed in 2.0.0')
+  Map<String, dynamic> toJsonForDatabase() {
+    return {
+      'id': id,
+      'userName': userName,
+      'uuid': uuid,
+      'name': name,
+      'email': email,
+      'phoneNumber': phoneNumber,
+      'linkedAccounts': linkedAccounts,
+      'city': city,
+      'country': country,
+      'dateOfBirth': dateOfBirth,
+      'age': age,
+      'gender': gender,
+      'bio': bio,
+      'profilePicture': profilePicture,
+      'mbti': mbti,
+      'enneagram': enneagram,
+      'zodiac': zodiac,
+      'religion': religion,
+      'philosophicalBeliefs': philosophicalBeliefs,
+      'politicalAffiliation': politicalAffiliation,
+      'relationshipStatus': relationshipStatus,
+      'sexualOrientation': sexualOrientation,
+      'education': education,
+      'work': work,
+      'interests': interests,
+      'hobbies': hobbies,
+      'languages': languages,
+      'skills': skills,
+      'music': music,
+      'movies': movies,
+      'tvShows': tvShows,
+      'books': books,
+      'podcasts': podcasts,
+      'games': games,
+      'sports': sports,
+      'places': places,
+      'foods': foods,
+      'drinks': drinks,
+      'animals': animals,
+      'countriesVisited': countriesVisited,
+      'letterLength': letterLength,
+      'letterFrequency': letterFrequency,
+      'replyTime': replyTime,
+      'targetGender': targetGender,
+      'targetAge': targetAge,
+      'targetCountry': targetCountry,
+      'targetMBTI': targetMBTI,
+      'targetEnneagram': targetEnneagram,
+      'targetZodiac': targetZodiac,
+      'targetReligion': targetReligion,
+      'targetPhilosophicalBeliefs': targetPhilosophicalBeliefs,
+      'targetPoliticalAffiliation': targetPoliticalAffiliation,
+      'targetRelationshipStatus': targetRelationshipStatus,
+      'targetSexualOrientation': targetSexualOrientation,
+      'targetEducation': targetEducation,
+      'targetWork': targetWork,
+      'targetInterests': targetInterests,
+      'targetHobbies': targetHobbies,
+      'targetLanguages': targetLanguages,
+      'targetSkills': targetSkills,
+      'targetMusic': targetMusic,
+      'targetMovies': targetMovies,
+      'targetTVShows': targetTVShows,
+      'targetBooks': targetBooks,
+      'targetPodcasts': targetPodcasts,
+      'targetGames': targetGames,
+      'targetSports': targetSports,
+      'targetPlaces': targetPlaces,
+      'targetFoods': targetFoods,
+      'targetDrinks': targetDrinks,
+      'targetAnimals': targetAnimals,
+      'targetCountriesVisited': targetCountriesVisited,
+      'targetLetterLength': targetLetterLength,
+      'targetLetterFrequency': targetLetterFrequency,
+      'targetReplyTime': targetReplyTime,
+      'excludeGender': excludeGender,
+      'excludeAge': excludeAge,
+      'excludeCountry': excludeCountry,
+      'excludeMBTI': excludeMBTI,
+      'excludeEnneagram': excludeEnneagram,
+      'excludeZodiac': excludeZodiac,
+      'excludeReligion': excludeReligion,
+      'excludePhilosophicalBeliefs': excludePhilosophicalBeliefs,
+      'excludePoliticalAffiliation': excludePoliticalAffiliation,
+      'excludeRelationshipStatus': excludeRelationshipStatus,
+      'excludeSexualOrientation': excludeSexualOrientation,
+      'excludeEducation': excludeEducation,
+      'excludeWork': excludeWork,
+      'excludeInterests': excludeInterests,
+      'excludeHobbies': excludeHobbies,
+      'excludeLanguages': excludeLanguages,
+      'excludeSkills': excludeSkills,
+      'excludeMusic': excludeMusic,
+      'excludeMovies': excludeMovies,
+      'excludeTVShows': excludeTVShows,
+      'excludeBooks': excludeBooks,
+      'excludePodcasts': excludePodcasts,
+      'excludeGames': excludeGames,
+      'excludeSports': excludeSports,
+      'excludePlaces': excludePlaces,
+      'excludeFoods': excludeFoods,
+      'excludeDrinks': excludeDrinks,
+      'excludeAnimals': excludeAnimals,
+      'excludeCountriesVisited': excludeCountriesVisited,
+      'excludeLetterLength': excludeLetterLength,
+      'excludeLetterFrequency': excludeLetterFrequency,
+      'excludeReplyTime': excludeReplyTime,
+    };
+  }
+
+  @override
   Map<String, dynamic> allToJson() {
     return {
+      if (id != null) 'id': id,
       'userName': userName,
       'uuid': uuid,
       if (name != null) 'name': name,
       if (email != null) 'email': email,
       if (phoneNumber != null) 'phoneNumber': phoneNumber,
-      if (linkedAccounts != null) 'linkedAccounts': linkedAccounts?.toJson(),
+      if (linkedAccounts != null)
+        'linkedAccounts':
+            linkedAccounts?.toJson(valueToJson: (v) => v?.toJson()),
       if (city != null) 'city': city,
-      if (state != null) 'state': state,
-      if (country != null) 'country': country,
-      if (dateOfBirth != null) 'dateOfBirth': dateOfBirth,
+      if (country != null) 'country': country?.toJson(),
+      if (dateOfBirth != null) 'dateOfBirth': dateOfBirth?.toJson(),
       if (age != null) 'age': age,
-      if (gender != null) 'gender': gender,
+      if (gender != null) 'gender': gender?.toJson(),
       if (bio != null) 'bio': bio,
       if (profilePicture != null) 'profilePicture': profilePicture,
-      if (mbti != null) 'mbti': mbti,
-      if (enneagram != null) 'enneagram': enneagram,
-      if (zodiac != null) 'zodiac': zodiac,
-      if (religion != null) 'religion': religion,
+      if (mbti != null) 'mbti': mbti?.toJson(),
+      if (enneagram != null) 'enneagram': enneagram?.toJson(),
+      if (zodiac != null) 'zodiac': zodiac?.toJson(),
+      if (religion != null) 'religion': religion?.toJson(),
+      if (philosophicalBeliefs != null)
+        'philosophicalBeliefs': philosophicalBeliefs?.toJson(),
       if (politicalAffiliation != null)
         'politicalAffiliation': politicalAffiliation,
       if (relationshipStatus != null) 'relationshipStatus': relationshipStatus,
@@ -915,12 +1107,24 @@ abstract class User extends _i1.SerializableEntity {
       if (letterLength != null) 'letterLength': letterLength,
       if (letterFrequency != null) 'letterFrequency': letterFrequency,
       if (replyTime != null) 'replyTime': replyTime,
-      if (targetGender != null) 'targetGender': targetGender?.toJson(),
+      if (targetGender != null)
+        'targetGender': targetGender?.toJson(valueToJson: (v) => v?.toJson()),
       if (targetAge != null) 'targetAge': targetAge?.toJson(),
-      if (targetMBTI != null) 'targetMBTI': targetMBTI?.toJson(),
-      if (targetEnneagram != null) 'targetEnneagram': targetEnneagram?.toJson(),
-      if (targetZodiac != null) 'targetZodiac': targetZodiac?.toJson(),
-      if (targetReligion != null) 'targetReligion': targetReligion?.toJson(),
+      if (targetCountry != null)
+        'targetCountry': targetCountry?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetMBTI != null)
+        'targetMBTI': targetMBTI?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetEnneagram != null)
+        'targetEnneagram':
+            targetEnneagram?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetZodiac != null)
+        'targetZodiac': targetZodiac?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetReligion != null)
+        'targetReligion':
+            targetReligion?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetPhilosophicalBeliefs != null)
+        'targetPhilosophicalBeliefs':
+            targetPhilosophicalBeliefs?.toJson(valueToJson: (v) => v?.toJson()),
       if (targetPoliticalAffiliation != null)
         'targetPoliticalAffiliation': targetPoliticalAffiliation?.toJson(),
       if (targetRelationshipStatus != null)
@@ -951,13 +1155,25 @@ abstract class User extends _i1.SerializableEntity {
       if (targetLetterFrequency != null)
         'targetLetterFrequency': targetLetterFrequency?.toJson(),
       if (targetReplyTime != null) 'targetReplyTime': targetReplyTime?.toJson(),
-      if (excludeGender != null) 'excludeGender': excludeGender?.toJson(),
+      if (excludeGender != null)
+        'excludeGender': excludeGender?.toJson(valueToJson: (v) => v?.toJson()),
       if (excludeAge != null) 'excludeAge': excludeAge?.toJson(),
-      if (excludeMBTI != null) 'excludeMBTI': excludeMBTI?.toJson(),
+      if (excludeCountry != null)
+        'excludeCountry':
+            excludeCountry?.toJson(valueToJson: (v) => v?.toJson()),
+      if (excludeMBTI != null)
+        'excludeMBTI': excludeMBTI?.toJson(valueToJson: (v) => v?.toJson()),
       if (excludeEnneagram != null)
-        'excludeEnneagram': excludeEnneagram?.toJson(),
-      if (excludeZodiac != null) 'excludeZodiac': excludeZodiac?.toJson(),
-      if (excludeReligion != null) 'excludeReligion': excludeReligion?.toJson(),
+        'excludeEnneagram':
+            excludeEnneagram?.toJson(valueToJson: (v) => v?.toJson()),
+      if (excludeZodiac != null)
+        'excludeZodiac': excludeZodiac?.toJson(valueToJson: (v) => v?.toJson()),
+      if (excludeReligion != null)
+        'excludeReligion':
+            excludeReligion?.toJson(valueToJson: (v) => v?.toJson()),
+      if (excludePhilosophicalBeliefs != null)
+        'excludePhilosophicalBeliefs': excludePhilosophicalBeliefs?.toJson(
+            valueToJson: (v) => v?.toJson()),
       if (excludePoliticalAffiliation != null)
         'excludePoliticalAffiliation': excludePoliticalAffiliation?.toJson(),
       if (excludeRelationshipStatus != null)
@@ -994,30 +1210,505 @@ abstract class User extends _i1.SerializableEntity {
         'excludeReplyTime': excludeReplyTime?.toJson(),
     };
   }
+
+  @override
+  @Deprecated('Will be removed in 2.0.0')
+  void setColumn(
+    String columnName,
+    value,
+  ) {
+    switch (columnName) {
+      case 'id':
+        id = value;
+        return;
+      case 'userName':
+        userName = value;
+        return;
+      case 'uuid':
+        uuid = value;
+        return;
+      case 'name':
+        name = value;
+        return;
+      case 'email':
+        email = value;
+        return;
+      case 'phoneNumber':
+        phoneNumber = value;
+        return;
+      case 'linkedAccounts':
+        linkedAccounts = value;
+        return;
+      case 'city':
+        city = value;
+        return;
+      case 'country':
+        country = value;
+        return;
+      case 'dateOfBirth':
+        dateOfBirth = value;
+        return;
+      case 'age':
+        age = value;
+        return;
+      case 'gender':
+        gender = value;
+        return;
+      case 'bio':
+        bio = value;
+        return;
+      case 'profilePicture':
+        profilePicture = value;
+        return;
+      case 'mbti':
+        mbti = value;
+        return;
+      case 'enneagram':
+        enneagram = value;
+        return;
+      case 'zodiac':
+        zodiac = value;
+        return;
+      case 'religion':
+        religion = value;
+        return;
+      case 'philosophicalBeliefs':
+        philosophicalBeliefs = value;
+        return;
+      case 'politicalAffiliation':
+        politicalAffiliation = value;
+        return;
+      case 'relationshipStatus':
+        relationshipStatus = value;
+        return;
+      case 'sexualOrientation':
+        sexualOrientation = value;
+        return;
+      case 'education':
+        education = value;
+        return;
+      case 'work':
+        work = value;
+        return;
+      case 'interests':
+        interests = value;
+        return;
+      case 'hobbies':
+        hobbies = value;
+        return;
+      case 'languages':
+        languages = value;
+        return;
+      case 'skills':
+        skills = value;
+        return;
+      case 'music':
+        music = value;
+        return;
+      case 'movies':
+        movies = value;
+        return;
+      case 'tvShows':
+        tvShows = value;
+        return;
+      case 'books':
+        books = value;
+        return;
+      case 'podcasts':
+        podcasts = value;
+        return;
+      case 'games':
+        games = value;
+        return;
+      case 'sports':
+        sports = value;
+        return;
+      case 'places':
+        places = value;
+        return;
+      case 'foods':
+        foods = value;
+        return;
+      case 'drinks':
+        drinks = value;
+        return;
+      case 'animals':
+        animals = value;
+        return;
+      case 'countriesVisited':
+        countriesVisited = value;
+        return;
+      case 'letterLength':
+        letterLength = value;
+        return;
+      case 'letterFrequency':
+        letterFrequency = value;
+        return;
+      case 'replyTime':
+        replyTime = value;
+        return;
+      case 'targetGender':
+        targetGender = value;
+        return;
+      case 'targetAge':
+        targetAge = value;
+        return;
+      case 'targetCountry':
+        targetCountry = value;
+        return;
+      case 'targetMBTI':
+        targetMBTI = value;
+        return;
+      case 'targetEnneagram':
+        targetEnneagram = value;
+        return;
+      case 'targetZodiac':
+        targetZodiac = value;
+        return;
+      case 'targetReligion':
+        targetReligion = value;
+        return;
+      case 'targetPhilosophicalBeliefs':
+        targetPhilosophicalBeliefs = value;
+        return;
+      case 'targetPoliticalAffiliation':
+        targetPoliticalAffiliation = value;
+        return;
+      case 'targetRelationshipStatus':
+        targetRelationshipStatus = value;
+        return;
+      case 'targetSexualOrientation':
+        targetSexualOrientation = value;
+        return;
+      case 'targetEducation':
+        targetEducation = value;
+        return;
+      case 'targetWork':
+        targetWork = value;
+        return;
+      case 'targetInterests':
+        targetInterests = value;
+        return;
+      case 'targetHobbies':
+        targetHobbies = value;
+        return;
+      case 'targetLanguages':
+        targetLanguages = value;
+        return;
+      case 'targetSkills':
+        targetSkills = value;
+        return;
+      case 'targetMusic':
+        targetMusic = value;
+        return;
+      case 'targetMovies':
+        targetMovies = value;
+        return;
+      case 'targetTVShows':
+        targetTVShows = value;
+        return;
+      case 'targetBooks':
+        targetBooks = value;
+        return;
+      case 'targetPodcasts':
+        targetPodcasts = value;
+        return;
+      case 'targetGames':
+        targetGames = value;
+        return;
+      case 'targetSports':
+        targetSports = value;
+        return;
+      case 'targetPlaces':
+        targetPlaces = value;
+        return;
+      case 'targetFoods':
+        targetFoods = value;
+        return;
+      case 'targetDrinks':
+        targetDrinks = value;
+        return;
+      case 'targetAnimals':
+        targetAnimals = value;
+        return;
+      case 'targetCountriesVisited':
+        targetCountriesVisited = value;
+        return;
+      case 'targetLetterLength':
+        targetLetterLength = value;
+        return;
+      case 'targetLetterFrequency':
+        targetLetterFrequency = value;
+        return;
+      case 'targetReplyTime':
+        targetReplyTime = value;
+        return;
+      case 'excludeGender':
+        excludeGender = value;
+        return;
+      case 'excludeAge':
+        excludeAge = value;
+        return;
+      case 'excludeCountry':
+        excludeCountry = value;
+        return;
+      case 'excludeMBTI':
+        excludeMBTI = value;
+        return;
+      case 'excludeEnneagram':
+        excludeEnneagram = value;
+        return;
+      case 'excludeZodiac':
+        excludeZodiac = value;
+        return;
+      case 'excludeReligion':
+        excludeReligion = value;
+        return;
+      case 'excludePhilosophicalBeliefs':
+        excludePhilosophicalBeliefs = value;
+        return;
+      case 'excludePoliticalAffiliation':
+        excludePoliticalAffiliation = value;
+        return;
+      case 'excludeRelationshipStatus':
+        excludeRelationshipStatus = value;
+        return;
+      case 'excludeSexualOrientation':
+        excludeSexualOrientation = value;
+        return;
+      case 'excludeEducation':
+        excludeEducation = value;
+        return;
+      case 'excludeWork':
+        excludeWork = value;
+        return;
+      case 'excludeInterests':
+        excludeInterests = value;
+        return;
+      case 'excludeHobbies':
+        excludeHobbies = value;
+        return;
+      case 'excludeLanguages':
+        excludeLanguages = value;
+        return;
+      case 'excludeSkills':
+        excludeSkills = value;
+        return;
+      case 'excludeMusic':
+        excludeMusic = value;
+        return;
+      case 'excludeMovies':
+        excludeMovies = value;
+        return;
+      case 'excludeTVShows':
+        excludeTVShows = value;
+        return;
+      case 'excludeBooks':
+        excludeBooks = value;
+        return;
+      case 'excludePodcasts':
+        excludePodcasts = value;
+        return;
+      case 'excludeGames':
+        excludeGames = value;
+        return;
+      case 'excludeSports':
+        excludeSports = value;
+        return;
+      case 'excludePlaces':
+        excludePlaces = value;
+        return;
+      case 'excludeFoods':
+        excludeFoods = value;
+        return;
+      case 'excludeDrinks':
+        excludeDrinks = value;
+        return;
+      case 'excludeAnimals':
+        excludeAnimals = value;
+        return;
+      case 'excludeCountriesVisited':
+        excludeCountriesVisited = value;
+        return;
+      case 'excludeLetterLength':
+        excludeLetterLength = value;
+        return;
+      case 'excludeLetterFrequency':
+        excludeLetterFrequency = value;
+        return;
+      case 'excludeReplyTime':
+        excludeReplyTime = value;
+        return;
+      default:
+        throw UnimplementedError();
+    }
+  }
+
+  @Deprecated('Will be removed in 2.0.0. Use: db.find instead.')
+  static Future<List<User>> find(
+    _i1.Session session, {
+    _i1.WhereExpressionBuilder<UserTable>? where,
+    int? limit,
+    int? offset,
+    _i1.Column? orderBy,
+    List<_i1.Order>? orderByList,
+    bool orderDescending = false,
+    bool useCache = true,
+    _i1.Transaction? transaction,
+  }) async {
+    return session.db.find<User>(
+      where: where != null ? where(User.t) : null,
+      limit: limit,
+      offset: offset,
+      orderBy: orderBy,
+      orderByList: orderByList,
+      orderDescending: orderDescending,
+      useCache: useCache,
+      transaction: transaction,
+    );
+  }
+
+  @Deprecated('Will be removed in 2.0.0. Use: db.findRow instead.')
+  static Future<User?> findSingleRow(
+    _i1.Session session, {
+    _i1.WhereExpressionBuilder<UserTable>? where,
+    int? offset,
+    _i1.Column? orderBy,
+    bool orderDescending = false,
+    bool useCache = true,
+    _i1.Transaction? transaction,
+  }) async {
+    return session.db.findSingleRow<User>(
+      where: where != null ? where(User.t) : null,
+      offset: offset,
+      orderBy: orderBy,
+      orderDescending: orderDescending,
+      useCache: useCache,
+      transaction: transaction,
+    );
+  }
+
+  @Deprecated('Will be removed in 2.0.0. Use: db.findById instead.')
+  static Future<User?> findById(
+    _i1.Session session,
+    int id,
+  ) async {
+    return session.db.findById<User>(id);
+  }
+
+  @Deprecated('Will be removed in 2.0.0. Use: db.deleteWhere instead.')
+  static Future<int> delete(
+    _i1.Session session, {
+    required _i1.WhereExpressionBuilder<UserTable> where,
+    _i1.Transaction? transaction,
+  }) async {
+    return session.db.delete<User>(
+      where: where(User.t),
+      transaction: transaction,
+    );
+  }
+
+  @Deprecated('Will be removed in 2.0.0. Use: db.deleteRow instead.')
+  static Future<bool> deleteRow(
+    _i1.Session session,
+    User row, {
+    _i1.Transaction? transaction,
+  }) async {
+    return session.db.deleteRow(
+      row,
+      transaction: transaction,
+    );
+  }
+
+  @Deprecated('Will be removed in 2.0.0. Use: db.update instead.')
+  static Future<bool> update(
+    _i1.Session session,
+    User row, {
+    _i1.Transaction? transaction,
+  }) async {
+    return session.db.update(
+      row,
+      transaction: transaction,
+    );
+  }
+
+  @Deprecated(
+      'Will be removed in 2.0.0. Use: db.insert instead. Important note: In db.insert, the object you pass in is no longer modified, instead a new copy with the added row is returned which contains the inserted id.')
+  static Future<void> insert(
+    _i1.Session session,
+    User row, {
+    _i1.Transaction? transaction,
+  }) async {
+    return session.db.insert(
+      row,
+      transaction: transaction,
+    );
+  }
+
+  @Deprecated('Will be removed in 2.0.0. Use: db.count instead.')
+  static Future<int> count(
+    _i1.Session session, {
+    _i1.WhereExpressionBuilder<UserTable>? where,
+    int? limit,
+    bool useCache = true,
+    _i1.Transaction? transaction,
+  }) async {
+    return session.db.count<User>(
+      where: where != null ? where(User.t) : null,
+      limit: limit,
+      useCache: useCache,
+      transaction: transaction,
+    );
+  }
+
+  static UserInclude include() {
+    return UserInclude._();
+  }
+
+  static UserIncludeList includeList({
+    _i1.WhereExpressionBuilder<UserTable>? where,
+    int? limit,
+    int? offset,
+    _i1.OrderByBuilder<UserTable>? orderBy,
+    bool orderDescending = false,
+    _i1.OrderByListBuilder<UserTable>? orderByList,
+    UserInclude? include,
+  }) {
+    return UserIncludeList._(
+      where: where,
+      limit: limit,
+      offset: offset,
+      orderBy: orderBy?.call(User.t),
+      orderDescending: orderDescending,
+      orderByList: orderByList?.call(User.t),
+      include: include,
+    );
+  }
 }
 
 class _Undefined {}
 
 class _UserImpl extends User {
   _UserImpl({
+    int? id,
     required String userName,
     required String uuid,
     String? name,
     String? email,
     String? phoneNumber,
-    List<String?>? linkedAccounts,
+    List<_i2.LinkedAccount?>? linkedAccounts,
     String? city,
-    String? state,
-    String? country,
-    String? dateOfBirth,
-    String? age,
-    String? gender,
+    _i2.Country? country,
+    DateTime? dateOfBirth,
+    int? age,
+    _i2.Gender? gender,
     String? bio,
     String? profilePicture,
-    String? mbti,
-    String? enneagram,
-    String? zodiac,
-    String? religion,
+    _i2.MBTI? mbti,
+    _i2.Enneagram? enneagram,
+    _i2.Zodiac? zodiac,
+    _i2.Religion? religion,
+    _i2.Philosophy? philosophicalBeliefs,
     String? politicalAffiliation,
     String? relationshipStatus,
     String? sexualOrientation,
@@ -1042,12 +1733,14 @@ class _UserImpl extends User {
     String? letterLength,
     String? letterFrequency,
     String? replyTime,
-    List<String?>? targetGender,
+    List<_i2.Gender?>? targetGender,
     List<String?>? targetAge,
-    List<String?>? targetMBTI,
-    List<String?>? targetEnneagram,
-    List<String?>? targetZodiac,
-    List<String?>? targetReligion,
+    List<_i2.Country?>? targetCountry,
+    List<_i2.MBTI?>? targetMBTI,
+    List<_i2.Enneagram?>? targetEnneagram,
+    List<_i2.Zodiac?>? targetZodiac,
+    List<_i2.Religion?>? targetReligion,
+    List<_i2.Philosophy?>? targetPhilosophicalBeliefs,
     List<String?>? targetPoliticalAffiliation,
     List<String?>? targetRelationshipStatus,
     List<String?>? targetSexualOrientation,
@@ -1072,12 +1765,14 @@ class _UserImpl extends User {
     List<String?>? targetLetterLength,
     List<String?>? targetLetterFrequency,
     List<String?>? targetReplyTime,
-    List<String?>? excludeGender,
+    List<_i2.Gender?>? excludeGender,
     List<String?>? excludeAge,
-    List<String?>? excludeMBTI,
-    List<String?>? excludeEnneagram,
-    List<String?>? excludeZodiac,
-    List<String?>? excludeReligion,
+    List<_i2.Country?>? excludeCountry,
+    List<_i2.MBTI?>? excludeMBTI,
+    List<_i2.Enneagram?>? excludeEnneagram,
+    List<_i2.Zodiac?>? excludeZodiac,
+    List<_i2.Religion?>? excludeReligion,
+    List<_i2.Philosophy?>? excludePhilosophicalBeliefs,
     List<String?>? excludePoliticalAffiliation,
     List<String?>? excludeRelationshipStatus,
     List<String?>? excludeSexualOrientation,
@@ -1103,6 +1798,7 @@ class _UserImpl extends User {
     List<String?>? excludeLetterFrequency,
     List<String?>? excludeReplyTime,
   }) : super._(
+          id: id,
           userName: userName,
           uuid: uuid,
           name: name,
@@ -1110,7 +1806,6 @@ class _UserImpl extends User {
           phoneNumber: phoneNumber,
           linkedAccounts: linkedAccounts,
           city: city,
-          state: state,
           country: country,
           dateOfBirth: dateOfBirth,
           age: age,
@@ -1121,6 +1816,7 @@ class _UserImpl extends User {
           enneagram: enneagram,
           zodiac: zodiac,
           religion: religion,
+          philosophicalBeliefs: philosophicalBeliefs,
           politicalAffiliation: politicalAffiliation,
           relationshipStatus: relationshipStatus,
           sexualOrientation: sexualOrientation,
@@ -1147,10 +1843,12 @@ class _UserImpl extends User {
           replyTime: replyTime,
           targetGender: targetGender,
           targetAge: targetAge,
+          targetCountry: targetCountry,
           targetMBTI: targetMBTI,
           targetEnneagram: targetEnneagram,
           targetZodiac: targetZodiac,
           targetReligion: targetReligion,
+          targetPhilosophicalBeliefs: targetPhilosophicalBeliefs,
           targetPoliticalAffiliation: targetPoliticalAffiliation,
           targetRelationshipStatus: targetRelationshipStatus,
           targetSexualOrientation: targetSexualOrientation,
@@ -1177,10 +1875,12 @@ class _UserImpl extends User {
           targetReplyTime: targetReplyTime,
           excludeGender: excludeGender,
           excludeAge: excludeAge,
+          excludeCountry: excludeCountry,
           excludeMBTI: excludeMBTI,
           excludeEnneagram: excludeEnneagram,
           excludeZodiac: excludeZodiac,
           excludeReligion: excludeReligion,
+          excludePhilosophicalBeliefs: excludePhilosophicalBeliefs,
           excludePoliticalAffiliation: excludePoliticalAffiliation,
           excludeRelationshipStatus: excludeRelationshipStatus,
           excludeSexualOrientation: excludeSexualOrientation,
@@ -1209,6 +1909,7 @@ class _UserImpl extends User {
 
   @override
   User copyWith({
+    Object? id = _Undefined,
     String? userName,
     String? uuid,
     Object? name = _Undefined,
@@ -1216,7 +1917,6 @@ class _UserImpl extends User {
     Object? phoneNumber = _Undefined,
     Object? linkedAccounts = _Undefined,
     Object? city = _Undefined,
-    Object? state = _Undefined,
     Object? country = _Undefined,
     Object? dateOfBirth = _Undefined,
     Object? age = _Undefined,
@@ -1227,6 +1927,7 @@ class _UserImpl extends User {
     Object? enneagram = _Undefined,
     Object? zodiac = _Undefined,
     Object? religion = _Undefined,
+    Object? philosophicalBeliefs = _Undefined,
     Object? politicalAffiliation = _Undefined,
     Object? relationshipStatus = _Undefined,
     Object? sexualOrientation = _Undefined,
@@ -1253,10 +1954,12 @@ class _UserImpl extends User {
     Object? replyTime = _Undefined,
     Object? targetGender = _Undefined,
     Object? targetAge = _Undefined,
+    Object? targetCountry = _Undefined,
     Object? targetMBTI = _Undefined,
     Object? targetEnneagram = _Undefined,
     Object? targetZodiac = _Undefined,
     Object? targetReligion = _Undefined,
+    Object? targetPhilosophicalBeliefs = _Undefined,
     Object? targetPoliticalAffiliation = _Undefined,
     Object? targetRelationshipStatus = _Undefined,
     Object? targetSexualOrientation = _Undefined,
@@ -1283,10 +1986,12 @@ class _UserImpl extends User {
     Object? targetReplyTime = _Undefined,
     Object? excludeGender = _Undefined,
     Object? excludeAge = _Undefined,
+    Object? excludeCountry = _Undefined,
     Object? excludeMBTI = _Undefined,
     Object? excludeEnneagram = _Undefined,
     Object? excludeZodiac = _Undefined,
     Object? excludeReligion = _Undefined,
+    Object? excludePhilosophicalBeliefs = _Undefined,
     Object? excludePoliticalAffiliation = _Undefined,
     Object? excludeRelationshipStatus = _Undefined,
     Object? excludeSexualOrientation = _Undefined,
@@ -1313,27 +2018,30 @@ class _UserImpl extends User {
     Object? excludeReplyTime = _Undefined,
   }) {
     return User(
+      id: id is int? ? id : this.id,
       userName: userName ?? this.userName,
       uuid: uuid ?? this.uuid,
       name: name is String? ? name : this.name,
       email: email is String? ? email : this.email,
       phoneNumber: phoneNumber is String? ? phoneNumber : this.phoneNumber,
-      linkedAccounts: linkedAccounts is List<String?>?
+      linkedAccounts: linkedAccounts is List<_i2.LinkedAccount?>?
           ? linkedAccounts
           : this.linkedAccounts?.clone(),
       city: city is String? ? city : this.city,
-      state: state is String? ? state : this.state,
-      country: country is String? ? country : this.country,
-      dateOfBirth: dateOfBirth is String? ? dateOfBirth : this.dateOfBirth,
-      age: age is String? ? age : this.age,
-      gender: gender is String? ? gender : this.gender,
+      country: country is _i2.Country? ? country : this.country,
+      dateOfBirth: dateOfBirth is DateTime? ? dateOfBirth : this.dateOfBirth,
+      age: age is int? ? age : this.age,
+      gender: gender is _i2.Gender? ? gender : this.gender,
       bio: bio is String? ? bio : this.bio,
       profilePicture:
           profilePicture is String? ? profilePicture : this.profilePicture,
-      mbti: mbti is String? ? mbti : this.mbti,
-      enneagram: enneagram is String? ? enneagram : this.enneagram,
-      zodiac: zodiac is String? ? zodiac : this.zodiac,
-      religion: religion is String? ? religion : this.religion,
+      mbti: mbti is _i2.MBTI? ? mbti : this.mbti,
+      enneagram: enneagram is _i2.Enneagram? ? enneagram : this.enneagram,
+      zodiac: zodiac is _i2.Zodiac? ? zodiac : this.zodiac,
+      religion: religion is _i2.Religion? ? religion : this.religion,
+      philosophicalBeliefs: philosophicalBeliefs is _i2.Philosophy?
+          ? philosophicalBeliefs
+          : this.philosophicalBeliefs,
       politicalAffiliation: politicalAffiliation is String?
           ? politicalAffiliation
           : this.politicalAffiliation,
@@ -1369,22 +2077,30 @@ class _UserImpl extends User {
       letterFrequency:
           letterFrequency is String? ? letterFrequency : this.letterFrequency,
       replyTime: replyTime is String? ? replyTime : this.replyTime,
-      targetGender: targetGender is List<String?>?
+      targetGender: targetGender is List<_i2.Gender?>?
           ? targetGender
           : this.targetGender?.clone(),
       targetAge:
           targetAge is List<String?>? ? targetAge : this.targetAge?.clone(),
-      targetMBTI:
-          targetMBTI is List<String?>? ? targetMBTI : this.targetMBTI?.clone(),
-      targetEnneagram: targetEnneagram is List<String?>?
+      targetCountry: targetCountry is List<_i2.Country?>?
+          ? targetCountry
+          : this.targetCountry?.clone(),
+      targetMBTI: targetMBTI is List<_i2.MBTI?>?
+          ? targetMBTI
+          : this.targetMBTI?.clone(),
+      targetEnneagram: targetEnneagram is List<_i2.Enneagram?>?
           ? targetEnneagram
           : this.targetEnneagram?.clone(),
-      targetZodiac: targetZodiac is List<String?>?
+      targetZodiac: targetZodiac is List<_i2.Zodiac?>?
           ? targetZodiac
           : this.targetZodiac?.clone(),
-      targetReligion: targetReligion is List<String?>?
+      targetReligion: targetReligion is List<_i2.Religion?>?
           ? targetReligion
           : this.targetReligion?.clone(),
+      targetPhilosophicalBeliefs:
+          targetPhilosophicalBeliefs is List<_i2.Philosophy?>?
+              ? targetPhilosophicalBeliefs
+              : this.targetPhilosophicalBeliefs?.clone(),
       targetPoliticalAffiliation: targetPoliticalAffiliation is List<String?>?
           ? targetPoliticalAffiliation
           : this.targetPoliticalAffiliation?.clone(),
@@ -1456,23 +2172,30 @@ class _UserImpl extends User {
       targetReplyTime: targetReplyTime is List<String?>?
           ? targetReplyTime
           : this.targetReplyTime?.clone(),
-      excludeGender: excludeGender is List<String?>?
+      excludeGender: excludeGender is List<_i2.Gender?>?
           ? excludeGender
           : this.excludeGender?.clone(),
       excludeAge:
           excludeAge is List<String?>? ? excludeAge : this.excludeAge?.clone(),
-      excludeMBTI: excludeMBTI is List<String?>?
+      excludeCountry: excludeCountry is List<_i2.Country?>?
+          ? excludeCountry
+          : this.excludeCountry?.clone(),
+      excludeMBTI: excludeMBTI is List<_i2.MBTI?>?
           ? excludeMBTI
           : this.excludeMBTI?.clone(),
-      excludeEnneagram: excludeEnneagram is List<String?>?
+      excludeEnneagram: excludeEnneagram is List<_i2.Enneagram?>?
           ? excludeEnneagram
           : this.excludeEnneagram?.clone(),
-      excludeZodiac: excludeZodiac is List<String?>?
+      excludeZodiac: excludeZodiac is List<_i2.Zodiac?>?
           ? excludeZodiac
           : this.excludeZodiac?.clone(),
-      excludeReligion: excludeReligion is List<String?>?
+      excludeReligion: excludeReligion is List<_i2.Religion?>?
           ? excludeReligion
           : this.excludeReligion?.clone(),
+      excludePhilosophicalBeliefs:
+          excludePhilosophicalBeliefs is List<_i2.Philosophy?>?
+              ? excludePhilosophicalBeliefs
+              : this.excludePhilosophicalBeliefs?.clone(),
       excludePoliticalAffiliation: excludePoliticalAffiliation is List<String?>?
           ? excludePoliticalAffiliation
           : this.excludePoliticalAffiliation?.clone(),
@@ -1545,6 +2268,947 @@ class _UserImpl extends User {
       excludeReplyTime: excludeReplyTime is List<String?>?
           ? excludeReplyTime
           : this.excludeReplyTime?.clone(),
+    );
+  }
+}
+
+class UserTable extends _i1.Table {
+  UserTable({super.tableRelation}) : super(tableName: 'users') {
+    userName = _i1.ColumnString(
+      'userName',
+      this,
+    );
+    uuid = _i1.ColumnString(
+      'uuid',
+      this,
+    );
+    name = _i1.ColumnString(
+      'name',
+      this,
+    );
+    email = _i1.ColumnString(
+      'email',
+      this,
+    );
+    phoneNumber = _i1.ColumnString(
+      'phoneNumber',
+      this,
+    );
+    linkedAccounts = _i1.ColumnSerializable(
+      'linkedAccounts',
+      this,
+    );
+    city = _i1.ColumnString(
+      'city',
+      this,
+    );
+    country = _i1.ColumnEnum(
+      'country',
+      this,
+      _i1.EnumSerialization.byName,
+    );
+    dateOfBirth = _i1.ColumnDateTime(
+      'dateOfBirth',
+      this,
+    );
+    age = _i1.ColumnInt(
+      'age',
+      this,
+    );
+    gender = _i1.ColumnEnum(
+      'gender',
+      this,
+      _i1.EnumSerialization.byName,
+    );
+    bio = _i1.ColumnString(
+      'bio',
+      this,
+    );
+    profilePicture = _i1.ColumnString(
+      'profilePicture',
+      this,
+    );
+    mbti = _i1.ColumnEnum(
+      'mbti',
+      this,
+      _i1.EnumSerialization.byName,
+    );
+    enneagram = _i1.ColumnEnum(
+      'enneagram',
+      this,
+      _i1.EnumSerialization.byName,
+    );
+    zodiac = _i1.ColumnEnum(
+      'zodiac',
+      this,
+      _i1.EnumSerialization.byName,
+    );
+    religion = _i1.ColumnEnum(
+      'religion',
+      this,
+      _i1.EnumSerialization.byName,
+    );
+    philosophicalBeliefs = _i1.ColumnEnum(
+      'philosophicalBeliefs',
+      this,
+      _i1.EnumSerialization.byName,
+    );
+    politicalAffiliation = _i1.ColumnString(
+      'politicalAffiliation',
+      this,
+    );
+    relationshipStatus = _i1.ColumnString(
+      'relationshipStatus',
+      this,
+    );
+    sexualOrientation = _i1.ColumnString(
+      'sexualOrientation',
+      this,
+    );
+    education = _i1.ColumnString(
+      'education',
+      this,
+    );
+    work = _i1.ColumnString(
+      'work',
+      this,
+    );
+    interests = _i1.ColumnSerializable(
+      'interests',
+      this,
+    );
+    hobbies = _i1.ColumnSerializable(
+      'hobbies',
+      this,
+    );
+    languages = _i1.ColumnSerializable(
+      'languages',
+      this,
+    );
+    skills = _i1.ColumnSerializable(
+      'skills',
+      this,
+    );
+    music = _i1.ColumnSerializable(
+      'music',
+      this,
+    );
+    movies = _i1.ColumnSerializable(
+      'movies',
+      this,
+    );
+    tvShows = _i1.ColumnSerializable(
+      'tvShows',
+      this,
+    );
+    books = _i1.ColumnSerializable(
+      'books',
+      this,
+    );
+    podcasts = _i1.ColumnSerializable(
+      'podcasts',
+      this,
+    );
+    games = _i1.ColumnSerializable(
+      'games',
+      this,
+    );
+    sports = _i1.ColumnSerializable(
+      'sports',
+      this,
+    );
+    places = _i1.ColumnSerializable(
+      'places',
+      this,
+    );
+    foods = _i1.ColumnSerializable(
+      'foods',
+      this,
+    );
+    drinks = _i1.ColumnSerializable(
+      'drinks',
+      this,
+    );
+    animals = _i1.ColumnSerializable(
+      'animals',
+      this,
+    );
+    countriesVisited = _i1.ColumnSerializable(
+      'countriesVisited',
+      this,
+    );
+    letterLength = _i1.ColumnString(
+      'letterLength',
+      this,
+    );
+    letterFrequency = _i1.ColumnString(
+      'letterFrequency',
+      this,
+    );
+    replyTime = _i1.ColumnString(
+      'replyTime',
+      this,
+    );
+    targetGender = _i1.ColumnSerializable(
+      'targetGender',
+      this,
+    );
+    targetAge = _i1.ColumnSerializable(
+      'targetAge',
+      this,
+    );
+    targetCountry = _i1.ColumnSerializable(
+      'targetCountry',
+      this,
+    );
+    targetMBTI = _i1.ColumnSerializable(
+      'targetMBTI',
+      this,
+    );
+    targetEnneagram = _i1.ColumnSerializable(
+      'targetEnneagram',
+      this,
+    );
+    targetZodiac = _i1.ColumnSerializable(
+      'targetZodiac',
+      this,
+    );
+    targetReligion = _i1.ColumnSerializable(
+      'targetReligion',
+      this,
+    );
+    targetPhilosophicalBeliefs = _i1.ColumnSerializable(
+      'targetPhilosophicalBeliefs',
+      this,
+    );
+    targetPoliticalAffiliation = _i1.ColumnSerializable(
+      'targetPoliticalAffiliation',
+      this,
+    );
+    targetRelationshipStatus = _i1.ColumnSerializable(
+      'targetRelationshipStatus',
+      this,
+    );
+    targetSexualOrientation = _i1.ColumnSerializable(
+      'targetSexualOrientation',
+      this,
+    );
+    targetEducation = _i1.ColumnSerializable(
+      'targetEducation',
+      this,
+    );
+    targetWork = _i1.ColumnSerializable(
+      'targetWork',
+      this,
+    );
+    targetInterests = _i1.ColumnSerializable(
+      'targetInterests',
+      this,
+    );
+    targetHobbies = _i1.ColumnSerializable(
+      'targetHobbies',
+      this,
+    );
+    targetLanguages = _i1.ColumnSerializable(
+      'targetLanguages',
+      this,
+    );
+    targetSkills = _i1.ColumnSerializable(
+      'targetSkills',
+      this,
+    );
+    targetMusic = _i1.ColumnSerializable(
+      'targetMusic',
+      this,
+    );
+    targetMovies = _i1.ColumnSerializable(
+      'targetMovies',
+      this,
+    );
+    targetTVShows = _i1.ColumnSerializable(
+      'targetTVShows',
+      this,
+    );
+    targetBooks = _i1.ColumnSerializable(
+      'targetBooks',
+      this,
+    );
+    targetPodcasts = _i1.ColumnSerializable(
+      'targetPodcasts',
+      this,
+    );
+    targetGames = _i1.ColumnSerializable(
+      'targetGames',
+      this,
+    );
+    targetSports = _i1.ColumnSerializable(
+      'targetSports',
+      this,
+    );
+    targetPlaces = _i1.ColumnSerializable(
+      'targetPlaces',
+      this,
+    );
+    targetFoods = _i1.ColumnSerializable(
+      'targetFoods',
+      this,
+    );
+    targetDrinks = _i1.ColumnSerializable(
+      'targetDrinks',
+      this,
+    );
+    targetAnimals = _i1.ColumnSerializable(
+      'targetAnimals',
+      this,
+    );
+    targetCountriesVisited = _i1.ColumnSerializable(
+      'targetCountriesVisited',
+      this,
+    );
+    targetLetterLength = _i1.ColumnSerializable(
+      'targetLetterLength',
+      this,
+    );
+    targetLetterFrequency = _i1.ColumnSerializable(
+      'targetLetterFrequency',
+      this,
+    );
+    targetReplyTime = _i1.ColumnSerializable(
+      'targetReplyTime',
+      this,
+    );
+    excludeGender = _i1.ColumnSerializable(
+      'excludeGender',
+      this,
+    );
+    excludeAge = _i1.ColumnSerializable(
+      'excludeAge',
+      this,
+    );
+    excludeCountry = _i1.ColumnSerializable(
+      'excludeCountry',
+      this,
+    );
+    excludeMBTI = _i1.ColumnSerializable(
+      'excludeMBTI',
+      this,
+    );
+    excludeEnneagram = _i1.ColumnSerializable(
+      'excludeEnneagram',
+      this,
+    );
+    excludeZodiac = _i1.ColumnSerializable(
+      'excludeZodiac',
+      this,
+    );
+    excludeReligion = _i1.ColumnSerializable(
+      'excludeReligion',
+      this,
+    );
+    excludePhilosophicalBeliefs = _i1.ColumnSerializable(
+      'excludePhilosophicalBeliefs',
+      this,
+    );
+    excludePoliticalAffiliation = _i1.ColumnSerializable(
+      'excludePoliticalAffiliation',
+      this,
+    );
+    excludeRelationshipStatus = _i1.ColumnSerializable(
+      'excludeRelationshipStatus',
+      this,
+    );
+    excludeSexualOrientation = _i1.ColumnSerializable(
+      'excludeSexualOrientation',
+      this,
+    );
+    excludeEducation = _i1.ColumnSerializable(
+      'excludeEducation',
+      this,
+    );
+    excludeWork = _i1.ColumnSerializable(
+      'excludeWork',
+      this,
+    );
+    excludeInterests = _i1.ColumnSerializable(
+      'excludeInterests',
+      this,
+    );
+    excludeHobbies = _i1.ColumnSerializable(
+      'excludeHobbies',
+      this,
+    );
+    excludeLanguages = _i1.ColumnSerializable(
+      'excludeLanguages',
+      this,
+    );
+    excludeSkills = _i1.ColumnSerializable(
+      'excludeSkills',
+      this,
+    );
+    excludeMusic = _i1.ColumnSerializable(
+      'excludeMusic',
+      this,
+    );
+    excludeMovies = _i1.ColumnSerializable(
+      'excludeMovies',
+      this,
+    );
+    excludeTVShows = _i1.ColumnSerializable(
+      'excludeTVShows',
+      this,
+    );
+    excludeBooks = _i1.ColumnSerializable(
+      'excludeBooks',
+      this,
+    );
+    excludePodcasts = _i1.ColumnSerializable(
+      'excludePodcasts',
+      this,
+    );
+    excludeGames = _i1.ColumnSerializable(
+      'excludeGames',
+      this,
+    );
+    excludeSports = _i1.ColumnSerializable(
+      'excludeSports',
+      this,
+    );
+    excludePlaces = _i1.ColumnSerializable(
+      'excludePlaces',
+      this,
+    );
+    excludeFoods = _i1.ColumnSerializable(
+      'excludeFoods',
+      this,
+    );
+    excludeDrinks = _i1.ColumnSerializable(
+      'excludeDrinks',
+      this,
+    );
+    excludeAnimals = _i1.ColumnSerializable(
+      'excludeAnimals',
+      this,
+    );
+    excludeCountriesVisited = _i1.ColumnSerializable(
+      'excludeCountriesVisited',
+      this,
+    );
+    excludeLetterLength = _i1.ColumnSerializable(
+      'excludeLetterLength',
+      this,
+    );
+    excludeLetterFrequency = _i1.ColumnSerializable(
+      'excludeLetterFrequency',
+      this,
+    );
+    excludeReplyTime = _i1.ColumnSerializable(
+      'excludeReplyTime',
+      this,
+    );
+  }
+
+  late final _i1.ColumnString userName;
+
+  late final _i1.ColumnString uuid;
+
+  late final _i1.ColumnString name;
+
+  late final _i1.ColumnString email;
+
+  late final _i1.ColumnString phoneNumber;
+
+  late final _i1.ColumnSerializable linkedAccounts;
+
+  late final _i1.ColumnString city;
+
+  late final _i1.ColumnEnum<_i2.Country> country;
+
+  late final _i1.ColumnDateTime dateOfBirth;
+
+  late final _i1.ColumnInt age;
+
+  late final _i1.ColumnEnum<_i2.Gender> gender;
+
+  late final _i1.ColumnString bio;
+
+  late final _i1.ColumnString profilePicture;
+
+  late final _i1.ColumnEnum<_i2.MBTI> mbti;
+
+  late final _i1.ColumnEnum<_i2.Enneagram> enneagram;
+
+  late final _i1.ColumnEnum<_i2.Zodiac> zodiac;
+
+  late final _i1.ColumnEnum<_i2.Religion> religion;
+
+  late final _i1.ColumnEnum<_i2.Philosophy> philosophicalBeliefs;
+
+  late final _i1.ColumnString politicalAffiliation;
+
+  late final _i1.ColumnString relationshipStatus;
+
+  late final _i1.ColumnString sexualOrientation;
+
+  late final _i1.ColumnString education;
+
+  late final _i1.ColumnString work;
+
+  late final _i1.ColumnSerializable interests;
+
+  late final _i1.ColumnSerializable hobbies;
+
+  late final _i1.ColumnSerializable languages;
+
+  late final _i1.ColumnSerializable skills;
+
+  late final _i1.ColumnSerializable music;
+
+  late final _i1.ColumnSerializable movies;
+
+  late final _i1.ColumnSerializable tvShows;
+
+  late final _i1.ColumnSerializable books;
+
+  late final _i1.ColumnSerializable podcasts;
+
+  late final _i1.ColumnSerializable games;
+
+  late final _i1.ColumnSerializable sports;
+
+  late final _i1.ColumnSerializable places;
+
+  late final _i1.ColumnSerializable foods;
+
+  late final _i1.ColumnSerializable drinks;
+
+  late final _i1.ColumnSerializable animals;
+
+  late final _i1.ColumnSerializable countriesVisited;
+
+  late final _i1.ColumnString letterLength;
+
+  late final _i1.ColumnString letterFrequency;
+
+  late final _i1.ColumnString replyTime;
+
+  late final _i1.ColumnSerializable targetGender;
+
+  late final _i1.ColumnSerializable targetAge;
+
+  late final _i1.ColumnSerializable targetCountry;
+
+  late final _i1.ColumnSerializable targetMBTI;
+
+  late final _i1.ColumnSerializable targetEnneagram;
+
+  late final _i1.ColumnSerializable targetZodiac;
+
+  late final _i1.ColumnSerializable targetReligion;
+
+  late final _i1.ColumnSerializable targetPhilosophicalBeliefs;
+
+  late final _i1.ColumnSerializable targetPoliticalAffiliation;
+
+  late final _i1.ColumnSerializable targetRelationshipStatus;
+
+  late final _i1.ColumnSerializable targetSexualOrientation;
+
+  late final _i1.ColumnSerializable targetEducation;
+
+  late final _i1.ColumnSerializable targetWork;
+
+  late final _i1.ColumnSerializable targetInterests;
+
+  late final _i1.ColumnSerializable targetHobbies;
+
+  late final _i1.ColumnSerializable targetLanguages;
+
+  late final _i1.ColumnSerializable targetSkills;
+
+  late final _i1.ColumnSerializable targetMusic;
+
+  late final _i1.ColumnSerializable targetMovies;
+
+  late final _i1.ColumnSerializable targetTVShows;
+
+  late final _i1.ColumnSerializable targetBooks;
+
+  late final _i1.ColumnSerializable targetPodcasts;
+
+  late final _i1.ColumnSerializable targetGames;
+
+  late final _i1.ColumnSerializable targetSports;
+
+  late final _i1.ColumnSerializable targetPlaces;
+
+  late final _i1.ColumnSerializable targetFoods;
+
+  late final _i1.ColumnSerializable targetDrinks;
+
+  late final _i1.ColumnSerializable targetAnimals;
+
+  late final _i1.ColumnSerializable targetCountriesVisited;
+
+  late final _i1.ColumnSerializable targetLetterLength;
+
+  late final _i1.ColumnSerializable targetLetterFrequency;
+
+  late final _i1.ColumnSerializable targetReplyTime;
+
+  late final _i1.ColumnSerializable excludeGender;
+
+  late final _i1.ColumnSerializable excludeAge;
+
+  late final _i1.ColumnSerializable excludeCountry;
+
+  late final _i1.ColumnSerializable excludeMBTI;
+
+  late final _i1.ColumnSerializable excludeEnneagram;
+
+  late final _i1.ColumnSerializable excludeZodiac;
+
+  late final _i1.ColumnSerializable excludeReligion;
+
+  late final _i1.ColumnSerializable excludePhilosophicalBeliefs;
+
+  late final _i1.ColumnSerializable excludePoliticalAffiliation;
+
+  late final _i1.ColumnSerializable excludeRelationshipStatus;
+
+  late final _i1.ColumnSerializable excludeSexualOrientation;
+
+  late final _i1.ColumnSerializable excludeEducation;
+
+  late final _i1.ColumnSerializable excludeWork;
+
+  late final _i1.ColumnSerializable excludeInterests;
+
+  late final _i1.ColumnSerializable excludeHobbies;
+
+  late final _i1.ColumnSerializable excludeLanguages;
+
+  late final _i1.ColumnSerializable excludeSkills;
+
+  late final _i1.ColumnSerializable excludeMusic;
+
+  late final _i1.ColumnSerializable excludeMovies;
+
+  late final _i1.ColumnSerializable excludeTVShows;
+
+  late final _i1.ColumnSerializable excludeBooks;
+
+  late final _i1.ColumnSerializable excludePodcasts;
+
+  late final _i1.ColumnSerializable excludeGames;
+
+  late final _i1.ColumnSerializable excludeSports;
+
+  late final _i1.ColumnSerializable excludePlaces;
+
+  late final _i1.ColumnSerializable excludeFoods;
+
+  late final _i1.ColumnSerializable excludeDrinks;
+
+  late final _i1.ColumnSerializable excludeAnimals;
+
+  late final _i1.ColumnSerializable excludeCountriesVisited;
+
+  late final _i1.ColumnSerializable excludeLetterLength;
+
+  late final _i1.ColumnSerializable excludeLetterFrequency;
+
+  late final _i1.ColumnSerializable excludeReplyTime;
+
+  @override
+  List<_i1.Column> get columns => [
+        id,
+        userName,
+        uuid,
+        name,
+        email,
+        phoneNumber,
+        linkedAccounts,
+        city,
+        country,
+        dateOfBirth,
+        age,
+        gender,
+        bio,
+        profilePicture,
+        mbti,
+        enneagram,
+        zodiac,
+        religion,
+        philosophicalBeliefs,
+        politicalAffiliation,
+        relationshipStatus,
+        sexualOrientation,
+        education,
+        work,
+        interests,
+        hobbies,
+        languages,
+        skills,
+        music,
+        movies,
+        tvShows,
+        books,
+        podcasts,
+        games,
+        sports,
+        places,
+        foods,
+        drinks,
+        animals,
+        countriesVisited,
+        letterLength,
+        letterFrequency,
+        replyTime,
+        targetGender,
+        targetAge,
+        targetCountry,
+        targetMBTI,
+        targetEnneagram,
+        targetZodiac,
+        targetReligion,
+        targetPhilosophicalBeliefs,
+        targetPoliticalAffiliation,
+        targetRelationshipStatus,
+        targetSexualOrientation,
+        targetEducation,
+        targetWork,
+        targetInterests,
+        targetHobbies,
+        targetLanguages,
+        targetSkills,
+        targetMusic,
+        targetMovies,
+        targetTVShows,
+        targetBooks,
+        targetPodcasts,
+        targetGames,
+        targetSports,
+        targetPlaces,
+        targetFoods,
+        targetDrinks,
+        targetAnimals,
+        targetCountriesVisited,
+        targetLetterLength,
+        targetLetterFrequency,
+        targetReplyTime,
+        excludeGender,
+        excludeAge,
+        excludeCountry,
+        excludeMBTI,
+        excludeEnneagram,
+        excludeZodiac,
+        excludeReligion,
+        excludePhilosophicalBeliefs,
+        excludePoliticalAffiliation,
+        excludeRelationshipStatus,
+        excludeSexualOrientation,
+        excludeEducation,
+        excludeWork,
+        excludeInterests,
+        excludeHobbies,
+        excludeLanguages,
+        excludeSkills,
+        excludeMusic,
+        excludeMovies,
+        excludeTVShows,
+        excludeBooks,
+        excludePodcasts,
+        excludeGames,
+        excludeSports,
+        excludePlaces,
+        excludeFoods,
+        excludeDrinks,
+        excludeAnimals,
+        excludeCountriesVisited,
+        excludeLetterLength,
+        excludeLetterFrequency,
+        excludeReplyTime,
+      ];
+}
+
+@Deprecated('Use UserTable.t instead.')
+UserTable tUser = UserTable();
+
+class UserInclude extends _i1.IncludeObject {
+  UserInclude._();
+
+  @override
+  Map<String, _i1.Include?> get includes => {};
+
+  @override
+  _i1.Table get table => User.t;
+}
+
+class UserIncludeList extends _i1.IncludeList {
+  UserIncludeList._({
+    _i1.WhereExpressionBuilder<UserTable>? where,
+    super.limit,
+    super.offset,
+    super.orderBy,
+    super.orderDescending,
+    super.orderByList,
+    super.include,
+  }) {
+    super.where = where?.call(User.t);
+  }
+
+  @override
+  Map<String, _i1.Include?> get includes => include?.includes ?? {};
+
+  @override
+  _i1.Table get table => User.t;
+}
+
+class UserRepository {
+  const UserRepository._();
+
+  Future<List<User>> find(
+    _i1.Session session, {
+    _i1.WhereExpressionBuilder<UserTable>? where,
+    int? limit,
+    int? offset,
+    _i1.OrderByBuilder<UserTable>? orderBy,
+    bool orderDescending = false,
+    _i1.OrderByListBuilder<UserTable>? orderByList,
+    _i1.Transaction? transaction,
+  }) async {
+    return session.dbNext.find<User>(
+      where: where?.call(User.t),
+      orderBy: orderBy?.call(User.t),
+      orderByList: orderByList?.call(User.t),
+      orderDescending: orderDescending,
+      limit: limit,
+      offset: offset,
+      transaction: transaction,
+    );
+  }
+
+  Future<User?> findFirstRow(
+    _i1.Session session, {
+    _i1.WhereExpressionBuilder<UserTable>? where,
+    int? offset,
+    _i1.OrderByBuilder<UserTable>? orderBy,
+    bool orderDescending = false,
+    _i1.OrderByListBuilder<UserTable>? orderByList,
+    _i1.Transaction? transaction,
+  }) async {
+    return session.dbNext.findFirstRow<User>(
+      where: where?.call(User.t),
+      orderBy: orderBy?.call(User.t),
+      orderByList: orderByList?.call(User.t),
+      orderDescending: orderDescending,
+      offset: offset,
+      transaction: transaction,
+    );
+  }
+
+  Future<User?> findById(
+    _i1.Session session,
+    int id, {
+    _i1.Transaction? transaction,
+  }) async {
+    return session.dbNext.findById<User>(
+      id,
+      transaction: transaction,
+    );
+  }
+
+  Future<List<User>> insert(
+    _i1.Session session,
+    List<User> rows, {
+    _i1.Transaction? transaction,
+  }) async {
+    return session.dbNext.insert<User>(
+      rows,
+      transaction: transaction,
+    );
+  }
+
+  Future<User> insertRow(
+    _i1.Session session,
+    User row, {
+    _i1.Transaction? transaction,
+  }) async {
+    return session.dbNext.insertRow<User>(
+      row,
+      transaction: transaction,
+    );
+  }
+
+  Future<List<User>> update(
+    _i1.Session session,
+    List<User> rows, {
+    _i1.ColumnSelections<UserTable>? columns,
+    _i1.Transaction? transaction,
+  }) async {
+    return session.dbNext.update<User>(
+      rows,
+      columns: columns?.call(User.t),
+      transaction: transaction,
+    );
+  }
+
+  Future<User> updateRow(
+    _i1.Session session,
+    User row, {
+    _i1.ColumnSelections<UserTable>? columns,
+    _i1.Transaction? transaction,
+  }) async {
+    return session.dbNext.updateRow<User>(
+      row,
+      columns: columns?.call(User.t),
+      transaction: transaction,
+    );
+  }
+
+  Future<List<int>> delete(
+    _i1.Session session,
+    List<User> rows, {
+    _i1.Transaction? transaction,
+  }) async {
+    return session.dbNext.delete<User>(
+      rows,
+      transaction: transaction,
+    );
+  }
+
+  Future<int> deleteRow(
+    _i1.Session session,
+    User row, {
+    _i1.Transaction? transaction,
+  }) async {
+    return session.dbNext.deleteRow<User>(
+      row,
+      transaction: transaction,
+    );
+  }
+
+  Future<List<int>> deleteWhere(
+    _i1.Session session, {
+    required _i1.WhereExpressionBuilder<UserTable> where,
+    _i1.Transaction? transaction,
+  }) async {
+    return session.dbNext.deleteWhere<User>(
+      where: where(User.t),
+      transaction: transaction,
+    );
+  }
+
+  Future<int> count(
+    _i1.Session session, {
+    _i1.WhereExpressionBuilder<UserTable>? where,
+    int? limit,
+    _i1.Transaction? transaction,
+  }) async {
+    return session.dbNext.count<User>(
+      where: where?.call(User.t),
+      limit: limit,
+      transaction: transaction,
     );
   }
 }

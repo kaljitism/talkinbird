@@ -1,0 +1,21 @@
+enum: Enneagram
+serialized: byName
+values:
+  - Type1w9
+  - Type1w2
+  - Type2w1
+  - Type2w3
+  - Type3w2
+  - Type3w4
+  - Type4w3
+  - Type4w5
+  - Type5w4
+  - Type5w6
+  - Type6w5
+  - Type6w7
+  - Type7w6
+  - Type7w8
+  - Type8w7
+  - Type8w9
+  - Type9w8
+  - Type9w1

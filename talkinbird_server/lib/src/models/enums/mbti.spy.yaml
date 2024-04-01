@@ -1,0 +1,19 @@
+enum: MBTI
+serialized: byName
+values:
+  - INFJ
+  - INTJ
+  - INFP
+  - INTP
+  - ISFJ
+  - ISTJ
+  - ISFP
+  - ISTP
+  - ENFJ
+  - ENTJ
+  - ENFP
+  - ENTP
+  - ESFJ
+  - ESTJ
+  - ESFP
+  - ESTP

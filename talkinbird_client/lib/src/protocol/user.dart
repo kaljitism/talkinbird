@@ -9,9 +9,11 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:serverpod_client/serverpod_client.dart' as _i1;
+import 'protocol.dart' as _i2;
 
 abstract class User extends _i1.SerializableEntity {
   User._({
+    this.id,
     required this.userName,
     required this.uuid,
     this.name,
@@ -19,7 +21,6 @@ abstract class User extends _i1.SerializableEntity {
     this.phoneNumber,
     this.linkedAccounts,
     this.city,
-    this.state,
     this.country,
     this.dateOfBirth,
     this.age,
@@ -30,6 +31,7 @@ abstract class User extends _i1.SerializableEntity {
     this.enneagram,
     this.zodiac,
     this.religion,
+    this.philosophicalBeliefs,
     this.politicalAffiliation,
     this.relationshipStatus,
     this.sexualOrientation,
@@ -56,10 +58,12 @@ abstract class User extends _i1.SerializableEntity {
     this.replyTime,
     this.targetGender,
     this.targetAge,
+    this.targetCountry,
     this.targetMBTI,
     this.targetEnneagram,
     this.targetZodiac,
     this.targetReligion,
+    this.targetPhilosophicalBeliefs,
     this.targetPoliticalAffiliation,
     this.targetRelationshipStatus,
     this.targetSexualOrientation,
@@ -86,10 +90,12 @@ abstract class User extends _i1.SerializableEntity {
     this.targetReplyTime,
     this.excludeGender,
     this.excludeAge,
+    this.excludeCountry,
     this.excludeMBTI,
     this.excludeEnneagram,
     this.excludeZodiac,
     this.excludeReligion,
+    this.excludePhilosophicalBeliefs,
     this.excludePoliticalAffiliation,
     this.excludeRelationshipStatus,
     this.excludeSexualOrientation,
@@ -117,24 +123,25 @@ abstract class User extends _i1.SerializableEntity {
   });
 
   factory User({
+    int? id,
     required String userName,
     required String uuid,
     String? name,
     String? email,
     String? phoneNumber,
-    List<String?>? linkedAccounts,
+    List<_i2.LinkedAccount?>? linkedAccounts,
     String? city,
-    String? state,
-    String? country,
-    String? dateOfBirth,
-    String? age,
-    String? gender,
+    _i2.Country? country,
+    DateTime? dateOfBirth,
+    int? age,
+    _i2.Gender? gender,
     String? bio,
     String? profilePicture,
-    String? mbti,
-    String? enneagram,
-    String? zodiac,
-    String? religion,
+    _i2.MBTI? mbti,
+    _i2.Enneagram? enneagram,
+    _i2.Zodiac? zodiac,
+    _i2.Religion? religion,
+    _i2.Philosophy? philosophicalBeliefs,
     String? politicalAffiliation,
     String? relationshipStatus,
     String? sexualOrientation,
@@ -159,12 +166,14 @@ abstract class User extends _i1.SerializableEntity {
     String? letterLength,
     String? letterFrequency,
     String? replyTime,
-    List<String?>? targetGender,
+    List<_i2.Gender?>? targetGender,
     List<String?>? targetAge,
-    List<String?>? targetMBTI,
-    List<String?>? targetEnneagram,
-    List<String?>? targetZodiac,
-    List<String?>? targetReligion,
+    List<_i2.Country?>? targetCountry,
+    List<_i2.MBTI?>? targetMBTI,
+    List<_i2.Enneagram?>? targetEnneagram,
+    List<_i2.Zodiac?>? targetZodiac,
+    List<_i2.Religion?>? targetReligion,
+    List<_i2.Philosophy?>? targetPhilosophicalBeliefs,
     List<String?>? targetPoliticalAffiliation,
     List<String?>? targetRelationshipStatus,
     List<String?>? targetSexualOrientation,
@@ -189,12 +198,14 @@ abstract class User extends _i1.SerializableEntity {
     List<String?>? targetLetterLength,
     List<String?>? targetLetterFrequency,
     List<String?>? targetReplyTime,
-    List<String?>? excludeGender,
+    List<_i2.Gender?>? excludeGender,
     List<String?>? excludeAge,
-    List<String?>? excludeMBTI,
-    List<String?>? excludeEnneagram,
-    List<String?>? excludeZodiac,
-    List<String?>? excludeReligion,
+    List<_i2.Country?>? excludeCountry,
+    List<_i2.MBTI?>? excludeMBTI,
+    List<_i2.Enneagram?>? excludeEnneagram,
+    List<_i2.Zodiac?>? excludeZodiac,
+    List<_i2.Religion?>? excludeReligion,
+    List<_i2.Philosophy?>? excludePhilosophicalBeliefs,
     List<String?>? excludePoliticalAffiliation,
     List<String?>? excludeRelationshipStatus,
     List<String?>? excludeSexualOrientation,
@@ -226,6 +237,7 @@ abstract class User extends _i1.SerializableEntity {
     _i1.SerializationManager serializationManager,
   ) {
     return User(
+      id: serializationManager.deserialize<int?>(jsonSerialization['id']),
       userName: serializationManager
           .deserialize<String>(jsonSerialization['userName']),
       uuid: serializationManager.deserialize<String>(jsonSerialization['uuid']),
@@ -235,30 +247,31 @@ abstract class User extends _i1.SerializableEntity {
           serializationManager.deserialize<String?>(jsonSerialization['email']),
       phoneNumber: serializationManager
           .deserialize<String?>(jsonSerialization['phoneNumber']),
-      linkedAccounts: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['linkedAccounts']),
+      linkedAccounts:
+          serializationManager.deserialize<List<_i2.LinkedAccount?>?>(
+              jsonSerialization['linkedAccounts']),
       city:
           serializationManager.deserialize<String?>(jsonSerialization['city']),
-      state:
-          serializationManager.deserialize<String?>(jsonSerialization['state']),
       country: serializationManager
-          .deserialize<String?>(jsonSerialization['country']),
+          .deserialize<_i2.Country?>(jsonSerialization['country']),
       dateOfBirth: serializationManager
-          .deserialize<String?>(jsonSerialization['dateOfBirth']),
-      age: serializationManager.deserialize<String?>(jsonSerialization['age']),
+          .deserialize<DateTime?>(jsonSerialization['dateOfBirth']),
+      age: serializationManager.deserialize<int?>(jsonSerialization['age']),
       gender: serializationManager
-          .deserialize<String?>(jsonSerialization['gender']),
+          .deserialize<_i2.Gender?>(jsonSerialization['gender']),
       bio: serializationManager.deserialize<String?>(jsonSerialization['bio']),
       profilePicture: serializationManager
           .deserialize<String?>(jsonSerialization['profilePicture']),
-      mbti:
-          serializationManager.deserialize<String?>(jsonSerialization['mbti']),
+      mbti: serializationManager
+          .deserialize<_i2.MBTI?>(jsonSerialization['mbti']),
       enneagram: serializationManager
-          .deserialize<String?>(jsonSerialization['enneagram']),
+          .deserialize<_i2.Enneagram?>(jsonSerialization['enneagram']),
       zodiac: serializationManager
-          .deserialize<String?>(jsonSerialization['zodiac']),
+          .deserialize<_i2.Zodiac?>(jsonSerialization['zodiac']),
       religion: serializationManager
-          .deserialize<String?>(jsonSerialization['religion']),
+          .deserialize<_i2.Religion?>(jsonSerialization['religion']),
+      philosophicalBeliefs: serializationManager.deserialize<_i2.Philosophy?>(
+          jsonSerialization['philosophicalBeliefs']),
       politicalAffiliation: serializationManager
           .deserialize<String?>(jsonSerialization['politicalAffiliation']),
       relationshipStatus: serializationManager
@@ -308,17 +321,22 @@ abstract class User extends _i1.SerializableEntity {
       replyTime: serializationManager
           .deserialize<String?>(jsonSerialization['replyTime']),
       targetGender: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['targetGender']),
+          .deserialize<List<_i2.Gender?>?>(jsonSerialization['targetGender']),
       targetAge: serializationManager
           .deserialize<List<String?>?>(jsonSerialization['targetAge']),
+      targetCountry: serializationManager
+          .deserialize<List<_i2.Country?>?>(jsonSerialization['targetCountry']),
       targetMBTI: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['targetMBTI']),
-      targetEnneagram: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['targetEnneagram']),
+          .deserialize<List<_i2.MBTI?>?>(jsonSerialization['targetMBTI']),
+      targetEnneagram: serializationManager.deserialize<List<_i2.Enneagram?>?>(
+          jsonSerialization['targetEnneagram']),
       targetZodiac: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['targetZodiac']),
-      targetReligion: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['targetReligion']),
+          .deserialize<List<_i2.Zodiac?>?>(jsonSerialization['targetZodiac']),
+      targetReligion: serializationManager.deserialize<List<_i2.Religion?>?>(
+          jsonSerialization['targetReligion']),
+      targetPhilosophicalBeliefs:
+          serializationManager.deserialize<List<_i2.Philosophy?>?>(
+              jsonSerialization['targetPhilosophicalBeliefs']),
       targetPoliticalAffiliation:
           serializationManager.deserialize<List<String?>?>(
               jsonSerialization['targetPoliticalAffiliation']),
@@ -370,17 +388,22 @@ abstract class User extends _i1.SerializableEntity {
       targetReplyTime: serializationManager
           .deserialize<List<String?>?>(jsonSerialization['targetReplyTime']),
       excludeGender: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['excludeGender']),
+          .deserialize<List<_i2.Gender?>?>(jsonSerialization['excludeGender']),
       excludeAge: serializationManager
           .deserialize<List<String?>?>(jsonSerialization['excludeAge']),
+      excludeCountry: serializationManager.deserialize<List<_i2.Country?>?>(
+          jsonSerialization['excludeCountry']),
       excludeMBTI: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['excludeMBTI']),
-      excludeEnneagram: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['excludeEnneagram']),
+          .deserialize<List<_i2.MBTI?>?>(jsonSerialization['excludeMBTI']),
+      excludeEnneagram: serializationManager.deserialize<List<_i2.Enneagram?>?>(
+          jsonSerialization['excludeEnneagram']),
       excludeZodiac: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['excludeZodiac']),
-      excludeReligion: serializationManager
-          .deserialize<List<String?>?>(jsonSerialization['excludeReligion']),
+          .deserialize<List<_i2.Zodiac?>?>(jsonSerialization['excludeZodiac']),
+      excludeReligion: serializationManager.deserialize<List<_i2.Religion?>?>(
+          jsonSerialization['excludeReligion']),
+      excludePhilosophicalBeliefs:
+          serializationManager.deserialize<List<_i2.Philosophy?>?>(
+              jsonSerialization['excludePhilosophicalBeliefs']),
       excludePoliticalAffiliation:
           serializationManager.deserialize<List<String?>?>(
               jsonSerialization['excludePoliticalAffiliation']),
@@ -435,6 +458,11 @@ abstract class User extends _i1.SerializableEntity {
     );
   }
 
+  /// The database id, set if the object has been inserted into the
+  /// database or if it has been fetched from the database. Otherwise,
+  /// the id will be null.
+  int? id;
+
   String userName;
 
   String uuid;
@@ -445,31 +473,31 @@ abstract class User extends _i1.SerializableEntity {
 
   String? phoneNumber;
 
-  List<String?>? linkedAccounts;
+  List<_i2.LinkedAccount?>? linkedAccounts;
 
   String? city;
 
-  String? state;
+  _i2.Country? country;
 
-  String? country;
+  DateTime? dateOfBirth;
 
-  String? dateOfBirth;
+  int? age;
 
-  String? age;
-
-  String? gender;
+  _i2.Gender? gender;
 
   String? bio;
 
   String? profilePicture;
 
-  String? mbti;
+  _i2.MBTI? mbti;
 
-  String? enneagram;
+  _i2.Enneagram? enneagram;
 
-  String? zodiac;
+  _i2.Zodiac? zodiac;
 
-  String? religion;
+  _i2.Religion? religion;
+
+  _i2.Philosophy? philosophicalBeliefs;
 
   String? politicalAffiliation;
 
@@ -519,17 +547,21 @@ abstract class User extends _i1.SerializableEntity {
 
   String? replyTime;
 
-  List<String?>? targetGender;
+  List<_i2.Gender?>? targetGender;
 
   List<String?>? targetAge;
 
-  List<String?>? targetMBTI;
+  List<_i2.Country?>? targetCountry;
 
-  List<String?>? targetEnneagram;
+  List<_i2.MBTI?>? targetMBTI;
 
-  List<String?>? targetZodiac;
+  List<_i2.Enneagram?>? targetEnneagram;
 
-  List<String?>? targetReligion;
+  List<_i2.Zodiac?>? targetZodiac;
+
+  List<_i2.Religion?>? targetReligion;
+
+  List<_i2.Philosophy?>? targetPhilosophicalBeliefs;
 
   List<String?>? targetPoliticalAffiliation;
 
@@ -579,17 +611,21 @@ abstract class User extends _i1.SerializableEntity {
 
   List<String?>? targetReplyTime;
 
-  List<String?>? excludeGender;
+  List<_i2.Gender?>? excludeGender;
 
   List<String?>? excludeAge;
 
-  List<String?>? excludeMBTI;
+  List<_i2.Country?>? excludeCountry;
 
-  List<String?>? excludeEnneagram;
+  List<_i2.MBTI?>? excludeMBTI;
 
-  List<String?>? excludeZodiac;
+  List<_i2.Enneagram?>? excludeEnneagram;
 
-  List<String?>? excludeReligion;
+  List<_i2.Zodiac?>? excludeZodiac;
+
+  List<_i2.Religion?>? excludeReligion;
+
+  List<_i2.Philosophy?>? excludePhilosophicalBeliefs;
 
   List<String?>? excludePoliticalAffiliation;
 
@@ -640,24 +676,25 @@ abstract class User extends _i1.SerializableEntity {
   List<String?>? excludeReplyTime;
 
   User copyWith({
+    int? id,
     String? userName,
     String? uuid,
     String? name,
     String? email,
     String? phoneNumber,
-    List<String?>? linkedAccounts,
+    List<_i2.LinkedAccount?>? linkedAccounts,
     String? city,
-    String? state,
-    String? country,
-    String? dateOfBirth,
-    String? age,
-    String? gender,
+    _i2.Country? country,
+    DateTime? dateOfBirth,
+    int? age,
+    _i2.Gender? gender,
     String? bio,
     String? profilePicture,
-    String? mbti,
-    String? enneagram,
-    String? zodiac,
-    String? religion,
+    _i2.MBTI? mbti,
+    _i2.Enneagram? enneagram,
+    _i2.Zodiac? zodiac,
+    _i2.Religion? religion,
+    _i2.Philosophy? philosophicalBeliefs,
     String? politicalAffiliation,
     String? relationshipStatus,
     String? sexualOrientation,
@@ -682,12 +719,14 @@ abstract class User extends _i1.SerializableEntity {
     String? letterLength,
     String? letterFrequency,
     String? replyTime,
-    List<String?>? targetGender,
+    List<_i2.Gender?>? targetGender,
     List<String?>? targetAge,
-    List<String?>? targetMBTI,
-    List<String?>? targetEnneagram,
-    List<String?>? targetZodiac,
-    List<String?>? targetReligion,
+    List<_i2.Country?>? targetCountry,
+    List<_i2.MBTI?>? targetMBTI,
+    List<_i2.Enneagram?>? targetEnneagram,
+    List<_i2.Zodiac?>? targetZodiac,
+    List<_i2.Religion?>? targetReligion,
+    List<_i2.Philosophy?>? targetPhilosophicalBeliefs,
     List<String?>? targetPoliticalAffiliation,
     List<String?>? targetRelationshipStatus,
     List<String?>? targetSexualOrientation,
@@ -712,12 +751,14 @@ abstract class User extends _i1.SerializableEntity {
     List<String?>? targetLetterLength,
     List<String?>? targetLetterFrequency,
     List<String?>? targetReplyTime,
-    List<String?>? excludeGender,
+    List<_i2.Gender?>? excludeGender,
     List<String?>? excludeAge,
-    List<String?>? excludeMBTI,
-    List<String?>? excludeEnneagram,
-    List<String?>? excludeZodiac,
-    List<String?>? excludeReligion,
+    List<_i2.Country?>? excludeCountry,
+    List<_i2.MBTI?>? excludeMBTI,
+    List<_i2.Enneagram?>? excludeEnneagram,
+    List<_i2.Zodiac?>? excludeZodiac,
+    List<_i2.Religion?>? excludeReligion,
+    List<_i2.Philosophy?>? excludePhilosophicalBeliefs,
     List<String?>? excludePoliticalAffiliation,
     List<String?>? excludeRelationshipStatus,
     List<String?>? excludeSexualOrientation,
@@ -746,24 +787,28 @@ abstract class User extends _i1.SerializableEntity {
   @override
   Map<String, dynamic> toJson() {
     return {
+      if (id != null) 'id': id,
       'userName': userName,
       'uuid': uuid,
       if (name != null) 'name': name,
       if (email != null) 'email': email,
       if (phoneNumber != null) 'phoneNumber': phoneNumber,
-      if (linkedAccounts != null) 'linkedAccounts': linkedAccounts?.toJson(),
+      if (linkedAccounts != null)
+        'linkedAccounts':
+            linkedAccounts?.toJson(valueToJson: (v) => v?.toJson()),
       if (city != null) 'city': city,
-      if (state != null) 'state': state,
-      if (country != null) 'country': country,
-      if (dateOfBirth != null) 'dateOfBirth': dateOfBirth,
+      if (country != null) 'country': country?.toJson(),
+      if (dateOfBirth != null) 'dateOfBirth': dateOfBirth?.toJson(),
       if (age != null) 'age': age,
-      if (gender != null) 'gender': gender,
+      if (gender != null) 'gender': gender?.toJson(),
       if (bio != null) 'bio': bio,
       if (profilePicture != null) 'profilePicture': profilePicture,
-      if (mbti != null) 'mbti': mbti,
-      if (enneagram != null) 'enneagram': enneagram,
-      if (zodiac != null) 'zodiac': zodiac,
-      if (religion != null) 'religion': religion,
+      if (mbti != null) 'mbti': mbti?.toJson(),
+      if (enneagram != null) 'enneagram': enneagram?.toJson(),
+      if (zodiac != null) 'zodiac': zodiac?.toJson(),
+      if (religion != null) 'religion': religion?.toJson(),
+      if (philosophicalBeliefs != null)
+        'philosophicalBeliefs': philosophicalBeliefs?.toJson(),
       if (politicalAffiliation != null)
         'politicalAffiliation': politicalAffiliation,
       if (relationshipStatus != null) 'relationshipStatus': relationshipStatus,
@@ -790,12 +835,24 @@ abstract class User extends _i1.SerializableEntity {
       if (letterLength != null) 'letterLength': letterLength,
       if (letterFrequency != null) 'letterFrequency': letterFrequency,
       if (replyTime != null) 'replyTime': replyTime,
-      if (targetGender != null) 'targetGender': targetGender?.toJson(),
+      if (targetGender != null)
+        'targetGender': targetGender?.toJson(valueToJson: (v) => v?.toJson()),
       if (targetAge != null) 'targetAge': targetAge?.toJson(),
-      if (targetMBTI != null) 'targetMBTI': targetMBTI?.toJson(),
-      if (targetEnneagram != null) 'targetEnneagram': targetEnneagram?.toJson(),
-      if (targetZodiac != null) 'targetZodiac': targetZodiac?.toJson(),
-      if (targetReligion != null) 'targetReligion': targetReligion?.toJson(),
+      if (targetCountry != null)
+        'targetCountry': targetCountry?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetMBTI != null)
+        'targetMBTI': targetMBTI?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetEnneagram != null)
+        'targetEnneagram':
+            targetEnneagram?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetZodiac != null)
+        'targetZodiac': targetZodiac?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetReligion != null)
+        'targetReligion':
+            targetReligion?.toJson(valueToJson: (v) => v?.toJson()),
+      if (targetPhilosophicalBeliefs != null)
+        'targetPhilosophicalBeliefs':
+            targetPhilosophicalBeliefs?.toJson(valueToJson: (v) => v?.toJson()),
       if (targetPoliticalAffiliation != null)
         'targetPoliticalAffiliation': targetPoliticalAffiliation?.toJson(),
       if (targetRelationshipStatus != null)
@@ -826,13 +883,25 @@ abstract class User extends _i1.SerializableEntity {
       if (targetLetterFrequency != null)
         'targetLetterFrequency': targetLetterFrequency?.toJson(),
       if (targetReplyTime != null) 'targetReplyTime': targetReplyTime?.toJson(),
-      if (excludeGender != null) 'excludeGender': excludeGender?.toJson(),
+      if (excludeGender != null)
+        'excludeGender': excludeGender?.toJson(valueToJson: (v) => v?.toJson()),
       if (excludeAge != null) 'excludeAge': excludeAge?.toJson(),
-      if (excludeMBTI != null) 'excludeMBTI': excludeMBTI?.toJson(),
+      if (excludeCountry != null)
+        'excludeCountry':
+            excludeCountry?.toJson(valueToJson: (v) => v?.toJson()),
+      if (excludeMBTI != null)
+        'excludeMBTI': excludeMBTI?.toJson(valueToJson: (v) => v?.toJson()),
       if (excludeEnneagram != null)
-        'excludeEnneagram': excludeEnneagram?.toJson(),
-      if (excludeZodiac != null) 'excludeZodiac': excludeZodiac?.toJson(),
-      if (excludeReligion != null) 'excludeReligion': excludeReligion?.toJson(),
+        'excludeEnneagram':
+            excludeEnneagram?.toJson(valueToJson: (v) => v?.toJson()),
+      if (excludeZodiac != null)
+        'excludeZodiac': excludeZodiac?.toJson(valueToJson: (v) => v?.toJson()),
+      if (excludeReligion != null)
+        'excludeReligion':
+            excludeReligion?.toJson(valueToJson: (v) => v?.toJson()),
+      if (excludePhilosophicalBeliefs != null)
+        'excludePhilosophicalBeliefs': excludePhilosophicalBeliefs?.toJson(
+            valueToJson: (v) => v?.toJson()),
       if (excludePoliticalAffiliation != null)
         'excludePoliticalAffiliation': excludePoliticalAffiliation?.toJson(),
       if (excludeRelationshipStatus != null)
@@ -875,24 +944,25 @@ class _Undefined {}
 
 class _UserImpl extends User {
   _UserImpl({
+    int? id,
     required String userName,
     required String uuid,
     String? name,
     String? email,
     String? phoneNumber,
-    List<String?>? linkedAccounts,
+    List<_i2.LinkedAccount?>? linkedAccounts,
     String? city,
-    String? state,
-    String? country,
-    String? dateOfBirth,
-    String? age,
-    String? gender,
+    _i2.Country? country,
+    DateTime? dateOfBirth,
+    int? age,
+    _i2.Gender? gender,
     String? bio,
     String? profilePicture,
-    String? mbti,
-    String? enneagram,
-    String? zodiac,
-    String? religion,
+    _i2.MBTI? mbti,
+    _i2.Enneagram? enneagram,
+    _i2.Zodiac? zodiac,
+    _i2.Religion? religion,
+    _i2.Philosophy? philosophicalBeliefs,
     String? politicalAffiliation,
     String? relationshipStatus,
     String? sexualOrientation,
@@ -917,12 +987,14 @@ class _UserImpl extends User {
     String? letterLength,
     String? letterFrequency,
     String? replyTime,
-    List<String?>? targetGender,
+    List<_i2.Gender?>? targetGender,
     List<String?>? targetAge,
-    List<String?>? targetMBTI,
-    List<String?>? targetEnneagram,
-    List<String?>? targetZodiac,
-    List<String?>? targetReligion,
+    List<_i2.Country?>? targetCountry,
+    List<_i2.MBTI?>? targetMBTI,
+    List<_i2.Enneagram?>? targetEnneagram,
+    List<_i2.Zodiac?>? targetZodiac,
+    List<_i2.Religion?>? targetReligion,
+    List<_i2.Philosophy?>? targetPhilosophicalBeliefs,
     List<String?>? targetPoliticalAffiliation,
     List<String?>? targetRelationshipStatus,
     List<String?>? targetSexualOrientation,
@@ -947,12 +1019,14 @@ class _UserImpl extends User {
     List<String?>? targetLetterLength,
     List<String?>? targetLetterFrequency,
     List<String?>? targetReplyTime,
-    List<String?>? excludeGender,
+    List<_i2.Gender?>? excludeGender,
     List<String?>? excludeAge,
-    List<String?>? excludeMBTI,
-    List<String?>? excludeEnneagram,
-    List<String?>? excludeZodiac,
-    List<String?>? excludeReligion,
+    List<_i2.Country?>? excludeCountry,
+    List<_i2.MBTI?>? excludeMBTI,
+    List<_i2.Enneagram?>? excludeEnneagram,
+    List<_i2.Zodiac?>? excludeZodiac,
+    List<_i2.Religion?>? excludeReligion,
+    List<_i2.Philosophy?>? excludePhilosophicalBeliefs,
     List<String?>? excludePoliticalAffiliation,
     List<String?>? excludeRelationshipStatus,
     List<String?>? excludeSexualOrientation,
@@ -978,6 +1052,7 @@ class _UserImpl extends User {
     List<String?>? excludeLetterFrequency,
     List<String?>? excludeReplyTime,
   }) : super._(
+          id: id,
           userName: userName,
           uuid: uuid,
           name: name,
@@ -985,7 +1060,6 @@ class _UserImpl extends User {
           phoneNumber: phoneNumber,
           linkedAccounts: linkedAccounts,
           city: city,
-          state: state,
           country: country,
           dateOfBirth: dateOfBirth,
           age: age,
@@ -996,6 +1070,7 @@ class _UserImpl extends User {
           enneagram: enneagram,
           zodiac: zodiac,
           religion: religion,
+          philosophicalBeliefs: philosophicalBeliefs,
           politicalAffiliation: politicalAffiliation,
           relationshipStatus: relationshipStatus,
           sexualOrientation: sexualOrientation,
@@ -1022,10 +1097,12 @@ class _UserImpl extends User {
           replyTime: replyTime,
           targetGender: targetGender,
           targetAge: targetAge,
+          targetCountry: targetCountry,
           targetMBTI: targetMBTI,
           targetEnneagram: targetEnneagram,
           targetZodiac: targetZodiac,
           targetReligion: targetReligion,
+          targetPhilosophicalBeliefs: targetPhilosophicalBeliefs,
           targetPoliticalAffiliation: targetPoliticalAffiliation,
           targetRelationshipStatus: targetRelationshipStatus,
           targetSexualOrientation: targetSexualOrientation,
@@ -1052,10 +1129,12 @@ class _UserImpl extends User {
           targetReplyTime: targetReplyTime,
           excludeGender: excludeGender,
           excludeAge: excludeAge,
+          excludeCountry: excludeCountry,
           excludeMBTI: excludeMBTI,
           excludeEnneagram: excludeEnneagram,
           excludeZodiac: excludeZodiac,
           excludeReligion: excludeReligion,
+          excludePhilosophicalBeliefs: excludePhilosophicalBeliefs,
           excludePoliticalAffiliation: excludePoliticalAffiliation,
           excludeRelationshipStatus: excludeRelationshipStatus,
           excludeSexualOrientation: excludeSexualOrientation,
@@ -1084,6 +1163,7 @@ class _UserImpl extends User {
 
   @override
   User copyWith({
+    Object? id = _Undefined,
     String? userName,
     String? uuid,
     Object? name = _Undefined,
@@ -1091,7 +1171,6 @@ class _UserImpl extends User {
     Object? phoneNumber = _Undefined,
     Object? linkedAccounts = _Undefined,
     Object? city = _Undefined,
-    Object? state = _Undefined,
     Object? country = _Undefined,
     Object? dateOfBirth = _Undefined,
     Object? age = _Undefined,
@@ -1102,6 +1181,7 @@ class _UserImpl extends User {
     Object? enneagram = _Undefined,
     Object? zodiac = _Undefined,
     Object? religion = _Undefined,
+    Object? philosophicalBeliefs = _Undefined,
     Object? politicalAffiliation = _Undefined,
     Object? relationshipStatus = _Undefined,
     Object? sexualOrientation = _Undefined,
@@ -1128,10 +1208,12 @@ class _UserImpl extends User {
     Object? replyTime = _Undefined,
     Object? targetGender = _Undefined,
     Object? targetAge = _Undefined,
+    Object? targetCountry = _Undefined,
     Object? targetMBTI = _Undefined,
     Object? targetEnneagram = _Undefined,
     Object? targetZodiac = _Undefined,
     Object? targetReligion = _Undefined,
+    Object? targetPhilosophicalBeliefs = _Undefined,
     Object? targetPoliticalAffiliation = _Undefined,
     Object? targetRelationshipStatus = _Undefined,
     Object? targetSexualOrientation = _Undefined,
@@ -1158,10 +1240,12 @@ class _UserImpl extends User {
     Object? targetReplyTime = _Undefined,
     Object? excludeGender = _Undefined,
     Object? excludeAge = _Undefined,
+    Object? excludeCountry = _Undefined,
     Object? excludeMBTI = _Undefined,
     Object? excludeEnneagram = _Undefined,
     Object? excludeZodiac = _Undefined,
     Object? excludeReligion = _Undefined,
+    Object? excludePhilosophicalBeliefs = _Undefined,
     Object? excludePoliticalAffiliation = _Undefined,
     Object? excludeRelationshipStatus = _Undefined,
     Object? excludeSexualOrientation = _Undefined,
@@ -1188,27 +1272,30 @@ class _UserImpl extends User {
     Object? excludeReplyTime = _Undefined,
   }) {
     return User(
+      id: id is int? ? id : this.id,
       userName: userName ?? this.userName,
       uuid: uuid ?? this.uuid,
       name: name is String? ? name : this.name,
       email: email is String? ? email : this.email,
       phoneNumber: phoneNumber is String? ? phoneNumber : this.phoneNumber,
-      linkedAccounts: linkedAccounts is List<String?>?
+      linkedAccounts: linkedAccounts is List<_i2.LinkedAccount?>?
           ? linkedAccounts
           : this.linkedAccounts?.clone(),
       city: city is String? ? city : this.city,
-      state: state is String? ? state : this.state,
-      country: country is String? ? country : this.country,
-      dateOfBirth: dateOfBirth is String? ? dateOfBirth : this.dateOfBirth,
-      age: age is String? ? age : this.age,
-      gender: gender is String? ? gender : this.gender,
+      country: country is _i2.Country? ? country : this.country,
+      dateOfBirth: dateOfBirth is DateTime? ? dateOfBirth : this.dateOfBirth,
+      age: age is int? ? age : this.age,
+      gender: gender is _i2.Gender? ? gender : this.gender,
       bio: bio is String? ? bio : this.bio,
       profilePicture:
           profilePicture is String? ? profilePicture : this.profilePicture,
-      mbti: mbti is String? ? mbti : this.mbti,
-      enneagram: enneagram is String? ? enneagram : this.enneagram,
-      zodiac: zodiac is String? ? zodiac : this.zodiac,
-      religion: religion is String? ? religion : this.religion,
+      mbti: mbti is _i2.MBTI? ? mbti : this.mbti,
+      enneagram: enneagram is _i2.Enneagram? ? enneagram : this.enneagram,
+      zodiac: zodiac is _i2.Zodiac? ? zodiac : this.zodiac,
+      religion: religion is _i2.Religion? ? religion : this.religion,
+      philosophicalBeliefs: philosophicalBeliefs is _i2.Philosophy?
+          ? philosophicalBeliefs
+          : this.philosophicalBeliefs,
       politicalAffiliation: politicalAffiliation is String?
           ? politicalAffiliation
           : this.politicalAffiliation,
@@ -1244,22 +1331,30 @@ class _UserImpl extends User {
       letterFrequency:
           letterFrequency is String? ? letterFrequency : this.letterFrequency,
       replyTime: replyTime is String? ? replyTime : this.replyTime,
-      targetGender: targetGender is List<String?>?
+      targetGender: targetGender is List<_i2.Gender?>?
           ? targetGender
           : this.targetGender?.clone(),
       targetAge:
           targetAge is List<String?>? ? targetAge : this.targetAge?.clone(),
-      targetMBTI:
-          targetMBTI is List<String?>? ? targetMBTI : this.targetMBTI?.clone(),
-      targetEnneagram: targetEnneagram is List<String?>?
+      targetCountry: targetCountry is List<_i2.Country?>?
+          ? targetCountry
+          : this.targetCountry?.clone(),
+      targetMBTI: targetMBTI is List<_i2.MBTI?>?
+          ? targetMBTI
+          : this.targetMBTI?.clone(),
+      targetEnneagram: targetEnneagram is List<_i2.Enneagram?>?
           ? targetEnneagram
           : this.targetEnneagram?.clone(),
-      targetZodiac: targetZodiac is List<String?>?
+      targetZodiac: targetZodiac is List<_i2.Zodiac?>?
           ? targetZodiac
           : this.targetZodiac?.clone(),
-      targetReligion: targetReligion is List<String?>?
+      targetReligion: targetReligion is List<_i2.Religion?>?
           ? targetReligion
           : this.targetReligion?.clone(),
+      targetPhilosophicalBeliefs:
+          targetPhilosophicalBeliefs is List<_i2.Philosophy?>?
+              ? targetPhilosophicalBeliefs
+              : this.targetPhilosophicalBeliefs?.clone(),
       targetPoliticalAffiliation: targetPoliticalAffiliation is List<String?>?
           ? targetPoliticalAffiliation
           : this.targetPoliticalAffiliation?.clone(),
@@ -1331,23 +1426,30 @@ class _UserImpl extends User {
       targetReplyTime: targetReplyTime is List<String?>?
           ? targetReplyTime
           : this.targetReplyTime?.clone(),
-      excludeGender: excludeGender is List<String?>?
+      excludeGender: excludeGender is List<_i2.Gender?>?
           ? excludeGender
           : this.excludeGender?.clone(),
       excludeAge:
           excludeAge is List<String?>? ? excludeAge : this.excludeAge?.clone(),
-      excludeMBTI: excludeMBTI is List<String?>?
+      excludeCountry: excludeCountry is List<_i2.Country?>?
+          ? excludeCountry
+          : this.excludeCountry?.clone(),
+      excludeMBTI: excludeMBTI is List<_i2.MBTI?>?
           ? excludeMBTI
           : this.excludeMBTI?.clone(),
-      excludeEnneagram: excludeEnneagram is List<String?>?
+      excludeEnneagram: excludeEnneagram is List<_i2.Enneagram?>?
           ? excludeEnneagram
           : this.excludeEnneagram?.clone(),
-      excludeZodiac: excludeZodiac is List<String?>?
+      excludeZodiac: excludeZodiac is List<_i2.Zodiac?>?
           ? excludeZodiac
           : this.excludeZodiac?.clone(),
-      excludeReligion: excludeReligion is List<String?>?
+      excludeReligion: excludeReligion is List<_i2.Religion?>?
           ? excludeReligion
           : this.excludeReligion?.clone(),
+      excludePhilosophicalBeliefs:
+          excludePhilosophicalBeliefs is List<_i2.Philosophy?>?
+              ? excludePhilosophicalBeliefs
+              : this.excludePhilosophicalBeliefs?.clone(),
       excludePoliticalAffiliation: excludePoliticalAffiliation is List<String?>?
           ? excludePoliticalAffiliation
           : this.excludePoliticalAffiliation?.clone(),
