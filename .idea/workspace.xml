@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9093b2a-8667-4f5d-ba56-67ac51cd083d" name="Changes" comment="wrote enums - education, political_affiliation, professions, relationship_status, religion, romantic_orientation, sexual orientation.">
-      <change afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/screens/user_details_ui.dart" afterDir="false" />
+    <list default="true" id="f9093b2a-8667-4f5d-ba56-67ac51cd083d" name="Changes" comment="wrote client side manipulation and viewing methods for user class.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/protocol.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/protocol.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_flutter/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/homeview.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/homeview.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/endpoints/user_endpoint.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/endpoints/user_endpoint.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/endpoints.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/endpoints.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/protocol.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/protocol.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/protocol.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/protocol.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/screens/user_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/screens/user_details.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,13 +120,22 @@
       <option name="project" value="LOCAL" />
       <updated>1712002785464</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="wrote client side manipulation and viewing methods for user class.">
+      <option name="closed" value="true" />
+      <created>1712027684728</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712027684728</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Serverpod Backend." />
     <MESSAGE value="wrote enums - enneagram, gender, linked accounts, mbti, philosophy, religions, zodiacs," />
     <MESSAGE value="wrote enums - education, political_affiliation, professions, relationship_status, religion, romantic_orientation, sexual orientation." />
-    <option name="LAST_COMMIT_MESSAGE" value="wrote enums - education, political_affiliation, professions, relationship_status, religion, romantic_orientation, sexual orientation." />
+    <MESSAGE value="wrote client side manipulation and viewing methods for user class." />
+    <option name="LAST_COMMIT_MESSAGE" value="wrote client side manipulation and viewing methods for user class." />
   </component>
 </project>

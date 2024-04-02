@@ -64,6 +64,8 @@ class _UserDetailsState extends State<UserDetails> {
           children: [
             Text("Gender: ", style: Theme.of(context).textTheme.bodyMedium),
             Text(gender.toString()),
+          ],
+        )
       ],
     );
   }
