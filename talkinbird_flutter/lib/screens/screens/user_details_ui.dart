@@ -13,16 +13,17 @@ class UserDetailsUI extends StatefulWidget {
 }
 
 class _UserDetailsUIState extends State<UserDetailsUI> {
-  late final String username;
-  late final String name;
-  late final String email;
-  late final int age;
-  late final Gender gender;
-  late final TextEditingController usernameController;
-  late final TextEditingController nameController;
-  late final TextEditingController emailController;
-  late final TextEditingController ageController;
+  late String username;
+  late String name;
+  late String email;
+  late int age;
+  late Gender? selectedValue;
+  late TextEditingController usernameController;
+  late TextEditingController nameController;
+  late TextEditingController emailController;
+  late TextEditingController ageController;
   final List<DropdownMenuItem> genders = [];
+  User? _thisUser;
 
   void _initiateControllers() {
     usernameController = TextEditingController();
@@ -32,26 +33,18 @@ class _UserDetailsUIState extends State<UserDetailsUI> {
   }
 
   void _getGenderMenu() {
-    Gender.values.asMap().forEach((key, value) {
-      DropdownMenuItem(
+    Gender.values.asMap().forEach((_, Gender value) {
+      genders.add(DropdownMenuItem(
         value: value,
         child: Text(value.toString()),
-      );
+      ));
     });
   }
 
-  void _onSave() {
+  void _onSave(User user) async {
     try {
-      final user = User(
-        userName: username,
-        uuid: uuid,
-        name: name,
-        email: email,
-        age: age,
-        gender: gender,
-      );
-      client.user.createUser(user);
-      isThereAUser = true;
+      await client.user.createUser(user);
+      await client.user.getUser(user.uuid);
       setState(() {});
     } catch (e) {
       log(e.toString());
@@ -63,6 +56,7 @@ class _UserDetailsUIState extends State<UserDetailsUI> {
     super.initState();
     _initiateControllers();
     _getGenderMenu();
+    selectedValue = null;
   }
 
   @override
@@ -76,42 +70,86 @@ class _UserDetailsUIState extends State<UserDetailsUI> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      child: Column(
-        children: [
-          TextFormField(
-            controller: usernameController,
-            decoration: const InputDecoration(
-              labelText: 'Username',
-            ),
+    return Scaffold(
+      body: Container(
+        margin: const EdgeInsets.all(40),
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(40),
+          color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.7),
+        ),
+        child: Form(
+          child: Column(
+            children: [
+              TextFormField(
+                controller: usernameController,
+                onChanged: (value) {
+                  username = value;
+                },
+                decoration: const InputDecoration(
+                  labelText: 'Username',
+                ),
+              ),
+              TextFormField(
+                controller: nameController,
+                onChanged: (value) {
+                  name = value;
+                },
+                decoration: const InputDecoration(
+                  labelText: 'name',
+                ),
+              ),
+              TextFormField(
+                controller: emailController,
+                onChanged: (value) {
+                  email = value;
+                },
+                decoration: const InputDecoration(
+                  labelText: 'email',
+                ),
+              ),
+              TextFormField(
+                controller: ageController,
+                onChanged: (value) {
+                  age = int.parse(value);
+                },
+                decoration: const InputDecoration(
+                  labelText: 'age',
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              DropdownButton(
+                  isExpanded: true,
+                  value: selectedValue,
+                  onChanged: (newValue) {
+                    setState(() {
+                      selectedValue = newValue!;
+                    });
+                  },
+                  items: genders),
+              const SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  final user = User(
+                    uuid: uuid,
+                    userName: username,
+                    name: name,
+                    email: email,
+                    age: age,
+                    gender: selectedValue,
+                  );
+                  _onSave(user);
+                  Navigator.pop(context);
+                },
+                child: const Text('Save'),
+              ),
+            ],
           ),
-          TextFormField(
-            controller: nameController,
-            decoration: const InputDecoration(
-              labelText: 'name',
-            ),
-          ),
-          TextFormField(
-            controller: emailController,
-            decoration: const InputDecoration(
-              labelText: 'email',
-            ),
-          ),
-          TextFormField(
-            controller: ageController,
-            decoration: const InputDecoration(
-              labelText: 'age',
-            ),
-          ),
-          DropdownButtonFormField(
-            items: genders,
-            onChanged: (value) => gender = value,
-          ),
-          ElevatedButton(
-            onPressed: _onSave,
-            child: const Text('Save'),
-          ),
-        ],
+        ),
       ),
     );
   }

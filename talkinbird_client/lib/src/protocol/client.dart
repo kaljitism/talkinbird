@@ -38,6 +38,12 @@ class EndpointUser extends _i1.EndpointRef {
         'updateUser',
         {'user': user},
       );
+
+  _i2.Future<void> deleteUser(_i3.User user) => caller.callServerEndpoint<void>(
+        'user',
+        'deleteUser',
+        {'user': user},
+      );
 }
 
 class Client extends _i1.ServerpodClient {

@@ -9,15 +9,13 @@ import 'package:talkinbird_flutter/screens/homeview.dart';
 import 'package:talkinbird_flutter/utils/color_schemes.g.dart';
 import 'package:talkinbird_flutter/utils/textTheme.dart';
 
-var client = Client('http://localhost:8080/')
+var client = Client('http://10.0.2.2:8080/')
   ..connectivityMonitor = FlutterConnectivityMonitor();
-String uuid = const Uuid().v4();
-bool isThereAUser = false;
+String uuid = "testId";
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky,
-      overlays: []);
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive, overlays: []);
   runApp(const TalkinBird());
 }
 

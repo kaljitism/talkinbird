@@ -2,3 +2,4 @@ user:
   - createUser:
   - getUser:
   - updateUser:
+  - deleteUser:

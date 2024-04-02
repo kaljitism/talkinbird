@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
-import 'package:talkinbird_flutter/screens/screens/user_details.dart';
+import 'package:talkinbird_client/talkinbird_client.dart';
 import 'package:talkinbird_flutter/screens/screens/user_details_ui.dart';
 
 import '../main.dart';
@@ -20,6 +20,9 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   SMIInput<bool>? _isPressed;
   SMIInput<bool>? _isDark;
+
+  User? _userData;
+  Exception? _exception;
 
   void themeUpdate() {
     context.read<ThemeProvider>().setThemeMode();
@@ -46,17 +49,143 @@ class _HomeViewState extends State<HomeView> {
     _isPressed = controller.findInput<bool>('IsPressed') as SMIBool;
   }
 
+  Future<void> _getUserData() async {
+    try {
+      final userData = await client.user.getUser(uuid);
+      setState(() {
+        _userData = userData[0];
+      });
+    } catch (e) {
+      catchError(e);
+    }
+  }
+
+  Future<void> _deleteUser() async {
+    try {
+      await client.user.deleteUser(_userData!);
+      await client.user.getUser(uuid);
+    } catch (e) {
+      catchError(e);
+    }
+  }
+
+  void catchError(e) {
+    setState(() {
+      _userData = null;
+      _exception = e;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _getUserData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: false,
       appBar: _buildAppBar(context),
-      body: Stack(
-        children: [
-          _buildBackgroundAnimation(),
-          isThereAUser ? const UserDetails() : const UserDetailsUI(),
-          _buildNavBar(context),
-        ],
+      body: FutureBuilder(
+          future: _getUserData(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return Container(
+                margin: const EdgeInsets.all(40),
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40),
+                  color:
+                      Theme.of(context).colorScheme.onPrimary.withOpacity(0.7),
+                ),
+                child: const Text("Add a user to see their details"),
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator();
+            }
+            if (snapshot.hasError) {
+              return Center(child: Text("Error: ${snapshot.error}"));
+            }
+
+            if (snapshot.connectionState == ConnectionState.done) {
+              return Container(
+                margin: const EdgeInsets.all(40),
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(40),
+                  color:
+                      Theme.of(context).colorScheme.onPrimary.withOpacity(0.7),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text("Username: ",
+                            style: Theme.of(context).textTheme.bodyMedium),
+                        Text(_userData!.userName),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text("Name: ",
+                            style: Theme.of(context).textTheme.bodyMedium),
+                        Text(_userData!.name!),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text("Email: ",
+                            style: Theme.of(context).textTheme.bodyMedium),
+                        Text(_userData!.email!),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text("Age: ",
+                            style: Theme.of(context).textTheme.bodyMedium),
+                        Text(_userData!.age.toString()),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text("Gender: ",
+                            style: Theme.of(context).textTheme.bodyMedium),
+                        Text(_userData!.gender.toString()),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    ElevatedButton(
+                      onPressed: () {
+                        _deleteUser();
+                        Navigator.of(context).pop();
+                      },
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.delete),
+                          Text("Delete user"),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }
+            return Container();
+          }),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const UserDetailsUI(),
+            ),
+          );
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }

@@ -4,7 +4,7 @@ import '../generated/protocol.dart';
 
 class UserEndpoint extends Endpoint {
   Future<void> createUser(Session session, User user) async {
-    session.log("$user");
+    session.log("user: $user");
     await User.db.insertRow(session, user);
   }
 
@@ -15,6 +15,13 @@ class UserEndpoint extends Endpoint {
   Future<void> updateUser(Session session, User user) async {
     var userToBeUpdated =
         await User.db.find(session, where: (t) => t.uuid.equals(user.uuid));
-    session.log("$userToBeUpdated");
+    session.log("userToBeUpdated: $userToBeUpdated");
+  }
+
+  Future<void> deleteUser(Session session, User user) async {
+    await User.db.deleteRow(
+      session,
+      user,
+    );
   }
 }
