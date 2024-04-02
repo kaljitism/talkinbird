@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
+import 'package:talkinbird_flutter/screens/screens/user_details.dart';
+import 'package:talkinbird_flutter/screens/screens/user_details_ui.dart';
 
+import '../main.dart';
 import '../provider/theme_provider.dart';
 
 class HomeView extends StatefulWidget {
@@ -47,37 +50,46 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: false,
-      appBar: AppBar(
-        title: Text(
-          'TalkinBird',
-          style: Theme.of(context).textTheme.headlineLarge,
-        ),
-        elevation: 5,
-        systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: Colors.transparent,
-          statusBarIconBrightness: Theme.of(context).brightness,
-        ),
-        shadowColor: Colors.black,
-        actions: [
-          GestureDetector(
-            onTap: themeUpdate,
-            child: SizedBox(
-              width: 100,
-              child: RiveAnimation.asset(
-                'assets/rive/dark_mode_switch.riv',
-                stateMachines: const ['State Machine 1'],
-                onInit: _onRiveInitDarkModeSwitch,
-              ),
-            ),
-          ),
-        ],
-      ),
+      appBar: _buildAppBar(context),
       body: Stack(
         children: [
           _buildBackgroundAnimation(),
+          isThereAUser ? const UserDetails() : const UserDetailsUI(),
           _buildNavBar(context),
         ],
       ),
+    );
+  }
+
+  AppBar _buildAppBar(BuildContext context) {
+    return AppBar(
+      title: Text(
+        'TalkinBird',
+        style: Theme.of(context).textTheme.headlineLarge,
+      ),
+      elevation: 5,
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Theme.of(context).brightness,
+      ),
+      shadowColor: Colors.black,
+      actions: [
+        GestureDetector(
+          onTap: themeUpdate,
+          child: SizedBox(
+            width: 100,
+            child: _buildThemeButton(),
+          ),
+        ),
+      ],
+    );
+  }
+
+  RiveAnimation _buildThemeButton() {
+    return RiveAnimation.asset(
+      'assets/rive/dark_mode_switch.riv',
+      stateMachines: const ['State Machine 1'],
+      onInit: _onRiveInitDarkModeSwitch,
     );
   }
 

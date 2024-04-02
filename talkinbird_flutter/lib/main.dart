@@ -11,7 +11,8 @@ import 'package:talkinbird_flutter/utils/textTheme.dart';
 
 var client = Client('http://localhost:8080/')
   ..connectivityMonitor = FlutterConnectivityMonitor();
-Uuid uuid = const Uuid().v4();
+String uuid = const Uuid().v4();
+bool isThereAUser = false;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

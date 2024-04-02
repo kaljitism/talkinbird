@@ -44,13 +44,15 @@ class _UserDetailsUIState extends State<UserDetailsUI> {
     try {
       final user = User(
         userName: username,
-        uuid: uuid.toString(),
+        uuid: uuid,
         name: name,
         email: email,
         age: age,
         gender: gender,
       );
       client.user.createUser(user);
+      isThereAUser = true;
+      setState(() {});
     } catch (e) {
       log(e.toString());
     }
