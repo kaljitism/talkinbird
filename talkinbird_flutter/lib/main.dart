@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:serverpod_flutter/serverpod_flutter.dart';
+import 'package:talkinbird_client/talkinbird_client.dart';
 import 'package:talkinbird_flutter/provider/animation_provider.dart';
 import 'package:talkinbird_flutter/provider/theme_provider.dart';
 import 'package:talkinbird_flutter/screens/homeview.dart';
 import 'package:talkinbird_flutter/utils/color_schemes.g.dart';
+import 'package:talkinbird_flutter/utils/textTheme.dart';
 
-import 'utils/textTheme.dart';
+var client = Client('http://localhost:8080/')
+  ..connectivityMonitor = FlutterConnectivityMonitor();
+Uuid uuid = const Uuid().v4();
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

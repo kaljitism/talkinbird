@@ -4,27 +4,19 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9093b2a-8667-4f5d-ba56-67ac51cd083d" name="Changes" comment="wrote enums - enneagram, gender, linked accounts, mbti, philosophy, religions, zodiacs,">
-      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/education.spy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/political_affiliation.spy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/professions.spy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/relationship_status.spy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/religion.spy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/romantic_orientation.spy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/sexual_orientation.spy.yaml" afterDir="false" />
+    <list default="true" id="f9093b2a-8667-4f5d-ba56-67ac51cd083d" name="Changes" comment="wrote enums - education, political_affiliation, professions, relationship_status, religion, romantic_orientation, sexual orientation.">
+      <change afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/screens/user_details_ui.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/enums/gender.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/enums/religions/religions.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/client.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/protocol.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/protocol.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/enums/gender.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/enums/religions/religions.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/talkinbird_flutter/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/homeview.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/homeview.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/endpoints/user_endpoint.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/endpoints/user_endpoint.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/endpoints.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/endpoints.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/protocol.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/protocol.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/gender.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/gender.spy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/new" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/religions/religions.spy.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/user.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/user.spy.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/protocol.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/protocol.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talkinbird_server/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talkinbird_server/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,24 +48,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "io.flutter.reload.alreadyRun": "true",
-    "last_opened_file_path": "C:/apps/2024/talkinbird/talkinbird_server/lib/src/models/enums/new",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "show.migrate.to.gradle.popup": "false",
-    "two.files.diff.last.used.file": "C:/apps/2024/talkinbird/talkinbird_server/lib/src/models/enums/new"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/apps/2024/talkinbird/talkinbird_server/lib/src/models/enums/new&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/apps/2024/talkinbird/talkinbird_server/lib/src/models/enums/new&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\apps\2024\talkinbird\talkinbird_server\lib\src\models\enums" />
@@ -130,12 +122,21 @@
       <option name="project" value="LOCAL" />
       <updated>1711987246060</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="wrote enums - education, political_affiliation, professions, relationship_status, religion, romantic_orientation, sexual orientation.">
+      <option name="closed" value="true" />
+      <created>1712002785464</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712002785464</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Serverpod Backend." />
     <MESSAGE value="wrote enums - enneagram, gender, linked accounts, mbti, philosophy, religions, zodiacs," />
-    <option name="LAST_COMMIT_MESSAGE" value="wrote enums - enneagram, gender, linked accounts, mbti, philosophy, religions, zodiacs," />
+    <MESSAGE value="wrote enums - education, political_affiliation, professions, relationship_status, religion, romantic_orientation, sexual orientation." />
+    <option name="LAST_COMMIT_MESSAGE" value="wrote enums - education, political_affiliation, professions, relationship_status, religion, romantic_orientation, sexual orientation." />
   </component>
 </project>

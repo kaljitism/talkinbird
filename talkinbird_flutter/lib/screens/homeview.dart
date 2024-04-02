@@ -74,39 +74,45 @@ class _HomeViewState extends State<HomeView> {
       ),
       body: Stack(
         children: [
-          RiveAnimation.asset(
-            'assets/rive/sunset_to_night.riv',
-            fit: BoxFit.fitHeight,
-            stateMachines: const ['State Machine 1'],
-            onInit: _onRiveInitBackground,
-          ),
-          Positioned(
-            bottom: 40,
-            width: MediaQuery.of(context).size.width,
-            height: 90,
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 30),
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(40),
-                color: Theme.of(context)
-                    .colorScheme
-                    .onPrimaryContainer
-                    .withOpacity(0.3),
-              ),
-              child: RiveAnimation.asset(
-                'assets/rive/nav_bar.riv',
-                artboard: 'Icon set',
-                stateMachines: const ['State Machine 1'],
-                onInit: (artboard) {
-                  final controller = SimpleAnimation('docPop');
-                  artboard.addController(controller);
-                  controller.isActive = true;
-                },
-              ),
-            ),
-          ),
+          _buildBackgroundAnimation(),
+          _buildNavBar(context),
         ],
+      ),
+    );
+  }
+
+  RiveAnimation _buildBackgroundAnimation() {
+    return RiveAnimation.asset(
+      'assets/rive/sunset_to_night.riv',
+      fit: BoxFit.fitHeight,
+      stateMachines: const ['State Machine 1'],
+      onInit: _onRiveInitBackground,
+    );
+  }
+
+  Positioned _buildNavBar(BuildContext context) {
+    return Positioned(
+      bottom: 40,
+      width: MediaQuery.of(context).size.width,
+      height: 90,
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(40),
+          color:
+              Theme.of(context).colorScheme.onPrimaryContainer.withOpacity(0.3),
+        ),
+        child: RiveAnimation.asset(
+          'assets/rive/nav_bar.riv',
+          artboard: 'Icon set',
+          stateMachines: const ['State Machine 1'],
+          onInit: (artboard) {
+            final controller = SimpleAnimation('docPop');
+            artboard.addController(controller);
+            controller.isActive = true;
+          },
+        ),
       ),
     );
   }

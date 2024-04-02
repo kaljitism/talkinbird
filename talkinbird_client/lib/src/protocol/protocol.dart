@@ -26,6 +26,7 @@ import 'enums/sexual_orientation.dart' as _i14;
 import 'enums/zodiac.dart' as _i15;
 import 'user.dart' as _i16;
 import 'protocol.dart' as _i17;
+import 'package:talkinbird_client/src/protocol/user.dart' as _i18;
 export 'enums/countries.dart';
 export 'enums/education.dart';
 export 'enums/enneagram.dart';
@@ -586,6 +587,10 @@ class Protocol extends _i1.SerializationManager {
       return (data != null
           ? (data as List).map((e) => deserialize<String?>(e)).toList()
           : null) as dynamic;
+    }
+    if (t == List<_i18.User>) {
+      return (data as List).map((e) => deserialize<_i18.User>(e)).toList()
+          as dynamic;
     }
     return super.deserialize<T>(data, t);
   }
