@@ -44,6 +44,12 @@ class EndpointUser extends _i1.EndpointRef {
         'deleteUser',
         {'user': user},
       );
+
+  _i2.Future<int> getUserDetailsCount() => caller.callServerEndpoint<int>(
+        'user',
+        'getUserDetailsCount',
+        {},
+      );
 }
 
 class Client extends _i1.ServerpodClient {

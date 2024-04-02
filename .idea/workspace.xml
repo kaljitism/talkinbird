@@ -5,31 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9093b2a-8667-4f5d-ba56-67ac51cd083d" name="Changes" comment="tied everything togethor with the UI">
+      <change afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/provider/user_provider.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/user_details.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/client.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/talkinbird_flutter/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/homeview.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/homeview.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/screens/user_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/screens/user_details.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/screens/user_details.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/screens/user_details_ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/screens/user_details_ui.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/endpoints/user_endpoint.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/endpoints/user_endpoint.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/endpoints.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/endpoints.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/protocol.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/protocol.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/countries.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/countries.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/education.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/education.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/enneagram.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/enneagram.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/gender.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/gender.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/linked_accouts.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/linked_accouts.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/mbti.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/mbti.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/philosophy.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/philosophy.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/political_affiliation.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/political_affiliation.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/professions.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/professions.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/relationship_status.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/relationship_status.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/religion.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/religion.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/romantic_orientation.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/romantic_orientation.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/sexual_orientation.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/sexual_orientation.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/zodiac.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/enums/zodiac.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/models/user.spy.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/models/user.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/migrations/migration_registry.txt" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/migrations/migration_registry.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712028141635</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="tied everything togethor with the UI">
+      <option name="closed" value="true" />
+      <created>1712069443302</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1712069443302</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

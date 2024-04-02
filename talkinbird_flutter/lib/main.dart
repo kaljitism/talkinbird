@@ -5,6 +5,7 @@ import 'package:serverpod_flutter/serverpod_flutter.dart';
 import 'package:talkinbird_client/talkinbird_client.dart';
 import 'package:talkinbird_flutter/provider/animation_provider.dart';
 import 'package:talkinbird_flutter/provider/theme_provider.dart';
+import 'package:talkinbird_flutter/provider/user_provider.dart';
 import 'package:talkinbird_flutter/screens/homeview.dart';
 import 'package:talkinbird_flutter/utils/color_schemes.g.dart';
 import 'package:talkinbird_flutter/utils/textTheme.dart';
@@ -28,6 +29,10 @@ class TalkinBird extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => ThemeProvider()),
         ChangeNotifierProvider(create: (context) => AnimationProvider()),
+        ChangeNotifierProvider(
+          create: (context) => UserProvider(),
+          lazy: false,
+        ),
       ],
       child: Builder(builder: (context) {
         return MaterialApp(

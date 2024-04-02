@@ -3,9 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
 import 'package:talkinbird_client/talkinbird_client.dart';
+import 'package:talkinbird_flutter/main.dart';
 import 'package:talkinbird_flutter/screens/screens/user_details_ui.dart';
+import 'package:talkinbird_flutter/user_details.dart';
 
-import '../main.dart';
 import '../provider/theme_provider.dart';
 
 class HomeView extends StatefulWidget {
@@ -21,8 +22,9 @@ class _HomeViewState extends State<HomeView> {
   SMIInput<bool>? _isPressed;
   SMIInput<bool>? _isDark;
 
-  User? _userData;
-  Exception? _exception;
+  late Map userData;
+  late List<Widget> userView;
+  late User userObject;
 
   void themeUpdate() {
     context.read<ThemeProvider>().setThemeMode();
@@ -49,144 +51,106 @@ class _HomeViewState extends State<HomeView> {
     _isPressed = controller.findInput<bool>('IsPressed') as SMIBool;
   }
 
-  Future<void> _getUserData() async {
-    try {
-      final userData = await client.user.getUser(uuid);
-      setState(() {
-        _userData = userData[0];
-      });
-    } catch (e) {
-      catchError(e);
-    }
-  }
+  Future<void> loadData() async {
+    var user = await client.user.getUser(uuid);
+    userObject = user[0];
+    userData = userObject.toJson();
+    userView = [];
+    var fields = [];
 
-  Future<void> _deleteUser() async {
-    try {
-      await client.user.deleteUser(_userData!);
-      await client.user.getUser(uuid);
-    } catch (e) {
-      catchError(e);
-    }
-  }
-
-  void catchError(e) {
-    setState(() {
-      _userData = null;
-      _exception = e;
+    userData.forEach((dynamic fieldName, dynamic value) {
+      if (value != null && fieldName != "id" || fieldName != "uuid") {
+        userView.add(
+          Row(
+            children: [
+              Text("$fieldName: "),
+              Text('$value'),
+            ],
+          ),
+        );
+        fields.add(fieldName);
+      }
+    });
+    fields.asMap().forEach((key, value) {
+      userData.remove(value);
     });
   }
 
-  @override
-  void initState() {
-    super.initState();
-    _getUserData();
+  Future<void> _deleteUser() async {
+    client.user.deleteUser(userObject);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: false,
-      appBar: _buildAppBar(context),
-      body: FutureBuilder(
-          future: _getUserData(),
+        extendBodyBehindAppBar: false,
+        appBar: _buildAppBar(context),
+        body: FutureBuilder(
+          future: loadData(),
           builder: (context, snapshot) {
-            if (!snapshot.hasData) {
-              return Container(
-                margin: const EdgeInsets.all(40),
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(40),
-                  color:
-                      Theme.of(context).colorScheme.onPrimary.withOpacity(0.7),
-                ),
-                child: const Text("Add a user to see their details"),
-              );
-            }
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return const CircularProgressIndicator();
+              return const Center(child: CircularProgressIndicator());
             }
             if (snapshot.hasError) {
-              return Center(child: Text("Error: ${snapshot.error}"));
+              print(snapshot.error);
+              return _buildScreenMessage(context, "Some Error Occurred!!");
             }
-
-            if (snapshot.connectionState == ConnectionState.done) {
-              return Container(
-                margin: const EdgeInsets.all(40),
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(40),
-                  color:
-                      Theme.of(context).colorScheme.onPrimary.withOpacity(0.7),
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Text("Username: ",
-                            style: Theme.of(context).textTheme.bodyMedium),
-                        Text(_userData!.userName),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text("Name: ",
-                            style: Theme.of(context).textTheme.bodyMedium),
-                        Text(_userData!.name!),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text("Email: ",
-                            style: Theme.of(context).textTheme.bodyMedium),
-                        Text(_userData!.email!),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text("Age: ",
-                            style: Theme.of(context).textTheme.bodyMedium),
-                        Text(_userData!.age.toString()),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text("Gender: ",
-                            style: Theme.of(context).textTheme.bodyMedium),
-                        Text(_userData!.gender.toString()),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: () {
-                        _deleteUser();
-                        Navigator.of(context).pop();
-                      },
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(Icons.delete),
-                          Text("Delete user"),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+            if (snapshot.connectionState == ConnectionState.done &&
+                userView.isNotEmpty) {
+              print("Details on the screen");
+              return Column(
+                children: [
+                  UserDetails(userView: userView, userObject: userObject),
+                  // ElevatedButton(
+                  //   onPressed: _deleteUser,
+                  //   child: const Row(
+                  //     mainAxisAlignment: MainAxisAlignment.center,
+                  //     children: [
+                  //       Icon(Icons.delete),
+                  //       SizedBox(width: 10),
+                  //       Text("Delete"),
+                  //     ],
+                  //   ),
+                  // ),
+                  const SizedBox(height: 20),
+                ],
               );
             }
-            return Container();
-          }),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const UserDetailsUI(),
-            ),
-          );
-        },
-        child: const Icon(Icons.add),
+            if (snapshot.connectionState == ConnectionState.done &&
+                userView.isEmpty) {
+              print("Entered Here");
+              return _buildScreenMessage(
+                  context, "Add a user to see their details");
+            }
+            return const Center(child: CircularProgressIndicator());
+          },
+        ),
+        floatingActionButton: _buildAddUserButton(context));
+  }
+
+  Widget _buildAddUserButton(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const UserDetailsUI(),
+          ),
+        );
+      },
+      child: const Icon(Icons.add),
+    );
+  }
+
+  Widget _buildScreenMessage(BuildContext context, String message) {
+    return Container(
+      margin: const EdgeInsets.all(40),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(40),
+        color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.7),
       ),
+      child: Text(message),
     );
   }
 

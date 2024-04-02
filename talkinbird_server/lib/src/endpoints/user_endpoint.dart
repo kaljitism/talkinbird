@@ -19,9 +19,11 @@ class UserEndpoint extends Endpoint {
   }
 
   Future<void> deleteUser(Session session, User user) async {
-    await User.db.deleteRow(
-      session,
-      user,
-    );
+    await User.db.deleteRow(session, user);
+  }
+
+  Future<int> getUserDetailsCount(Session session) async {
+    var count = await User.db.count(session);
+    return count;
   }
 }

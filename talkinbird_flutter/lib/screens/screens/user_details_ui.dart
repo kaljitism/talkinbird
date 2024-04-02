@@ -1,7 +1,4 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:talkinbird_client/talkinbird_client.dart';
 
 import '../../main.dart';
 
@@ -13,17 +10,37 @@ class UserDetailsUI extends StatefulWidget {
 }
 
 class _UserDetailsUIState extends State<UserDetailsUI> {
-  late String username;
-  late String name;
-  late String email;
-  late int age;
-  late Gender? selectedValue;
   late TextEditingController usernameController;
   late TextEditingController nameController;
   late TextEditingController emailController;
   late TextEditingController ageController;
-  final List<DropdownMenuItem> genders = [];
-  User? _thisUser;
+  late List<TextEditingController> controllers;
+
+  late Map userData;
+  List<Widget> form = [];
+
+  Future<void> loadData() async {
+    var user = await client.user.getUser(uuid);
+    var userRow = user[0];
+    userData = userRow.toJson();
+    int index = 0;
+    userData.forEach((key, value) {
+      // var controller =  controllers[index];
+      form.add(
+        TextFormField(
+          // controller: controller,
+          initialValue: value.toString(),
+          onChanged: (value) {
+            // controller.text = value;
+          },
+          decoration: InputDecoration(
+            labelText: key,
+          ),
+        ),
+      );
+      index++;
+    });
+  }
 
   void _initiateControllers() {
     usernameController = TextEditingController();
@@ -32,31 +49,17 @@ class _UserDetailsUIState extends State<UserDetailsUI> {
     ageController = TextEditingController();
   }
 
-  void _getGenderMenu() {
-    Gender.values.asMap().forEach((_, Gender value) {
-      genders.add(DropdownMenuItem(
-        value: value,
-        child: Text(value.toString()),
-      ));
-    });
-  }
-
-  void _onSave(User user) async {
-    try {
-      await client.user.createUser(user);
-      await client.user.getUser(user.uuid);
-      setState(() {});
-    } catch (e) {
-      log(e.toString());
-    }
-  }
-
   @override
   void initState() {
     super.initState();
     _initiateControllers();
-    _getGenderMenu();
-    selectedValue = null;
+    loadData();
+    controllers = [
+      usernameController,
+      nameController,
+      emailController,
+      ageController,
+    ];
   }
 
   @override
@@ -66,6 +69,12 @@ class _UserDetailsUIState extends State<UserDetailsUI> {
     emailController.dispose();
     ageController.dispose();
     super.dispose();
+  }
+
+  List<Widget> createForm() {
+    List<Widget> form = [];
+
+    return form;
   }
 
   @override
@@ -79,78 +88,38 @@ class _UserDetailsUIState extends State<UserDetailsUI> {
           color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.7),
         ),
         child: Form(
-          child: Column(
-            children: [
-              TextFormField(
-                controller: usernameController,
-                onChanged: (value) {
-                  username = value;
-                },
-                decoration: const InputDecoration(
-                  labelText: 'Username',
-                ),
-              ),
-              TextFormField(
-                controller: nameController,
-                onChanged: (value) {
-                  name = value;
-                },
-                decoration: const InputDecoration(
-                  labelText: 'name',
-                ),
-              ),
-              TextFormField(
-                controller: emailController,
-                onChanged: (value) {
-                  email = value;
-                },
-                decoration: const InputDecoration(
-                  labelText: 'email',
-                ),
-              ),
-              TextFormField(
-                controller: ageController,
-                onChanged: (value) {
-                  age = int.parse(value);
-                },
-                decoration: const InputDecoration(
-                  labelText: 'age',
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              DropdownButton(
-                  isExpanded: true,
-                  value: selectedValue,
-                  onChanged: (newValue) {
-                    setState(() {
-                      selectedValue = newValue!;
-                    });
-                  },
-                  items: genders),
-              const SizedBox(
-                height: 20,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  final user = User(
-                    uuid: uuid,
-                    userName: username,
-                    name: name,
-                    email: email,
-                    age: age,
-                    gender: selectedValue,
-                  );
-                  _onSave(user);
-                  Navigator.pop(context);
-                },
-                child: const Text('Save'),
-              ),
-            ],
-          ),
+          child: Column(children: form),
         ),
       ),
     );
   }
 }
+
+// ElevatedButton(
+// onPressed: () {
+// final user = User(
+// uuid: uuid,
+// userName: username,
+// name: name,
+// email: email,
+// age: age,
+// gender: selectedValue,
+// );
+// // _onSave(user);
+// Navigator.pop(context);
+// },
+// child: const Text('Save'),
+// ),
+
+// widget = DropdownButton(
+// isExpanded: true,
+// menuMaxHeight: 300,
+// borderRadius: BorderRadius.circular(20),
+// hint: const Text('Gender'),
+// value: selectedValue,
+// onChanged: (newValue) {
+// setState(() {
+// // selectedValue = newValue!;
+// });
+// },
+// items: []);
