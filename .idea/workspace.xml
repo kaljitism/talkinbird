@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9093b2a-8667-4f5d-ba56-67ac51cd083d" name="Changes" comment="tied everything togethor with the UI">
-      <change afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/provider/user_provider.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/user_details.dart" afterDir="false" />
+    <list default="true" id="f9093b2a-8667-4f5d-ba56-67ac51cd083d" name="Changes" comment="UI for User Model and State Management.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_client/lib/src/protocol/client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_flutter/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/homeview.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/homeview.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/screens/user_details.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/talkinbird_flutter/lib/provider/user_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/provider/user_provider.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/screens/user_details_ui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_flutter/lib/screens/screens/user_details_ui.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/endpoints/user_endpoint.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/endpoints/user_endpoint.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/endpoints.dart" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/endpoints.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/protocol.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/talkinbird_server/lib/src/generated/protocol.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712069443302</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="UI for User Model and State Management.">
+      <option name="closed" value="true" />
+      <created>1712098353049</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1712098353049</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -174,6 +174,7 @@
     <MESSAGE value="wrote client side manipulation and viewing methods for user class." />
     <MESSAGE value="fixed syntax error" />
     <MESSAGE value="tied everything togethor with the UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="tied everything togethor with the UI" />
+    <MESSAGE value="UI for User Model and State Management." />
+    <option name="LAST_COMMIT_MESSAGE" value="UI for User Model and State Management." />
   </component>
 </project>
