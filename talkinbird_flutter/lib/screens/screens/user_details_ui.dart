@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../main.dart';
+import '../../provider/user_provider.dart';
 
 class UserDetailsUI extends StatefulWidget {
   const UserDetailsUI({super.key});
@@ -162,7 +164,12 @@ class _UserDetailsUIState extends State<UserDetailsUI> {
                 // selectedValue = newValue!;
               });
             },
-            items: items,
+            items: context.read<UserProvider>().getDropDownList(key)?.map<DropdownMenuItem<String>>((dynamic value) {
+              return DropdownMenuItem(
+                value: value,
+                child: Text(value),
+              );
+            }).toList()
           ),
         );
       }
