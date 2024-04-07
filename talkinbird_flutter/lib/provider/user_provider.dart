@@ -63,6 +63,30 @@ class UserProvider extends ChangeNotifier {
         case 'targetPhilosophicalBeliefs':
         case 'excludePhilosophicalBeliefs':
         return philosophicalBeliefs;
+case 'politicalAffiliation':
+        case 'targetPoliticalAffiliation':
+        case 'excludePoliticalAffiliation':
+        return politicalAffiliation;
+      case 'relationshipStatus':
+        case 'targetRelationshipStatus':
+        case 'excludeRelationshipStatus':
+        return relationshipStatus;
+      case 'sexualOrientation':
+        case 'targetSexualOrientation':
+        case 'excludeSexualOrientation':
+        return sexualOrientation;
+      case 'romanticOrientation':
+        case 'targetRomanticOrientation':
+        case 'excludeRomanticOrientation':
+        return romanticOrientation;
+      case 'education':
+        case 'targetEducation':
+        case 'excludeEducation':
+        return education;
+      case 'profession':
+        case 'targetProfession':
+        case 'excludeProfession':
+        return profession;
 
     }
     return null;}
