@@ -128,6 +128,7 @@ class _UserDetailsUIState extends State<UserDetailsUI> {
     var user = await client.user.getUser(uuid);
     var userRow = user[0];
     userData = userRow.toJson();
+
     int index = 0;
     userData.forEach((key, value) {
       if (key != 'gender' || key != 'mbti' || key != 'enneagram' || key != 'zodiac' || key != 'religion' || key != 'philosophicalBeliefs' || key != 'politicalAffiliation' || key != 'relationshipStatus' || key != 'sexualOrientation' || key != 'romanticOrientation' || key != 'education' || key != 'profession' || key != 'uuid') {
@@ -161,7 +162,7 @@ class _UserDetailsUIState extends State<UserDetailsUI> {
                 // selectedValue = newValue!;
               });
             },
-            items: ,
+            items: items,
           ),
         );
       }
